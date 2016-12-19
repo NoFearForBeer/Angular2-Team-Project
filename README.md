@@ -1,6 +1,11 @@
 # Angular2-Team-Project
 Angular 2 Team Project 
 
+### Team Members
+-
+-
+-
+
 ### Requirements
 - node 6.9.1
 - globally installed `npm`, `typescript`, `tslint`
