@@ -9,12 +9,13 @@ import { ApiService } from './services//api-service';
 import { HomeContainer } from './components/containers/home/home-contianer';
 import { HttpModule } from '@angular/http';
 import { CookieService  } from '../node_modules/angular2-cookie/services/cookies.service';
+import { BuyTicketModule } from './tickets';
 
 @NgModule({
     imports: [
-        BrowserModule, FormsModule, HttpModule
+        BrowserModule, FormsModule, HttpModule, BuyTicketModule
     ],
-    declarations: [AppComponent, LoginForm, HomeContainer],
+    declarations: [AppComponent, LoginForm, HomeContainer], // to be refactored to modules
     providers: [AuthService, ApiService, CookieService],
     bootstrap: [AppComponent]
 })

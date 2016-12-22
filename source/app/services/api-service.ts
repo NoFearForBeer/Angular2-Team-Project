@@ -19,7 +19,7 @@ export class ApiService {
             .map(resp => resp.json());
     }
 
-    post(path: string, data: Object) {
+    post(path: string, data: Object): Observable<any> {
         path = `${this.baseApiUrl}${path}`;
         return this.http.post(path, JSON.stringify(data), { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
