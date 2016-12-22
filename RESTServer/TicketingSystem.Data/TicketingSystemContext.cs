@@ -8,7 +8,7 @@ using TicketingSystem.Data.Models;
 
 namespace TicketingSystem.Data
 {
-    public class TicketingSystemContext : IdentityDbContext<User>
+    public class TicketingSystemContext : IdentityDbContext<User>, ITicketingSystemContext
     {
         public TicketingSystemContext()
             : base("DefaultConnection", throwIfV1Schema: false)

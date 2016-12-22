@@ -1,0 +1,40 @@
+
+
+<div>
+    <p>Pricing:</p>
+    <table border="1">
+        <tr>
+            <th>Hours</th>
+            <th>Price (Leva)</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>1.6</td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>3.04 (20% off)</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4.56 (20% off) </td>
+        </tr>
+        <tr>
+            <td>4 </td>
+            <td>6.08 (20% off)</td>
+        </tr>
+    </table>
+</div>
+
+<label for="TicketHours">Select duration </label>
+<select id="TicketHours" name="hours" [(ngModel)]="hours" >
+    <option value="1" selected="selected" >1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+
+<button type="button" (click)="buyTicket()"> Buy </button>
+
+<div [innerHTML]="result" ></div>
