@@ -26,6 +26,8 @@ namespace TicketingSystem.Data.Models
         
         public int DurationInHours { get; set; }
 
+        public decimal Cost { get; set; }
+
         public DateTime? ExpiresOn { get; set; }
 
         public virtual User Owner { get; set; }
