@@ -1,4 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+ 
+//import { AlertService, AuthenticationService } from 'services/alert-service';
 // import { AuthService } from '../services/authService';
 
 @Component({
@@ -7,12 +10,18 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 
 export class LoginForm {
-@Output() authorizeUser = new EventEmitter();
+    @Output() authorizeUser = new EventEmitter();
 
     user = {
         username: '',
         password: '',
     };
+
+    constructor(
+        private route: ActivatedRoute,
+        private router: Router,
+        //private alertService: AlertService
+    ) { }
 
     loginUser(): void {
         if (!this.user.username || !this.user.password) {

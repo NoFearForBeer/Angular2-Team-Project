@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { routing } from './app.routing';
 import { LoginForm } from './components/login/loginForm-component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services//auth-service';
@@ -10,7 +11,6 @@ import { HomeContainer } from './components/containers/home/home-container';
 import { HttpModule } from '@angular/http';
 import { CookieService  } from '../node_modules/angular2-cookie/services/cookies.service';
 import { BuyTicketModule } from './tickets';
-
  
 import { AlertComponent } from './components/alert/alert-component';
 import { AlertService } from './services//alert-service';
@@ -18,6 +18,7 @@ import { AlertService } from './services//alert-service';
 @NgModule({
     imports: [
         BrowserModule, 
+        routing,
         FormsModule, 
         HttpModule, 
         BuyTicketModule
@@ -25,7 +26,7 @@ import { AlertService } from './services//alert-service';
 
     declarations: [
         AppComponent, 
-  //      AlertComponent, 
+        AlertComponent, 
         LoginForm, 
         HomeContainer
     ], // to be refactored to modules
