@@ -7,7 +7,7 @@ import { User } from '../../../models/user';
 
 @Component({
     selector: 'home-container',
-    templateUrl: './home-contianer.html'
+    templateUrl: './home-container.html'
 })
 export class HomeContainer {
     currentUser: User;
