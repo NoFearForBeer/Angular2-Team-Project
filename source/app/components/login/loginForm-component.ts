@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
  
-//import { AlertService, AuthenticationService } from 'services/alert-service';
+//import { AlertService } from '../services/alert-service';
 // import { AuthService } from '../services/authService';
 
 @Component({
