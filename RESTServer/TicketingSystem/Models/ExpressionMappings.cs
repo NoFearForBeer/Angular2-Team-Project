@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Web;
 using TicketingSystem.Data.Models;
 using TicketingSystem.Models.Tickets;
 using TicketingSystem.Models.Users;
@@ -48,6 +46,11 @@ namespace TicketingSystem.Models
 
         public static TicketResponseModel MapTicketToViewModel(this Ticket ticket)
         {
+            if (ticket == null)
+            {
+                return null;
+            }
+
             return ticketExpression.Compile().Invoke(ticket);
         }
 
@@ -58,6 +61,11 @@ namespace TicketingSystem.Models
 
         public static UserViewModel MapUserToViewModel(this User user)
         {
+            if (user == null)
+            {
+                return null;
+            }
+
             return userExpression.Compile().Invoke(user);
         }
     }
