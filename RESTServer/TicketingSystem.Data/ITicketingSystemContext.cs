@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicketingSystem.Data.Models;
 
 namespace TicketingSystem.Data
@@ -15,6 +12,10 @@ namespace TicketingSystem.Data
         IDbSet<Transport> Transports { get; set; }
 
         IDbSet<User> Users { get; set; }
+
+        IDbSet<Comment> Comments { get; set; }
+
+        IDbSet<News> News { get; set; }
 
         int SaveChanges();
     }

@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TicketingSystem.Data.Models
 {
@@ -32,6 +29,7 @@ namespace TicketingSystem.Data.Models
 
         public virtual User Owner { get; set; }
 
+        [ForeignKey("Owner")]
         public string OwnerId { get; set; }
 
         public virtual Transport Transport { get; set; }
