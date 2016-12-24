@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.AspNet.Identity;
@@ -43,7 +41,7 @@ namespace TicketingSystem.Controllers
                 count = DefaultCountTickets;
             }
 
-            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Take(count).MapToViewModels().ToList();
+            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Take(count).MapTicketsToViewModels().ToList();
 
             return this.Json(tickets);
         }
@@ -58,7 +56,7 @@ namespace TicketingSystem.Controllers
                 return this.BadRequest("Invalid Id");
             }
             
-            TicketResponseModel ticket = this.context.Tickets.Find(ticketId).MapToViewModel();
+            TicketResponseModel ticket = this.context.Tickets.Find(ticketId).MapTicketToViewModel();
 
             return this.Json(ticket);
         }
@@ -99,7 +97,7 @@ namespace TicketingSystem.Controllers
                 count = DefaultCountTickets;
             }
 
-            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Where(t => t.Owner.UserName == username).Take(count).MapToViewModels().ToList();
+            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Where(t => t.Owner.UserName == username).Take(count).MapTicketsToViewModels().ToList();
 
             return this.Json(tickets);
         }
@@ -118,7 +116,7 @@ namespace TicketingSystem.Controllers
                 count = DefaultCountTickets;
             }
 
-            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Where(t => t.Owner.Id == id).Take(count).MapToViewModels().ToList();
+            IEnumerable<TicketResponseModel> tickets = this.context.Tickets.Where(t => t.Owner.Id == id).Take(count).MapTicketsToViewModels().ToList();
 
             return this.Json(tickets);
         }
