@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth-service';
 import { ApiService } from '../../../services/api-service';
 import { Observable } from 'rxjs';
 import { Response } from '@angular/http';
+import { User } from '../../../models/user';
 
 @Component({
     selector: 'home-container',
-    templateUrl: './home-contianer.html'
+    templateUrl: './home-container.html'
 })
-
 export class HomeContainer {
+    currentUser: User;
 
     result: string = 'Test';
 
