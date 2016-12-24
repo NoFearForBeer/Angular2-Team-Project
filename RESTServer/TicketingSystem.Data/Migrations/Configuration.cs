@@ -96,7 +96,6 @@ namespace TicketingSystem.Data.Migrations
                     IdentityResult result = roleManager.Create(new IdentityRole(roleName));
                     this.ValidateResult(result);
                 }
-
             }
         }
 

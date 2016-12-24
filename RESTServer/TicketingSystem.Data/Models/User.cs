@@ -1,25 +1,23 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-
-namespace TicketingSystem.Data.Models
+﻿namespace TicketingSystem.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
     public class User : IdentityUser
     {
         private ICollection<Ticket> tickets;
+        private ICollection<Comment> comments;
+        private ICollection<News> news;
 
         public User()
         {
             this.tickets = new HashSet<Ticket>();
-        }
-        
-        public virtual ICollection<Ticket> Tickets
-        {
-            get { return this.tickets; }
-            set { this.tickets = value; }
+            this.comments    = new HashSet<Comment>();
+            this.news = new HashSet<News>();
         }
 
         [Required]
@@ -32,11 +30,29 @@ namespace TicketingSystem.Data.Models
 
         public decimal Balance { get; set; }
 
+        public virtual ICollection<Ticket> Tickets
+        {
+            get { return this.tickets; }
+            set { this.tickets = value; }
+        }
+
+        public virtual ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
+        }
+
+        public virtual ICollection<News> NewsItems
+        {
+            get { return this.news; }
+            set { this.news = value; }
+        }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
             // Add custom user claims here
+            var userIdentity = await manager.CreateIdentityAsync(this, authenticationType);
             return userIdentity;
         }
     }

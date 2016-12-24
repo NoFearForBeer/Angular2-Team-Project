@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 
+using TicketingSystem.Constants;
 using TicketingSystem.Data;
 using TicketingSystem.Data.Models;
 
@@ -30,7 +31,7 @@ namespace TicketingSystem
             // Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 4,
+                RequiredLength = WebConstants.PasswordMinLength,
                 RequireNonLetterOrDigit = false,
                 RequireDigit = false,
                 RequireLowercase = false,

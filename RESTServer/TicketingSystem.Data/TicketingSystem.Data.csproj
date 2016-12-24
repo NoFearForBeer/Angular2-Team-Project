@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\DataModelConstants.cs" />
     <Compile Include="ITicketingSystemContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />

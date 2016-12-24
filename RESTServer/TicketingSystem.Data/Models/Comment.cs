@@ -1,31 +1,25 @@
-﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using TicketingSystem.Data.Constants;
 
 namespace TicketingSystem.Data.Models
 {
     public class Comment
     {
         [Key]
-        public int Id
-        { get; set; }
+        public int Id { get; set; }
 
-        public string Content
-        { get; set; }
+        [MaxLength(DataModelConstants.StringLongMaxLength)]
+        public string Content { get; set; }
 
-        public DateTime CreatedOn
-        { get; set; }
+        [ForeignKey("Author")]
+        public string AuthorId { get; set; }
 
-        public virtual User User
-        { get; set; }
+        public virtual User Author { get; set; }
 
-        [ForeignKey("User")]
-        public string UserId { get; set; }
+        [ForeignKey("NewsItem")]
+        public int NewsItemId { get; set; }
 
-        public virtual News News
-        { get; set; }
-
-        [ForeignKey("News")]
-        public int NewsId { get; set; }
+        public virtual News NewsItem { get; set; }
     }
 }

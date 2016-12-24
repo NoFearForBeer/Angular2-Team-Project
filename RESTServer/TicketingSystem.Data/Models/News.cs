@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using TicketingSystem.Data.Constants;
 
 namespace TicketingSystem.Data.Models
 {
@@ -17,16 +18,23 @@ namespace TicketingSystem.Data.Models
         public int Id
         { get; set; }
 
-        public string Title
-        { get; set; }
-
-        public string Content
-        { get; set; }
-
         public DateTime CreatedOn
         { get; set; }
 
-        public ICollection<Comment> Comments
+        [MinLength(DataModelConstants.StringMinLength)]
+        [MaxLength(DataModelConstants.StringShortMaxLength)]
+        public string Title { get; set; }
+
+        [MinLength(DataModelConstants.StringMinLength)]
+        [MaxLength(DataModelConstants.StringLongMaxLength)]
+        public string Content { get; set; }
+
+        [MaxLength(DataModelConstants.StringShortMaxLength)]
+        public string AutorId { get; set; }
+
+        public virtual User Author { get; set; }
+
+        public virtual ICollection<Comment> Comments
         {
             get { return this.comments; }
             set { this.comments = value; }

@@ -14,7 +14,6 @@ namespace TicketingSystem.Services
             Ticket ticket = new Ticket();
             ticket.BoughtAt = DateTime.Now;
             ticket.DurationInHours = durationHours;
-            ticket.ExpiresOn = ticket.BoughtAt.AddHours(durationHours);
             ticket.Cost = ticketPrice;
             ticket.QRCode = this.GenerateQrCode(ticket.Id.ToString());
             return ticket;
