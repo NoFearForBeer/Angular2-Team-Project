@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace TicketingSystem.Models
+namespace TicketingSystem.Models.Tickets
 {
-    public class TickteBuyModel
+    public class TicketBuyModel
     {
         [Required]
         [Range(1, 3000, ErrorMessage = "The hours should be greater than 0")]
