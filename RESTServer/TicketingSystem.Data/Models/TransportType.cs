@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketingSystem.Data.Models
+﻿namespace TicketingSystem.Data.Models
 {
     public enum TransportType
     {
@@ -12,6 +6,6 @@ namespace TicketingSystem.Data.Models
         Tram = 2,
         Train = 3,
         Underground = 4,
-        // RapidExpres = 5,
+        //// RapidExpres = 5,
     }
 }

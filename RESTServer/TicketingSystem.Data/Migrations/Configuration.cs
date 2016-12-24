@@ -29,7 +29,6 @@ namespace TicketingSystem.Data.Migrations
             if (context.Roles.Count() == 0)
             {
                 this.AddRolesIfNotExist(roleManager, AdminRole, InspectorRole);
-
             }
 
             if (context.Users.Count() == 0)
@@ -54,7 +53,6 @@ namespace TicketingSystem.Data.Migrations
                     IdentityResult result = roleManager.Create(new IdentityRole(roleName));
                     this.ValidateResult(result);
                 }
-
             }
         }
 

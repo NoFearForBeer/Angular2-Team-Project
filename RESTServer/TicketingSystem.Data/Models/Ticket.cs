@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketingSystem.Data.Models
+﻿namespace TicketingSystem.Data.Models
 {
+    using System;
+    using System.ComponentModel.DataAnnotations;
+
     public class Ticket
     {
         public Ticket()
@@ -36,10 +32,10 @@ namespace TicketingSystem.Data.Models
 
         public virtual Transport Transport { get; set; }
 
-        // Do we need each ticket to be for a transport while the passenger can use the whole public transport
+        //// Do we need each ticket to be for a transport while the passenger can use the whole public transport
         public int? TransportId { get; set; }
 
-        // Expired = this.BoughtAt.AddHours(this.Duration) > ExpiresOn 
-        // Line
+        //// Expired = this.BoughtAt.AddHours(this.Duration) > ExpiresOn 
+        //// Line
     }
 }

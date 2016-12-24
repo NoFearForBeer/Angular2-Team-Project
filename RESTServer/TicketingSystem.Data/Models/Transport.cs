@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TicketingSystem.Data.Models
+﻿namespace TicketingSystem.Data.Models
 {
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Constants;
+
     public class Transport
     {
         private ICollection<Ticket> tickets;
@@ -16,7 +13,11 @@ namespace TicketingSystem.Data.Models
             this.tickets = new HashSet<Ticket>();
         }
 
-        // It is string because - it can be 10TM s
+        [Key]
+        public int Id { get; set; }
+
+        //// It is string because - it can be 10TM s
+        [MaxLength(DataModelConstants.StringShortMaxLength)]
         public string LineNumber { get; set; }
 
         public TransportType TransportType { get; set; }
@@ -26,8 +27,5 @@ namespace TicketingSystem.Data.Models
             get { return this.tickets; }
             set { this.tickets = value; }
         }
-
-        [Key]
-        public int Id { get; set; }
     }
 }
