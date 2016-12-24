@@ -21,23 +21,15 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <ul class="nav navbar-nav navbar-right">
-        <div *ngIf="authService.isLoggedIn() == false">
-          <h1>not logged in</h1>
-          <router-outlet name="notloggedin">
-          </router-outlet>
-        </div>
-        <div *ngIf="authService.isLoggedIn() == true">
-          <h1>logged in</h1>
-          <router-outlet name="loggedin">
-          </router-outlet>
-        </div>
-        <li ng-if="isLoggedIn() == true"><a href="#">Hello</a></li>
-        <li ng-if="isLoggedIn() == true">
+      <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn() == true">
+        <li><a href="#">Hello</a></li>
+        <li>
           <button class="btn btn-primary" (click)="logout()"> Logout </button>
         </li>
-        <li ng-if="isLoggedIn() == false">
-          <button class="btn btn-primary" (click)="logout()"> Login </button>
+      </ul>
+      <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn() == false">
+        <li>
+          <a [routerLink]="['/login']">Login</a>
         </li>
       </ul>
     </div>
