@@ -1,9 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
+// import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpModule, Headers, Response, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { CookieService } from '../../node_modules/angular2-cookie/services/cookies.service';
-
 
 @Injectable()
 export class AuthService {
@@ -32,8 +31,8 @@ export class AuthService {
     constructor(
         private http: Http, 
         private cookieService: CookieService,
-        private route: ActivatedRoute,
-        private router: Router,
+        // private route: ActivatedRoute,
+        // private router: Router,
     ) { }
 
     getAuthorizationHeader(): Headers {
@@ -54,7 +53,7 @@ export class AuthService {
     }
 
     logout(): void {
-        console.log("logout");
+        console.log('logout');
         this.cookieService.remove(this.cookieKey);
         this.currentLoggedUser.access_token = '';
         this.currentLoggedUser.access_token = '';
@@ -73,7 +72,7 @@ export class AuthService {
                 this.currentLoggedUser = resp.json();
 
                 this.cookieService.put(this.cookieKey, jsonData.access_token, { expires : expires } );
-                this.router.navigate(['/']);
+                // this.router.navigate(['/']);
                 return resp;
             })
             .catch((error: Response | any) => {

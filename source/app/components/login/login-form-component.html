@@ -1,0 +1,22 @@
+<div class="col-md-4 col-md-offset-4">
+    <h2>Login</h2>
+    <form name="form" (submit)="loginUser()" #loginForm="ngForm" >
+        <div class="form-group"> <!-- (ngSubmit)="f.form.valid && loginUser()" #f="ngForm" -->
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="user.Username" [(ngModel)]="user.username" required/>
+            <!--<div *ngIf="!username.valid" class="help-block">Username is required</div>-->
+        </div>
+        <!-- [ngClass]="{ 'has-error': f.submitted && !password.valid }" -->
+        <div class="form-group" >
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="userPassword" name="password" [(ngModel)]="user.password" required />
+            <!--<div *ngIf="loginForm.submitted && !user.password.valid" class="help-block">Password is required</div>-->
+        </div>
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit"> Login </button>
+            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
+        </div>
+    </form>
+</div>
+
+<router-outlet></router-outlet>
