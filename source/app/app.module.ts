@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 import { LoginForm } from './components/login/loginForm-component';
 import { RegisterComponent } from './components/register/register-component';
+import { MapComponent } from './components/map/map-component';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './services//auth-service';
 import { UserService } from './services//user-service';
@@ -31,7 +32,8 @@ import { AlertService } from './services//alert-service';
         AlertComponent, 
         LoginForm, 
         RegisterComponent,
-        HomeContainer
+        HomeContainer,
+        MapComponent
     ], // to be refactored to modules
     
     providers: [
