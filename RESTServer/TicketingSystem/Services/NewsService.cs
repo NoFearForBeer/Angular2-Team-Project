@@ -7,6 +7,13 @@ namespace TicketingSystem.Services
 {
     public class NewsService : INewsService
     {
+        private readonly ICollection<News> news;
+
+        public NewsService(ICollection<News> news)
+        {
+            this.news = news;
+        }
+
         public News Create(string title, string content)
         {
             News news = new News();
@@ -19,7 +26,7 @@ namespace TicketingSystem.Services
 
         public ICollection<News> getAll()
         {
-            throw new NotImplementedException();
+            return this.news;
         }
     }
 }

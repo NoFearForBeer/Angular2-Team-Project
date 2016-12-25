@@ -63,31 +63,27 @@ namespace TicketingSystem.Data.Migrations
                 defaultAdmins.Add(user1);
                 defaultAdmins.Add(user2);
                 defaultAdmins.Add(user3);
+                defaultAdmins.Add(user3);
 
                 this.AddAdminsIfNotExist(userManager, defaultAdmins);
             }
 
-            if (context.News.Count() == 0)
+            if (context.News.Count() == 1)
             {
-                string authorId = context.Users.Select(u => u.Id).FirstOrDefault();
-
                 var news1 = new News() {
                     Title = "ЗА КОЛЕДНИТЕ И НОВОГОДИШНИ ПРАЗНИЦИ",
                     Content = "На 24, 25, 26 и 31.12.2016г. и на 01 и 02.01.2017 г.превозните средстващеработят попразнични разписания, като на 01 и 02.01.2017 г.ще се намалят допълнително коли по трамвайни линии № 5, 6 и 20 и по тролейбусни линии  № 2, 4, 5 и 9.",
-                    CreatedOn = new DateTime(2016, 12, 20),
-                    AuthorId = authorId,
+                    CreatedOn = new DateTime(2016, 12, 20)
                 };
 
                 var news2 = new News() {
                     Title = "ПРАЗНИЧЕН НОВОГОДИШЕН КОНЦЕРТ „СЦЕНА ПОД ЗВЕЗДИТЕ“",
                     Content = "Във връзка с провеждане на Празничен Новогодишен концерт „Сцена под звездите“ се забранява престоят и паркирането на пътни превозни средства, както следва: От 06:00 часа на 28.12.2016 г.до 06:00 часа на 02.01.2017 г.на пл. „Княз Александър I“ между ул. „Княз Александър I“ и ул. „Дякон Игнатий“; От 21:00 часа на 29.12.2016 г.до 06:00 часа на 01.01.2017 г.на ул. „Дякон Игнатий“ между бул. „Цар Освободител“ и ул. „Аксаков“ и на ул. „Дякон Игнатий“ от страната на градинката срещу ул. „Аксаков“; От 08:00 часа на 31.12.2016 г.до 06:00 часа на 01.01.2017 г.на паркинга между Националната художествена галерия и сградата на Народно събрание 2;",
-                    CreatedOn = new DateTime(2016, 12, 21),
-                    AuthorId = authorId,
+                    CreatedOn = new DateTime(2016, 12, 21)
                 };
 
                 context.News.Add(news1);
                 context.News.Add(news2);
-                context.SaveChanges();
             }
         }
 

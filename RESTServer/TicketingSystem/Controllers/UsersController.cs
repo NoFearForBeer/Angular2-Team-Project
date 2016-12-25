@@ -35,31 +35,7 @@ namespace TicketingSystem.Controllers
         public IHttpActionResult All()
         {
             IEnumerable<UserViewModel> userModels = this.context.Users.MapUsersToViewModels().ToList();
-            UserManager<User> userManager = this.GetUserManager();
-            foreach (UserViewModel userViewModel in userModels)
-            {
-                userViewModel.Roles = userManager.GetRoles(userViewModel.Id);
-            }
-
             return this.Json(userModels);
-        }
-
-        [HttpGet]
-        [Authorize]
-        [Route("Info")]
-        public IHttpActionResult Info()
-        {
-            string currentUserId = this.User.Identity.GetUserId();
-
-            User currentUser = this.context.Users.Find(currentUserId);
-            if (currentUser == null)
-            {
-                return this.BadRequest("Cannot find current user!");
-            }
-
-            UserViewModel model = currentUser.MapUserToViewModel();
-            model.Roles = this.GetUserManager().GetRoles(currentUserId);
-            return this.Json(model);
         }
 
         [HttpGet]
@@ -77,9 +53,8 @@ namespace TicketingSystem.Controllers
             {
                 return this.BadRequest("Cannot find user with id: " + id);
             }
-            UserViewModel viewModel = user.MapUserToViewModel();
-            viewModel.Roles = this.GetUserManager().GetRoles(user.Id);
-            return this.Json(viewModel);
+
+            return this.Json(user.MapUserToViewModel());
         }
 
         [HttpPost]

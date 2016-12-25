@@ -39,6 +39,11 @@ namespace TicketingSystem.Models
             Id = user.Id,
         };
 
+        private static Expression<Func<News, NewsCreateModel>> newsExpression = news => new NewsCreateModel() {
+            Title = news.Title,
+            Content = news.Content,
+        };
+
         public static IQueryable<TicketResponseModel> MapTicketsToViewModels(this IQueryable<Ticket> tickets)
         {
             return tickets.Select(ticketExpression);
@@ -68,5 +73,11 @@ namespace TicketingSystem.Models
 
             return userExpression.Compile().Invoke(user);
         }
+
+        public static IQueryable<NewsCreateModel> MapNewsToViewModels(this IQueryable<News> news)
+        {
+            return news.Select(newsExpression);
+        }
+
     }
 }

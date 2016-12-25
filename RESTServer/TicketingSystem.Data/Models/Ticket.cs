@@ -1,9 +1,9 @@
-﻿﻿namespace TicketingSystem.Data.Models
-{
-    using System;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+﻿namespace TicketingSystem.Data.Models
+{
     public class Ticket
     {
         public Ticket()

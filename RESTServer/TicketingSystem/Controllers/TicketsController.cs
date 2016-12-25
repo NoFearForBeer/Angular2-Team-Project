@@ -36,22 +36,6 @@ namespace TicketingSystem.Controllers
         }
         
         [HttpGet]
-        [Authorize]
-        public IHttpActionResult TicketsForCurrentUser()
-        {
-            string currentUserId = this.User.Identity.GetUserId();
-
-            User currentUser = this.context.Users.Find(currentUserId);
-            if (currentUser == null)
-            {
-                return this.BadRequest("Cannot find current user!");
-            }
-
-            IEnumerable<TicketResponseModel> respnseModels = currentUser.Tickets.AsQueryable().MapTicketsToViewModels();
-            return this.Json(respnseModels);
-        }
-
-        [HttpGet]
         [Route("All")]
         public IHttpActionResult All(int count = DefaultCountTickets)
         {
@@ -81,8 +65,8 @@ namespace TicketingSystem.Controllers
         }
 
         [HttpGet]
-        [Route("IsValid")]
-        public IHttpActionResult IsValid(string id)
+        [Route("IsActive")]
+        public IHttpActionResult IsActive(string id)
         {
             Guid ticketId = Guid.Empty;
             if (!Guid.TryParse(id, out ticketId))
