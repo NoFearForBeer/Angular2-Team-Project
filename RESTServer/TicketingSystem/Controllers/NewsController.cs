@@ -1,4 +1,8 @@
-﻿using System;
+﻿using ITicktingSystem.Data;
+using Microsoft.AspNet.Identity;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
@@ -10,39 +14,28 @@ using TicketingSystem.Services;
 namespace TicketingSystem.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [RoutePrefix("api/News")]
+    [RoutePrefix("api/news")]
     public class NewsController : ApiController
     {
         private ITicketingSystemContext context;
-        INewsService newsService;
 
-        public NewsController(ITicketingSystemContext context, INewsService newsService)
+        public NewsController(ITicketingSystemContext context)
         {
             this.context = context;
-            this.newsService = newsService;
         }
 
         public NewsController()
-            : this(new TicketingSystemContext(), new NewsService())
+            : this(new TicketingSystemContext())
         {
         }
-        
-        [HttpPost]
-        [Authorize]
-        [Route("Create")]
-        public IHttpActionResult Buy(NewsCreateModel model)
-        {
-            News news = this.newsService.Create(model.Title, model.Content);
-            news.CreatedOn = DateTime.Now;
-            context.SaveChanges();
 
-            return Ok();
-        }
+
 
         [HttpGet]
-        public IHttpActionResult GetAll()
+        public IHttpActionResult All()
         {
-            return GetAll();
+            IEnumerable<NewsCreateModel> newsModels = this.context.News.MapNewsToViewModels().ToList();
+            return this.Json(newsModels);
         }
     }
 }

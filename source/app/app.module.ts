@@ -14,11 +14,13 @@ import { LoginForm } from './components/login/loginForm-component';
 import { RegisterComponent } from './components/register/register-component';
 import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
+import { NewsComponent } from './components/news/news-component';
 
 import { AuthService } from './services//auth-service';
 import { UserService } from './services//user-service';
 import { ApiService } from './services//api-service';
 import { AlertService } from './services//alert-service';
+import { NewsService } from './services//news-service';
 
 import { BuyTicketModule } from './tickets';
 
@@ -39,7 +41,8 @@ import { AuthGuard } from './guards/auth-guard';
         LoginForm, 
         RegisterComponent,
         HomeContainer,
-        MapComponent
+        MapComponent,
+        NewsComponent
     ], // to be refactored to modules
     
     providers: [
@@ -48,7 +51,8 @@ import { AuthGuard } from './guards/auth-guard';
         UserService,
         ApiService, 
         CookieService,
-        AlertService
+        AlertService,
+        NewsService
     ],
     
     bootstrap: [AppComponent]
