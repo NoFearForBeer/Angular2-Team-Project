@@ -1,10 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using TicketingSystem.Data.Constants;
-
 namespace TicketingSystem.Data.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using TicketingSystem.Data.Constants;
+
     public class News
     {
         private ICollection<Comment> comments;
@@ -15,11 +15,9 @@ namespace TicketingSystem.Data.Models
         }
 
         [Key]
-        public int Id
-        { get; set; }
+        public int Id { get; set; }
 
-        public DateTime CreatedOn
-        { get; set; }
+        public DateTime CreatedOn { get; set; }
 
         [MinLength(DataModelConstants.StringMinLength)]
         [MaxLength(DataModelConstants.StringShortMaxLength)]
@@ -30,7 +28,7 @@ namespace TicketingSystem.Data.Models
         public string Content { get; set; }
 
         [MaxLength(DataModelConstants.StringShortMaxLength)]
-        public string AutorId { get; set; }
+        public string AuthorId { get; set; }
 
         public virtual User Author { get; set; }
 
