@@ -190,17 +190,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Constants\WebConstants.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ExpressionMappings.cs" />
     <Compile Include="Models\NewsCreateModel.cs" />
-    <Compile Include="Models\TickteBuyModel.cs" />
+    <Compile Include="Models\Tickets\TicketActivateModel.cs" />
+    <Compile Include="Models\Tickets\TicketBuyModel.cs" />
+    <Compile Include="Models\Tickets\TicketResponseModel.cs" />
+    <Compile Include="Models\Users\UpdateUserModel.cs" />
+    <Compile Include="Models\Users\UserDeleteModel.cs" />
+    <Compile Include="Models\Users\UserResponseModel.cs" />
+    <Compile Include="Models\Users\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />

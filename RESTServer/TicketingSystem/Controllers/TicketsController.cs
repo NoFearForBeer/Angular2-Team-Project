@@ -36,6 +36,22 @@ namespace TicketingSystem.Controllers
         }
         
         [HttpGet]
+        [Authorize]
+        public IHttpActionResult TicketsForCurrentUser()
+        {
+            string currentUserId = this.User.Identity.GetUserId();
+
+            User currentUser = this.context.Users.Find(currentUserId);
+            if (currentUser == null)
+            {
+                return this.BadRequest("Cannot find current user!");
+            }
+
+            IEnumerable<TicketResponseModel> respnseModels = currentUser.Tickets.AsQueryable().MapTicketsToViewModels();
+            return this.Json(respnseModels);
+        }
+
+        [HttpGet]
         [Route("All")]
         public IHttpActionResult All(int count = DefaultCountTickets)
         {
