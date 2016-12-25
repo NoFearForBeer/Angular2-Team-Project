@@ -10,54 +10,49 @@ import { HomeContainer } from './components/containers/home/home-container';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { LoginForm } from './components/login/loginForm-component';
+import { LoginFormModule } from './components/index';
 import { RegisterComponent } from './components/register/register-component';
 import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
 
-import { AuthService } from './services//auth-service';
-import { UserService } from './services//user-service';
-import { ApiService } from './services//api-service';
-import { AlertService } from './services//alert-service';
-import { NewsService } from './services//news-service';
+
+import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
 
 import { BuyTicketModule } from './tickets';
 
 import { AuthGuard } from './guards/auth-guard';
- 
+
 @NgModule({
     imports: [
-        BrowserModule, 
+        BrowserModule,
         routing,
-        FormsModule, 
-        HttpModule, 
-        BuyTicketModule
+        FormsModule,
+        HttpModule,
+        BuyTicketModule,
+        LoginFormModule
     ],
 
     declarations: [
-        AppComponent, 
-        AlertComponent, 
-        LoginForm, 
+        AppComponent,
+        AlertComponent,
         RegisterComponent,
         HomeContainer,
         MapComponent,
         NewsComponent
     ], // to be refactored to modules
-    
+
     providers: [
         AuthGuard,
-        AuthService, 
+        AuthService,
         UserService,
-        ApiService, 
+        ApiService,
         CookieService,
         AlertService,
         NewsService
     ],
-    
+
     bootstrap: [AppComponent]
 })
- 
+
 export class AppModule { }
-
-

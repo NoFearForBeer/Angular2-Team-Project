@@ -1,1 +1,1 @@
-export { BuyTicketModule } from './buy-ticket/buy-ticket-module';
+export { BuyTicketModule } from './buy-ticket/buy-ticket-module'

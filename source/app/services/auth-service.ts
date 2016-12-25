@@ -1,9 +1,8 @@
-import { Router, ActivatedRoute } from '@angular/router';
+// import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpModule, Headers, Response, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { CookieService } from '../../node_modules/angular2-cookie/services/cookies.service';
-
 
 @Injectable()
 export class AuthService {
@@ -30,10 +29,10 @@ export class AuthService {
     });
 
     constructor(
-        private http: Http, 
+        private http: Http,
         private cookieService: CookieService,
-        private route: ActivatedRoute,
-        private router: Router,
+        // private route: ActivatedRoute,
+        // private router: Router,
     ) { }
 
     getAuthorizationHeader(): Headers {
@@ -54,26 +53,46 @@ export class AuthService {
     }
 
     logout(): void {
-        console.log("logout");
+        console.log('logout');
         this.cookieService.remove(this.cookieKey);
         this.currentLoggedUser.access_token = '';
-        this.currentLoggedUser.access_token = '';
-        this.currentLoggedUser.access_token = '';
-        this.currentLoggedUser.access_token = '';
+        this.currentLoggedUser.expires_in = '';
+        this.currentLoggedUser.token_type = '';
+        this.currentLoggedUser.userName = '';
+    }
+
+    register(user: any): Observable<any>  {
+        const path = `${this.baseApiUrl}account/register`;
+        return this.http.post(path, user, { headers: this.jsonHeaders })
+                .map((resp: Response) => {
+                    console.log('Success!!');
+                    // There are no response from register.
+                    return Observable.empty;
+                })
+                .catch((error: Response) => {
+
+                   let errorMessages: String[] = [];
+                   console.log(error);
+                   let modelState = error.json().ModelState;
+                   Object.getOwnPropertyNames(modelState).forEach((prop) => {
+                        errorMessages.push(modelState[prop].toString());
+                   });
+                   return Observable.throw(errorMessages.toString());
+                });
     }
 
     login(userName: string, password: string): Observable<Response> {
-        let path = `${this.baseUrl}${'token'}`;
+        let path = `${this.baseUrl}token`;
         let data = `grant_type=password&password=${password}&userName=${userName}`;
 
         return this.http.post(path, data, { headers: this.formHeaders })
             .map((resp: Response) => {
                 let jsonData = resp.json();
                 let expires: Date = new Date(jsonData['.expires']);
-                this.currentLoggedUser = resp.json();
+                this.currentLoggedUser = jsonData;
 
                 this.cookieService.put(this.cookieKey, jsonData.access_token, { expires : expires } );
-                this.router.navigate(['/']);
+                // this.router.navigate(['/']);
                 return resp;
             })
             .catch((error: Response | any) => {
