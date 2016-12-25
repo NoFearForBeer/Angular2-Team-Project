@@ -1,38 +1,42 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, RequestOptions, Response } from '@angular/http';
+import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/toPromise';
 
 import { News } from '../models/news';
  
 @Injectable()
 export class NewsService {
-    news: any [];
 
-    private baseApiUrl: string = 'http://localhost:3200/api/news';
+    private baseUrl: string = 'http://localhost:3200/api/';
 
     constructor(private http: Http) { }
- 
-    getAll(): Observable<News[]> {
-        return this.http.get(this.baseApiUrl).map(this.extractData).catch(this.handleError);
+
+    getAll(): Observable<News[]>{
+        let news$ = this.http
+        .get(`${this.baseUrl}/news`, {headers: this.getHeaders()})
+        .map(mapNews);
+        return news$;
     }
 
-    private extractData(res: Response) {
-        let body = res.json();
-        console.log(body);
-        return body.data || { };
-    }
-    
-    private handleError (error: Response | any) {
-        // In a real world app, we might use a remote logging infrastructure
-        let errMsg: string;
-        if (error instanceof Response) {
-        const body = error.json() || '';
-        const err = body.error || JSON.stringify(body);
-        errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
-        } else {
-        errMsg = error.message ? error.message : error.toString();
-        }
-        console.error(errMsg);
-        return Observable.throw(errMsg);
+    private getHeaders(){
+        let headers = new Headers();
+        headers.append('Accept', 'application/json');
+        return headers;
     }
 }
+
+function mapNews(response:Response): News[]{
+    return response.json().map(toNews)
+}
+
+function toNews(r:any): News{
+    let n = <News>({
+        title: r.Title,
+        content: r.Content,
+        createdOn: r.CreatedOn,
+    });
+    console.log('Parsed news:', n);
+    return n;
+}
+

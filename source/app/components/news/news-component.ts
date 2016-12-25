@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { NewsService } from '../../services/news-service';
-import { News } from '../../models/news';
-
 import { Http } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import 'rxjs';
+
+import { NewsService } from '../../services/news-service';
+import { News } from '../../models/news';
 
 @Component({
   selector: 'news-component',
@@ -13,22 +14,30 @@ import 'rxjs';
   providers: [NewsService]
 })
 
+
 export class NewsComponent implements OnInit {
-  
-  errorMessage: string;
+
   news: News[];
+  error: any;
 
-  constructor(private http: Http, private newsService: NewsService) { }
+  constructor(private http: Http, private router: Router, private newsService: NewsService) { }
 
-  ngOnInit() {
-    this.newsService.getAll();
+ngOnInit(){
+    this.newsService
+      .getAll()
+      .subscribe(p => this.news = p)
+  }
+/*
+  ngOnInit(): void {
+    this.getNews();
   }
 
-   getAll(): any {
-     this.newsService.getAll()
-                     .subscribe(
-                       news => this.news = news,
-                       error =>  this.errorMessage = <any>error);
-                            console.log(this.news)
+  getNews(): void {
+    this.newsService
+      .getNews()
+      .then(news => this.news = news)
+      .catch(error => this.error = error);
+      console.log(this.newsService.getNews());
   }
+  */
 }
