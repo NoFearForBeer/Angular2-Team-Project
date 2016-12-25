@@ -13,17 +13,13 @@ namespace TicketingSystem.Data
         {
         }
 
-        public virtual IDbSet<Ticket> Tickets
-        { get; set; }
+        public virtual IDbSet<Ticket> Tickets { get; set; }
 
-        public virtual IDbSet<Transport> Transports
-        { get; set; }
+        public virtual IDbSet<Transport> Transports { get; set; }
 
-        public virtual IDbSet<Comment> Comments
-        { get; set; }
+        public virtual IDbSet<Comment> Comments { get; set; }
 
-        public virtual IDbSet<News> News
-        { get; set; }
+        public virtual IDbSet<News> News { get; set; }
 
         public static TicketingSystemContext Create()
         {
