@@ -18,6 +18,7 @@ Angular 2 Team Project
 
 
 Auto generated users (Administrators):
+
 UserName | Password 
 --- | ---
 admin | password
