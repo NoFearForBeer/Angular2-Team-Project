@@ -30,13 +30,24 @@ namespace TicketingSystem.Controllers
         {
         }
 
-
-
         [HttpGet]
         public IHttpActionResult All()
         {
             IEnumerable<NewsViewModel> newsViewModels = this.context.News.MapNewsToViewModels().ToList();
             return this.Json(newsViewModels);
+        }
+
+        [HttpGet]
+        public IHttpActionResult GetByID(int id)
+        {
+            var news = this.context.News.Find(id);
+            if (news == null)
+            {
+                return NotFound();
+            }
+
+            var newsModel = new NewsViewModel(news);
+            return Ok(newsModel);
         }
     }
 }

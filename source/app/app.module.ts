@@ -15,6 +15,7 @@ import { RegisterComponent } from './components/register/register-component';
 import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
+import { NewsDetailsComponent } from './components/news/news-details-component';
 
 
 import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
@@ -39,7 +40,8 @@ import { AuthGuard } from './guards/auth-guard';
         RegisterComponent,
         HomeContainer,
         MapComponent,
-        NewsComponent
+        NewsComponent,
+        NewsDetailsComponent
     ], // to be refactored to modules
 
     providers: [

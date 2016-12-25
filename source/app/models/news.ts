@@ -3,4 +3,5 @@ export class News {
     title: string;
     content: string;
     createdOn: Date;
+    comments: Comment[];
 }

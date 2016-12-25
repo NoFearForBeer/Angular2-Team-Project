@@ -2,7 +2,7 @@
 <ul class="news">
   <li *ngFor="let n of news" (click)="onSelect(n)" [class.selected]="n === selectedNews">
     <span class="news-element">
-      <span class="badge">{{n.title}}</span> {{n.content}}
+      <button an class="badge" [routerLink]="['/news', n.id]">{{n.title}} {{n.id}}</button>{{n.content}}
       <span>Created on: {{n.createdOn | date}}</span>
     </span>
   </li>

@@ -1,0 +1,22 @@
+<div *ngIf="news">
+  <h2>{{news.title}}!</h2>
+  <div>
+    <span>id: </span>{{news.id}}
+  </div>
+  <div>
+    <span>Created On: </span>{{news.createdOn}}
+  </div>
+  <div>
+    <span>Content: </span>{{news.content}}
+  </div>
+  <div>Comments</div>
+  
+  <ul class="news">
+    <li *ngFor="let comment of news.comments">
+      <span class="comment-element">
+        <button class="badge">{{n.comment.User.UserName}} {{n.comment.Content}}</button>
+        <span>Created on: {{n.createdOn | date}}</span>
+      </span>
+    </li>
+  </ul>
+</div>

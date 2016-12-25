@@ -49,6 +49,7 @@ namespace TicketingSystem.Models
         };
 
         private static Expression<Func<News, NewsViewModel>> newsExpression = news => new NewsViewModel() {
+            Id = news.Id,
             Title = news.Title,
             Content = news.Content,
             CreatedOn = news.CreatedOn,

@@ -19,6 +19,13 @@ export class NewsService {
         return news$;
     }
 
+    getNews(id: number): Observable<News>{
+        let n$ = this.http
+        .get(`${this.baseUrl}news/${id}`, {headers: this.getHeaders()})
+        .map(mapSingleNews);
+        return n$;
+    }
+
     private getHeaders(){
         let headers = new Headers();
         headers.append('Accept', 'application/json');
@@ -30,11 +37,17 @@ function mapNews(response:Response): News[]{
     return response.json().map(toNews)
 }
 
+function mapSingleNews(response:Response): News{
+  return toNews(response.json());
+}
+
 function toNews(r:any): News{
     let n = <News>({
+        id: r.Id,
         title: r.Title,
         content: r.Content,
         createdOn: r.CreatedOn,
+        comments: r.Comments
     });
     console.log('Parsed news:', n);
     return n;
