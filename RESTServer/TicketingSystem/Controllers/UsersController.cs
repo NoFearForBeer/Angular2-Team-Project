@@ -62,7 +62,6 @@ namespace TicketingSystem.Controllers
             return this.Json(model);
         }
 
-
         [HttpGet]
         [Route("ById")]
         public IHttpActionResult ById(string id)

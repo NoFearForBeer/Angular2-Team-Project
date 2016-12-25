@@ -81,8 +81,8 @@ namespace TicketingSystem.Controllers
         }
 
         [HttpGet]
-        [Route("IsActive")]
-        public IHttpActionResult IsActive(string id)
+        [Route("IsValid")]
+        public IHttpActionResult IsValid(string id)
         {
             Guid ticketId = Guid.Empty;
             if (!Guid.TryParse(id, out ticketId))
