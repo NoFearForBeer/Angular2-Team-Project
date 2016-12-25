@@ -1,10 +1,11 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+using TicketingSystem.Data.Constants;
+
 namespace TicketingSystem.Data.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using TicketingSystem.Data.Constants;
-
     public class News
     {
         private ICollection<Comment> comments;

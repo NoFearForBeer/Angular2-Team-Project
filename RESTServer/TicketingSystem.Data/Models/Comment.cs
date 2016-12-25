@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using TicketingSystem.Data.Constants;
@@ -11,6 +12,8 @@ namespace TicketingSystem.Data.Models
 
         [MaxLength(DataModelConstants.StringLongMaxLength)]
         public string Content { get; set; }
+
+        public DateTime CreatedOn { get; set; }
 
         [ForeignKey("Author")]
         public string AuthorId { get; set; }

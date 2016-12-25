@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace TicketingSystem.Models
+namespace TicketingSystem.Models.NewsModels
 {
     public class NewsCreateModel
     {
@@ -13,5 +14,6 @@ namespace TicketingSystem.Models
         [MinLength(5, ErrorMessage = "The content should be at least 5 symbols")]
         public string Content { get; set; }
 
+        public DateTime CreatedOn { get; set; }
     }
 }

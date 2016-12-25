@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using TicketingSystem.Data.Models;
+using TicketingSystem.Models.Comments;
+using TicketingSystem.Models.NewsModels;
 using TicketingSystem.Models.Tickets;
 using TicketingSystem.Models.Users;
 
@@ -39,10 +42,31 @@ namespace TicketingSystem.Models
             Id = user.Id,
         };
 
-        private static Expression<Func<News, NewsCreateModel>> newsExpression = news => new NewsCreateModel() {
+        private static Expression<Func<Comment, CommentViewModel>> commentExpression = comment => new CommentViewModel() {
+            Content = comment.Content,
+            CreatedOn = comment.CreatedOn,
+            Author = MapUserToViewModel(comment.Author)
+        };
+
+        private static Expression<Func<News, NewsViewModel>> newsExpression = news => new NewsViewModel() {
             Title = news.Title,
             Content = news.Content,
+            CreatedOn = news.CreatedOn,
+            Comments = news.Comments
         };
+
+        private static IEnumerable<CommentViewModel> MapCommentsToViewModel(ICollection<Comment> comments)
+        {
+            var commentsViewModel = new List<CommentViewModel>();
+            var c = comments.ToList();
+            foreach (var comment in c)
+            {
+                var currentComment = MapCommentToViewModel(comment);
+                commentsViewModel.Add(currentComment);
+            }
+
+            return commentsViewModel;
+        }
 
         public static IQueryable<TicketResponseModel> MapTicketsToViewModels(this IQueryable<Ticket> tickets)
         {
@@ -74,7 +98,17 @@ namespace TicketingSystem.Models
             return userExpression.Compile().Invoke(user);
         }
 
-        public static IQueryable<NewsCreateModel> MapNewsToViewModels(this IQueryable<News> news)
+        public static CommentViewModel MapCommentToViewModel(this Comment comment)
+        {
+            if (comment == null)
+            {
+                return null;
+            }
+
+            return commentExpression.Compile().Invoke(comment);
+        }
+
+        public static IQueryable<NewsViewModel> MapNewsToViewModels(this IQueryable<News> news)
         {
             return news.Select(newsExpression);
         }

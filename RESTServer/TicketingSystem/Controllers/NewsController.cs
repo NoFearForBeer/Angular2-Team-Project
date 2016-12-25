@@ -9,6 +9,7 @@ using System.Web.Http.Cors;
 using TicketingSystem.Data;
 using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
+using TicketingSystem.Models.NewsModels;
 using TicketingSystem.Services;
 
 namespace TicketingSystem.Controllers
@@ -34,8 +35,8 @@ namespace TicketingSystem.Controllers
         [HttpGet]
         public IHttpActionResult All()
         {
-            IEnumerable<NewsCreateModel> newsModels = this.context.News.MapNewsToViewModels().ToList();
-            return this.Json(newsModels);
+            IEnumerable<NewsViewModel> newsViewModels = this.context.News.MapNewsToViewModels().ToList();
+            return this.Json(newsViewModels);
         }
     }
 }
