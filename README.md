@@ -30,7 +30,7 @@ address http://localhost:3200/
 Action | Method | Description | Body/Query | Response | Notes 
 --- | --- | --- | --- | --- | ---  
 **/token** | `POST` | Gets Autotization token | ```{ pasword: "", username: "", grant_type: "password"  }``` | ```{ "access_token": "LongStringOfCharacters", "token_type": "bearer", "expires_in": 1209599, "userName": "admin", ".issued": "Sun, 25 Dec 2016 09:13:57 GMT", ".expires": "Sun, 08 Jan 2017 09:13:57 GMT"}```  | Content-Type Header Should be **application/x-www-form-urlencoded**
-**api/account/register** | `POST`| User Registration | ```{ firstName: "", lastName: "", username: "", email: "", password: "", confirmPassword: ""  }``` | Password should have at least 4 symbols 
+**api/account/register** | `POST`| User Registration | ```{ firstName: "", lastName: "", username: "", email: "", password: "", confirmPassword: ""  }``` | Password should have at least 6 symbols 
 **api/tickets/buy** | `POST` | Buy new ticket | ```{ hours: 2 }``` | ```{ QRCode: "LongStringOfCharacters", Cost: "1.60" }```| Requires authorization. Cost is in leva
 **api/tickets/** | `GET` | Show all tickets for current logged user | - | ```[{ Id: "GUID", BoughtAt: "Date", Cost: "Decimal", Expired: "Bool", "Activated": "Bool", "DateActivated": "Date/null", "ExpiresOn": "Date/null", Duration: "NumberHours", QRCode: "LongText", Owner: { "Owner": { Id: "GUID"  UserName: "Text", FullName: "Text"} }  ]``` | Requires authorization 
 **api/tickets/all?count=2** | `GET` | Same as above but for all users | count is optional positive number | `Same as above` | for Administrators\*\*
