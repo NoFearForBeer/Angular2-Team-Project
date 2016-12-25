@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/index';
 import { Response } from '@angular/http';
@@ -6,11 +6,12 @@ import { Response } from '@angular/http';
 // import { AlertService } from '../services/alert-service';
 // import { AuthService } from '../services/authService';
 
+
+@Injectable()
 @Component({
     selector: 'login-component',
     templateUrl: './login-form-component.html'
 })
-
 export class LoginForm {
     user = {
         username: '',
