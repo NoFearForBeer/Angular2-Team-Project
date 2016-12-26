@@ -45,7 +45,11 @@ namespace TicketingSystem.Models
         private static Expression<Func<Comment, CommentViewModel>> commentExpression = comment => new CommentViewModel() {
             Content = comment.Content,
             CreatedOn = comment.CreatedOn,
-            Author = MapUserToViewModel(comment.Author)
+            Author = new UserResponseModel {
+                UserName = comment.Author.UserName,
+                FullName = comment.Author.FirstName + " " + comment.Author.LastName,
+                Id = comment.Author.Id,
+            }
         };
 
         private static Expression<Func<News, NewsViewModel>> newsExpression = news => new NewsViewModel() {
@@ -53,7 +57,7 @@ namespace TicketingSystem.Models
             Title = news.Title,
             Content = news.Content,
             CreatedOn = news.CreatedOn,
-            Comments = news.Comments
+            Comments = news.Comments.AsQueryable().Select(commentExpression)
         };
 
         private static IEnumerable<CommentViewModel> MapCommentsToViewModel(ICollection<Comment> comments)

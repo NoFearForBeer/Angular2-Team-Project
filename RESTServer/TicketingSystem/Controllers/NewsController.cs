@@ -40,14 +40,12 @@ namespace TicketingSystem.Controllers
         [HttpGet]
         public IHttpActionResult GetByID(int id)
         {
-            var news = this.context.News.Find(id);
-            if (news == null)
+            var newsViewModels = this.context.News.MapNewsToViewModels().ToList().Find(c => c.Id == id);
+            if (newsViewModels == null)
             {
                 return NotFound();
-            }
-
-            var newsModel = new NewsViewModel(news);
-            return Ok(newsModel);
+            } 
+            return this.Json(newsViewModels);
         }
     }
 }
