@@ -43,13 +43,15 @@ namespace TicketingSystem.Models
         };
 
         private static Expression<Func<Comment, CommentViewModel>> commentExpression = comment => new CommentViewModel() {
+            Id = comment.Id,
             Content = comment.Content,
             CreatedOn = comment.CreatedOn,
             Author = new UserResponseModel {
                 UserName = comment.Author.UserName,
                 FullName = comment.Author.FirstName + " " + comment.Author.LastName,
                 Id = comment.Author.Id,
-            }
+            },
+            NewsItemId = comment.NewsItemId
         };
 
         private static Expression<Func<News, NewsViewModel>> newsExpression = news => new NewsViewModel() {
@@ -101,6 +103,11 @@ namespace TicketingSystem.Models
             }
 
             return userExpression.Compile().Invoke(user);
+        }
+
+        public static IQueryable<CommentViewModel> MapCommentsToViewModels(this IQueryable<Comment> comments)
+        {
+            return comments.Select(commentExpression);
         }
 
         public static CommentViewModel MapCommentToViewModel(this Comment comment)
