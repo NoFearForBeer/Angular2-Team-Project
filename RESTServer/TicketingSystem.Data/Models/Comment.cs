@@ -5,15 +5,10 @@ using TicketingSystem.Data.Constants;
 
 namespace TicketingSystem.Data.Models
 {
-    public class Comment
+    public class Comment : BaseModel<int>
     {
-        [Key]
-        public int Id { get; set; }
-
         [MaxLength(DataModelConstants.StringLongMaxLength)]
         public string Content { get; set; }
-
-        public DateTime CreatedOn { get; set; }
 
         //[ForeignKey("Author")]
         public string AuthorId { get; set; }

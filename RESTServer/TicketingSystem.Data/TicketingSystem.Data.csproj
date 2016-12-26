@@ -57,9 +57,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TicketingSystemData.cs" />
+    <Compile Include="Models\BaseModel{TKey}.cs" />
+    <Compile Include="Repositories\DeletableEntityRepository.cs" />
+    <Compile Include="Repositories\GenericRepository.cs" />
+    <Compile Include="Repositories\IAuditInfo.cs" />
+    <Compile Include="Repositories\IDeletableEntity.cs" />
+    <Compile Include="Repositories\IDeletableEntityRepository.cs" />
     <Compile Include="Constants\DataModelConstants.cs" />
-    <Compile Include="ITicketingSystemData.cs" />
     <Compile Include="ITicketingSystemContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
@@ -67,7 +71,6 @@
     <Compile Include="Models\TransportType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Ticket.cs" />
-    <Compile Include="Repositories\EFRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="TicketingSystemContext.cs" />
     <Compile Include="Models\Transport.cs" />

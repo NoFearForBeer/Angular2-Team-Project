@@ -13,8 +13,8 @@
   <div>Comments</div>
   <ul *ngIf="news"> 
   	<li *ngFor='let comment of [news.comments]'>
-      <button class="badge">{{comment.Content}}</button>
-      <span>Created on: {{comment.CreatedOn | date}}</span>
+      <button class="badge">{{comment}}.{{Content}}</button>
+      <span>Created on: {{comment}}.{{CreatedOn | date}}</span>
     </li>
   </ul>
 </div>
