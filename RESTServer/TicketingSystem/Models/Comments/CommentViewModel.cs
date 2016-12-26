@@ -8,7 +8,7 @@ namespace TicketingSystem.Models.Comments
     {
         public string Content { get; set; }
 
-        public UserViewModel Author { get; set; }
+        public UserResponseModel Author { get; set; }
 
         public DateTime CreatedOn { get; set; }
     }

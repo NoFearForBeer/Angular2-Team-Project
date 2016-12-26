@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import 'rxjs';
 
+import {ValuesPipe} from '../../pipes/values-pipe';
 import { NewsService } from '../../services/news-service';
 import { News } from '../../models/news';
 

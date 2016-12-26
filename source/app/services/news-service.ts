@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
 
 import { News } from '../models/news';
+import { Comment } from '../models/comment';
  
 @Injectable()
 export class NewsService {
@@ -14,7 +15,7 @@ export class NewsService {
 
     getAll(): Observable<News[]>{
         let news$ = this.http
-        .get(`${this.baseUrl}/news`, {headers: this.getHeaders()})
+        .get(`${this.baseUrl}news`, {headers: this.getHeaders()})
         .map(mapNews);
         return news$;
     }
@@ -49,6 +50,7 @@ function toNews(r:any): News{
         createdOn: r.CreatedOn,
         comments: r.Comments
     });
+    console.log(n.comments);
     console.log('Parsed news:', n);
     return n;
 }

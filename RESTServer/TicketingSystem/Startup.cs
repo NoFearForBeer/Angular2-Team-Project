@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Owin;
+﻿using Microsoft.Owin;
+using Newtonsoft.Json;
 using Owin;
+using System.Web.Http;
 
 [assembly: OwinStartup(typeof(TicketingSystem.Startup))]
 

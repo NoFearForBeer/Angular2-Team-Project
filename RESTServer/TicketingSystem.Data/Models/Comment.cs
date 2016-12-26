@@ -15,14 +15,14 @@ namespace TicketingSystem.Data.Models
 
         public DateTime CreatedOn { get; set; }
 
-        [ForeignKey("Author")]
+        //[ForeignKey("Author")]
         public string AuthorId { get; set; }
 
-        public virtual User Author { get; set; }
+        public User Author { get; set; }
 
-        [ForeignKey("NewsItem")]
+       // [ForeignKey("NewsItem")]
         public int NewsItemId { get; set; }
 
-        public virtual News NewsItem { get; set; }
+        public News NewsItem { get; set; }
     }
 }

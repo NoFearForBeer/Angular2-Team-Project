@@ -12,15 +12,6 @@ namespace TicketingSystem.Models.NewsModels
         {
         }
 
-        public NewsViewModel(News news)
-        {
-            this.Id = news.Id;
-            this.Title = news.Title;
-            this.Content = news.Content;
-            this.CreatedOn = news.CreatedOn;
-            this.Comments = news.Comments.AsQueryable();
-        }
-
         public int Id { get; set; }
 
         public string Title { get; set; }
@@ -29,6 +20,6 @@ namespace TicketingSystem.Models.NewsModels
 
         public DateTime CreatedOn { get; set; }
 
-        public IEnumerable<Comment> Comments { get; set; }
+        public IEnumerable<CommentViewModel> Comments { get; set; }
     }
 }

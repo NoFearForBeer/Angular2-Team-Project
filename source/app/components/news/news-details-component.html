@@ -9,14 +9,12 @@
   <div>
     <span>Content: </span>{{news.content}}
   </div>
+
   <div>Comments</div>
-  
-  <ul class="news">
-    <li *ngFor="let comment of news.comments">
-      <span class="comment-element">
-        <button class="badge">{{n.comment.User.UserName}} {{n.comment.Content}}</button>
-        <span>Created on: {{n.createdOn | date}}</span>
-      </span>
+  <ul *ngIf="news"> 
+  	<li *ngFor='let comment of [news.comments]'>
+      <button class="badge">{{comment.Content}}</button>
+      <span>Created on: {{comment.CreatedOn | date}}</span>
     </li>
   </ul>
 </div>

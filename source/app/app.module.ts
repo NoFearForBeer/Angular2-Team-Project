@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe, PipeTransform} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,6 +17,7 @@ import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
 
+import {ValuesPipe} from './pipes/values-pipe';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
 
@@ -41,7 +42,8 @@ import { AuthGuard } from './guards/auth-guard';
         HomeContainer,
         MapComponent,
         NewsComponent,
-        NewsDetailsComponent
+        NewsDetailsComponent,
+        ValuesPipe
     ], // to be refactored to modules
 
     providers: [
