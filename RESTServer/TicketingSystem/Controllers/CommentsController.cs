@@ -13,7 +13,6 @@ using TicketingSystem.Services;
 namespace TicketingSystem.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [RoutePrefix("api/comments")]
     public class CommentsController : ApiController
     {
         private ITicketingSystemContext context;
@@ -37,7 +36,7 @@ namespace TicketingSystem.Controllers
         }
 
         [HttpGet]
-        [Route("a")]
+        [Route("api/Comments/ByNews/{id}")]
         public IHttpActionResult GetByNewsId(int id)
         {
             IEnumerable<CommentViewModel> comment = this.context.Comments.MapCommentsToViewModels().ToList().Where(c => c.NewsItemId == id);
