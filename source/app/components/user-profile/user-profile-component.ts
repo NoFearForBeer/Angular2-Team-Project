@@ -14,6 +14,7 @@ export class UserProfileComponent implements OnInit {
     tempImg: string = 'Initial';
     imageUpdated: boolean = false;
     imageSelected: boolean = false;
+    isEdit: boolean = false;
 
     constructor(
         private api: ApiService,
@@ -57,5 +58,9 @@ export class UserProfileComponent implements OnInit {
             },
             rejected => console.log(rejected)
             );
+    }
+
+    toogle() {
+        this.isEdit = !this.isEdit;
     }
 }
