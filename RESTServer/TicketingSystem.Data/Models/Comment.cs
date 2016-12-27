@@ -13,11 +13,11 @@ namespace TicketingSystem.Data.Models
         //[ForeignKey("Author")]
         public string AuthorId { get; set; }
 
-        public User Author { get; set; }
+        public virtual User Author { get; set; }
 
        // [ForeignKey("NewsItem")]
         public int NewsItemId { get; set; }
 
-        public News NewsItem { get; set; }
+        public virtual News NewsItem { get; set; }
     }
 }

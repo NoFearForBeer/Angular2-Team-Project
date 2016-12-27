@@ -7,8 +7,10 @@ using TicketingSystem.Data;
 using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
 using TicketingSystem.Models.Comments;
-using TicketingSystem.Providers;
-using TicketingSystem.Services;
+
+
+using Microsoft.AspNet.Identity;
+using System;
 
 namespace TicketingSystem.Controllers
 {
@@ -44,35 +46,65 @@ namespace TicketingSystem.Controllers
 
             return this.Json(comment);
         }
-        
-        //[Authorize]
-        //[HttpPost]
-        //public IHttpActionResult PostComment(CommentViewModel comment)
-        //{
-        //    if (comment != null && this.ModelState.IsValid)
-        //    {
-        //        var databaseComment = new Comment {
-        //            Content = comment.Content,
-        //            newsId = comment.newsI,
-        //            Author = this.CurrentUser
-        //        };
 
-        //        var post = this.posts.GetById(comment.PostId);
-        //        if (post == null)
-        //        {
-        //            throw new HttpException(404, "Post not found");
-        //        }
+        [Authorize]
+        [HttpPost]
+        public IHttpActionResult Post(CommentViewModel comment)
+        {
+            string currentUserId = this.User.Identity.GetUserId();
 
-        //        post.Comments.Add(databaseComment);
-        //        this.posts.Update();
+            if (comment != null && this.ModelState.IsValid)
+            {
+                var databaseComment = new Comment {
+                    Content = comment.Content,
+                    NewsItemId = comment.NewsItemId,
+                    AuthorId = currentUserId,
+                    CreatedOn = DateTime.Now
+                };
 
-        //        var viewModel = this.Mapper.Map<CommentViewModel>(databaseComment);
-        //        return this.PartialView("_CommentPartial", viewModel);
-        //    }
+                context.Comments.Add(databaseComment);
+                context.SaveChanges();
 
-        //    throw new HttpException(400, "Invalid comment!");
-        //}
+                return Ok();
+            }
+            else
+            {
+                return this.BadRequest(this.ModelState);
+            }
+        }
 
+        [Authorize]
+        [HttpPost]
+        public IHttpActionResult Delete(int id)
+        {
+            var commentToDelete = this.context.Comments.FirstOrDefault(c => c.Id == id);
+            context.Comments.Remove(commentToDelete);
+            context.SaveChanges();
 
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpPost]
+        public IHttpActionResult Update(CommentUpdateModel comment)
+        {
+            string currentUserId = this.User.Identity.GetUserId();
+
+            if (comment != null && this.ModelState.IsValid && currentUserId == comment.AuthorId)
+            {
+                var commentToUpdate = this.context.Comments.FirstOrDefault(c => c.Id == comment.Id);
+
+                commentToUpdate.Content = comment.Content;
+                commentToUpdate.ModifiedOn = comment.ModifiedOn;
+
+                context.SaveChanges();
+
+                return Ok();
+            }
+            else
+            {
+                return this.BadRequest(this.ModelState);
+            }
+        }
     }
 }
