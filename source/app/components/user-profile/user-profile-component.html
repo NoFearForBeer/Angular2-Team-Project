@@ -1,30 +1,40 @@
 <div id="profile-container">
 
-    <div class="row">
 
-        <div class="col-sm-4 col-sm-offset-4">
+    <h2> User Profile </h2>
+
+    <div class="col">
+
+        <div class="col col-sm-4 col-sm-offset-4">
             <div class="row">
 
-                <img [src]="tempImg" [alt]="avatar" [width]="350" class="img-thumbnail" >
+                <img [src]="tempImg" [alt]="avatar" [width]="350" class="img-thumbnail">
 
+                <span *ngIf="imageUpdated" class="text-success">Done
+                    <span class="glyphicon glyphicon-ok" aria-hidden="true">
+                    </span>
+                </span>
                 <form enctype="multipart/form-data" (submit)="updateAvatar(imgInput.files[0])">
-                    
-                <input (change)="imagePreview($event)" #imgInput type="file" accept="image/*" >
-                <button class="btn btn-info btn-sm" type="submit"  >
-                   <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                    Update
-                </button>
+                    <input (change)="imagePreview($event)" class="btn btn-default" #imgInput type="file" accept="image/*">
+                    <button class="btn btn-info btn-sm" type="submit" [disabled]="!imageSelected">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                        Update
+                    </button>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="col">
 
-        
+        <div class="col col-sm-4 col-sm-offset-4">
+            <h2>
+                {{ userProfile.FullName }}
+            </h2>
+        </div>
     </div>
 
-<!--
+    <!--
 { FirstName: "Text", 
 LastName: "Text",
  Email: "Text", 
@@ -35,5 +45,3 @@ LastName: "Text",
   FullName: "" }-->
 
 </div>
-
-<h2> User Profile </h2>

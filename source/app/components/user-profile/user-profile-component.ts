@@ -11,6 +11,8 @@ export class UserProfileComponent implements OnInit {
 
     userProfile: any = {};
     tempImg: string = 'Initial';
+    imageUpdated: boolean = false;
+    imageSelected: boolean = false;
 
     constructor(private api: ApiService) { }
 
@@ -18,6 +20,12 @@ export class UserProfileComponent implements OnInit {
         this.userProfile = this.api.get('/users/info')
             .subscribe((jsonResp) => {
                 this.userProfile = jsonResp;
+
+                if (!this.userProfile.Avatar) {
+                    this.tempImg = 'img/profile.jpg';
+                    return;
+                }
+
                 this.tempImg = 'data:image/jpeg;base64,' + this.userProfile.Avatar;
             }, (error) => console.log(error));
     }
@@ -29,6 +37,7 @@ export class UserProfileComponent implements OnInit {
 
             reader.onload = (e: any) => {
                 this.tempImg = e.target.result;
+                this.imageSelected = true;
             };
 
             reader.readAsDataURL(event.target.files[0]);
@@ -37,7 +46,11 @@ export class UserProfileComponent implements OnInit {
 
     updateAvatar(file: File) {
         this.api.uploadFile('/users/avatar', file)
-            .then(message => console.log(message),
+            .then(message => {
+                this.imageUpdated = true;
+                 this.imageSelected = false;
+            setTimeout(() => { this.imageUpdated = false; }, 2000);
+            },
             rejected => console.log(rejected)
             );
     }
