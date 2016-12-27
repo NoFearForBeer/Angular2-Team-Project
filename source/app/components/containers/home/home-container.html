@@ -21,10 +21,18 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+
       <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn() == true">
-        <li><a [routerLink]="['/profile']">Hello {{ userName }} </a></li>
-        <li>
-          <button class="btn btn-primary" (click)="logout()"> Logout </button>
+        <li> <a>  Hello {{ userName }}</a> </li>
+        <li class="dropdown" dropdown >
+          <a class="dropdown-toggle" dropdownToggle  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu" dropdownMenu >
+            <li><a [routerLink]="['/profile']"> Profie</a></li>
+            <li><a href="#">Tickets</a></li>
+            <li><a href="#">Other</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#" (click)="logout()">Logout</a></li>
+          </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn() == false">
@@ -36,5 +44,5 @@
   </div>
 </nav>
 <div>
-<router-outlet></router-outlet>
+  <router-outlet></router-outlet>
 </div>

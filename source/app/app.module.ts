@@ -2,8 +2,10 @@ import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { HttpModule } from '@angular/http';
 import { CookieService } from '../node_modules/angular2-cookie/services/cookies.service';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { HomeContainer } from './components/containers/home/home-container';
 
@@ -27,13 +29,15 @@ import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
     imports: [
+        DropdownModule.forRoot(),
         BrowserModule,
         routing,
         FormsModule,
         HttpModule,
         BuyTicketModule,
         LoginFormModule,
-        UserProfileModule
+        UserProfileModule,
+        Ng2BootstrapModule
     ],
 
     declarations: [
@@ -44,7 +48,8 @@ import { AuthGuard } from './guards/auth-guard';
         MapComponent,
         NewsComponent,
         NewsDetailsComponent,
-        ValuesPipe, ImageDataPipe
+        ValuesPipe,
+        ImageDataPipe
     ],
 
     providers: [
