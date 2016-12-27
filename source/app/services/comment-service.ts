@@ -5,26 +5,20 @@ import 'rxjs/add/operator/toPromise';
 
 import { News } from '../models/news';
 import { Comment } from '../models/comment';
+import { NewsService } from './news-service';
  
 @Injectable()
-export class NewsService {
+export class CommentService {
 
     private baseUrl: string = 'http://localhost:3200/api/';
 
     constructor(private http: Http) { }
 
-    getAll(): Observable<News[]>{
-        let news$ = this.http
-        .get(`${this.baseUrl}news`, {headers: this.getHeaders()})
-        .map(mapNews);
-        return news$;
-    }
-
-    getNews(id: number): Observable<News>{
-        let n$ = this.http
-        .get(`${this.baseUrl}news/${id}`, {headers: this.getHeaders()})
-        .map(mapSingleNews);
-        return n$;
+    getByNewsID(id: number): Observable<Comment[]>{
+        let c$ = this.http
+        .get(`${this.baseUrl}comments/bynews/${id}`, {headers: this.getHeaders()})
+        .map(mapComments);
+        return c$;
     }
 
     private getHeaders(){
@@ -34,24 +28,17 @@ export class NewsService {
     }
 }
 
-function mapNews(response:Response): News[]{
-    return response.json().map(toNews)
+function mapComments(response:Response): Comment[]{
+    return response.json().map(toComment)
 }
 
-function mapSingleNews(response:Response): News{
-  return toNews(response.json());
-}
-
-function toNews(r:any): News{
-    let n = <News>({
+function toComment(r:any): Comment{
+    let comment = <Comment>({
         id: r.Id,
-        title: r.Title,
         content: r.Content,
         createdOn: r.CreatedOn,
-        comments: r.Comments
+        author: r.Author.UserName
     });
-    console.log(n.comments);
-    console.log('Parsed news:', n);
-    return n;
+    console.log('Parsed comments:', comment);
+    return comment;
 }
-

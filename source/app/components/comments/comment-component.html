@@ -1,9 +1,16 @@
-<h2>News</h2>
-<ul class="news">
-  <li *ngFor="let n of news" (click)="onSelect(n)" [class.selected]="n === selectedNews">
-    <span class="news-element">
-      <button an class="badge" [routerLink]="['/news', n.id]">{{n.title}} {{n.id}}</button>{{n.content}}
-      <span>Created on: {{n.createdOn | date}}</span>
+<h2>Comments</h2>
+
+<ul class="comments">
+  <li *ngFor="let comment of comments">
+    <span class="comments-element">
+      <span>{{comment.content}}</span>
+      <br>
+      <span>Created on: {{comment.createdOn | date}}</span>
+      <span> by: {{comment.author}}</span>
+      <!--
+      <button>{{comment.author}} {{comment.id}}</button>{{n.content}}
+      -->
     </span>
   </li>
 </ul>
+

@@ -16,10 +16,11 @@ import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
+import { CommentComponent } from './components/comments/comment-component';
 
 import {ValuesPipe} from './pipes/values-pipe';
 
-import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
+import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
 
 import { BuyTicketModule } from './tickets';
 
@@ -43,7 +44,8 @@ import { AuthGuard } from './guards/auth-guard';
         MapComponent,
         NewsComponent,
         NewsDetailsComponent,
-        ValuesPipe
+        ValuesPipe,
+        CommentComponent
     ], // to be refactored to modules
 
     providers: [
@@ -53,7 +55,8 @@ import { AuthGuard } from './guards/auth-guard';
         ApiService,
         CookieService,
         AlertService,
-        NewsService
+        NewsService, 
+        CommentService
     ],
 
     bootstrap: [AppComponent]

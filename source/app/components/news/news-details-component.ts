@@ -5,7 +5,6 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs';
 
-import {ValuesPipe} from '../../pipes/values-pipe';
 import { NewsService } from '../../services/news-service';
 import { News } from '../../models/news';
 

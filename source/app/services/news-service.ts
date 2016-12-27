@@ -42,38 +42,14 @@ function mapSingleNews(response:Response): News{
   return toNews(response.json());
 }
 
-function mapComments(response:Response): Comment[]{
-    return response.json().map(toComment)
-}
-
 function toNews(r:any): News{
     let n = <News>({
         id: r.Id,
         title: r.Title,
         content: r.Content,
         createdOn: r.CreatedOn,
-        comments: toComment(r.Comments)
+        comments: r.Comments
     });
-    console.log(n.comments);
     console.log('Parsed news:', n);
     return n;
 }
-
-function toComment(r:any[]): Comment[]{
-    let comments: Comment[];
-
-    r.forEach(news => {
-        let comment = <Comment>({
-        //id: news.Comments.Id,
-        content: news.Comments.Content,
-        createdOn:  news.Comments.CreatedOn,
-        author: news.Comments.Author.Username
-        });
-    
-        comments.push(comment);
-    });
-    console.log('Parsed comments:', comments);
-    return comments;
-}
-
-
