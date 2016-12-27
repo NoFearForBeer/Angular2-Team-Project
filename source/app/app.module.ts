@@ -10,7 +10,7 @@ import { HomeContainer } from './components/containers/home/home-container';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { LoginFormModule } from './components/index';
+import { LoginFormModule, UserProfileModule } from './components/index';
 import { RegisterComponent } from './components/register/register-component';
 import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
@@ -32,7 +32,8 @@ import { AuthGuard } from './guards/auth-guard';
         FormsModule,
         HttpModule,
         BuyTicketModule,
-        LoginFormModule
+        LoginFormModule,
+        UserProfileModule
     ],
 
     declarations: [
