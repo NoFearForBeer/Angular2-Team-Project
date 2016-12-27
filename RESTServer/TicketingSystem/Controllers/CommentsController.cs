@@ -47,8 +47,9 @@ namespace TicketingSystem.Controllers
             return this.Json(comment);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
+        [Route("api/Comments/Post")]
         public IHttpActionResult Post(CommentViewModel comment)
         {
             string currentUserId = this.User.Identity.GetUserId();

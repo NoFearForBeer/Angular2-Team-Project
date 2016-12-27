@@ -17,6 +17,7 @@ import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
 import { CommentComponent } from './components/comments/comment-component';
+import { CommentPostComponent } from './components/comments/comment-post-component';
 
 import {ValuesPipe} from './pipes/values-pipe';
 
@@ -45,7 +46,8 @@ import { AuthGuard } from './guards/auth-guard';
         NewsComponent,
         NewsDetailsComponent,
         ValuesPipe,
-        CommentComponent
+        CommentComponent, 
+        CommentPostComponent
     ], // to be refactored to modules
 
     providers: [

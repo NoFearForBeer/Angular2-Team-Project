@@ -202,6 +202,8 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Comments\CommentUpdateModel.cs" />
+    <Compile Include="Models\Comments\CommentCreateModel.cs" />
     <Compile Include="Models\Comments\CommentViewModel.cs" />
     <Compile Include="Models\ExpressionMappings.cs" />
     <Compile Include="Models\News\NewsViewModel.cs" />

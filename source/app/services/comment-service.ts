@@ -12,6 +12,12 @@ export class CommentService {
 
     private baseUrl: string = 'http://localhost:3200/api/';
 
+    private applicationJson: string = 'application/json';
+    private jsonHeaders: Headers = new Headers({
+        'Content-type': this.applicationJson,
+        'Accept': this.applicationJson
+    });
+
     constructor(private http: Http) { }
 
     getByNewsID(id: number): Observable<Comment[]>{
@@ -25,6 +31,26 @@ export class CommentService {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         return headers;
+    }
+
+     post(comment: any): Observable<any>  {
+        const path = `${this.baseUrl}comments/post`;
+        return this.http.post(path, comment, { headers: this.jsonHeaders })
+                .map((resp: Response) => {
+                    console.log('Success!!');
+                    // There are no response from register.
+                    return Observable.empty;
+                })
+                .catch((error: Response) => {
+
+                   let errorMessages: String[] = [];
+                   console.log(error);
+                   let modelState = error.json().ModelState;
+                   Object.getOwnPropertyNames(modelState).forEach((prop) => {
+                        errorMessages.push(modelState[prop].toString());
+                   });
+                   return Observable.throw(errorMessages.toString());
+                });
     }
 }
 

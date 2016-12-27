@@ -11,3 +11,6 @@
   </div>
 
 <comment-component [currentNews]="news"></comment-component>
+<div *ngIf="authService.isLoggedIn() == true">
+  <comment-post-component [currentNews]="news"></comment-post-component>
+</div>
