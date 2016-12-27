@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../services';
+import { ImageDataPipe } from '../../pipes';
 
 @Component({
     selector: 'user-profile-component',
@@ -14,7 +15,10 @@ export class UserProfileComponent implements OnInit {
     imageUpdated: boolean = false;
     imageSelected: boolean = false;
 
-    constructor(private api: ApiService) { }
+    constructor(
+        private api: ApiService,
+        private imagePipe: ImageDataPipe
+        ) { }
 
     ngOnInit() {
         this.userProfile = this.api.get('/users/info')
@@ -26,7 +30,7 @@ export class UserProfileComponent implements OnInit {
                     return;
                 }
 
-                this.tempImg = 'data:image/jpeg;base64,' + this.userProfile.Avatar;
+                this.tempImg = this.imagePipe.transform(this.userProfile.Avatar, this.userProfile.FileExtension);
             }, (error) => console.log(error));
     }
 
@@ -48,8 +52,8 @@ export class UserProfileComponent implements OnInit {
         this.api.uploadFile('/users/avatar', file)
             .then(message => {
                 this.imageUpdated = true;
-                 this.imageSelected = false;
-            setTimeout(() => { this.imageUpdated = false; }, 2000);
+                this.imageSelected = false;
+                setTimeout(() => { this.imageUpdated = false; }, 2000);
             },
             rejected => console.log(rejected)
             );
