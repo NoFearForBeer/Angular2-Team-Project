@@ -39,6 +39,7 @@ namespace TicketingSystem.Models
             Tickets = user.Tickets.AsQueryable().Select(ticketExpression),
             LastName = user.LastName,
             UserName = user.UserName,
+            Avatar = user.Avatar,
             Id = user.Id,
         };
 

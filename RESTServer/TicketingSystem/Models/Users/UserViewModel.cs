@@ -14,6 +14,8 @@ namespace TicketingSystem.Models.Users
 
         public string Email { get; set; }
 
+        public byte[] Avatar { get; set; }
+
         public IEnumerable<TicketResponseModel> Tickets { get; set; }
 
         public IEnumerable<string> Roles { get; set; }
