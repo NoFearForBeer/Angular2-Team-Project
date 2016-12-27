@@ -159,9 +159,9 @@ namespace TicketingSystem.Controllers
                 return this.BadRequest("Cannot find image");
             }
 
-    
-            // TODO:
             string fileName = filesReadToProvider.Contents[0].Headers.ContentDisposition.FileName;
+            currentUser.AvatarFileName = fileName.Replace("\"", string.Empty);
+
             byte[] fileBytes = await filesReadToProvider.Contents[0].ReadAsByteArrayAsync();
             currentUser.Avatar = fileBytes;
             IdentityResult result = userManger.Update(currentUser);

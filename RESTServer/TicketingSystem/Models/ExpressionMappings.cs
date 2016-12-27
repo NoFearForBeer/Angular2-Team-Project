@@ -40,6 +40,7 @@ namespace TicketingSystem.Models
             LastName = user.LastName,
             UserName = user.UserName,
             Avatar = user.Avatar,
+            FileName = user.AvatarFileName,
             Id = user.Id,
         };
 
