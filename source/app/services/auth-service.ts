@@ -37,7 +37,7 @@ export class AuthService {
 
     getAuthorizationHeader(): Headers {
         let token = this.cookieService.get(this.cookieKey);
-        console.log(token);
+
         return new Headers({
             'Content-type': this.applicationJson,
             'Authorization': `Bearer ${token}`
@@ -48,6 +48,7 @@ export class AuthService {
         return !!this.cookieService.get(this.cookieKey);
     }
 
+    //
     getLoggedUser(): any {
         return this.currentLoggedUser;
     }
@@ -65,14 +66,12 @@ export class AuthService {
         const path = `${this.baseApiUrl}account/register`;
         return this.http.post(path, user, { headers: this.jsonHeaders })
                 .map((resp: Response) => {
-                    console.log('Success!!');
                     // There are no response from register.
                     return Observable.empty;
                 })
                 .catch((error: Response) => {
 
                    let errorMessages: String[] = [];
-                   console.log(error);
                    let modelState = error.json().ModelState;
                    Object.getOwnPropertyNames(modelState).forEach((prop) => {
                         errorMessages.push(modelState[prop].toString());
