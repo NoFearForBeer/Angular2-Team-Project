@@ -76,6 +76,7 @@ namespace TicketingSystem.Controllers
 
         [Authorize]
         [HttpPost]
+        [Route("api/Comments/Delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var commentToDelete = this.context.Comments.FirstOrDefault(c => c.Id == id);

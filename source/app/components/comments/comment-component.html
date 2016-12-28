@@ -1,16 +1,20 @@
-<h2>Comments</h2>
-
-<ul class="comments">
-  <li *ngFor="let comment of comments">
-    <span class="comments-element">
-      <span>{{comment.content}}</span>
-      <br>
-      <span>Created on: {{comment.createdOn | date}}</span>
-      <span> by: {{comment.author}}</span>
-      <!--
-      <button>{{comment.author}} {{comment.id}}</button>{{n.content}}
-      -->
-    </span>
-  </li>
-</ul>
-
+<div>
+  <div class="col-sm-10 small" *ngFor="let comment of comments">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <strong>{{comment.author}}</strong> <span class="text-muted">commented on {{comment.createdOn | date}}</span>
+                <form name="form" (ngSubmit)="postComment(comment.id)" #f="ngForm" novalidate>
+                    <button class="btn btn-sm btn-danger pull-right">Delete</button>
+                </form>
+              <!--
+              <input type="submit" value="Delete Comment" class="btn btn-sm btn-danger pull-right" />
+              -->
+              <br />
+              <br />
+          </div>
+          <div class="panel-body">
+              {{comment.content}}
+          </div>
+      </div>
+  </div>
+</div>

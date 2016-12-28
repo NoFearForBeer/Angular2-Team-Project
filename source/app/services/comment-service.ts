@@ -52,6 +52,21 @@ export class CommentService {
                    return Observable.throw(errorMessages.toString());
                 });
     }
+
+    delete(id: number): Observable<any>  {
+        const path = `${this.baseUrl}comments/delete/${id}`;
+        return this.http.post(path, { headers: this.jsonHeaders })
+                .map((resp: Response) => {
+                    console.log('Success!!');
+                    // There are no response from register.
+                    return Observable.empty;
+                })
+                .catch((error: Response) => {
+                   let errorMessages: String[] = [];
+                   console.log(error);
+                   return Observable.throw(errorMessages.toString());
+                });
+    }
 }
 
 function mapComments(response:Response): Comment[]{

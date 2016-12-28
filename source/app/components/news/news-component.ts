@@ -22,9 +22,9 @@ export class NewsComponent implements OnInit {
 
   constructor(private http: Http, private router: Router, private newsService: NewsService) { }
 
-ngOnInit(){
-    this.newsService
-      .getAll()
-      .subscribe(p => this.news = p)
-  }
+  ngOnInit(){
+      this.newsService
+        .getAll()
+        .subscribe(p => this.news = p)
+    }
 }
