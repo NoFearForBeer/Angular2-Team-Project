@@ -11,6 +11,7 @@ import { ImageDataPipe } from '../../pipes';
 export class UserProfileComponent implements OnInit {
 
     userProfile: any = {};
+    newProfile: any = {};
     tempImg: string = 'Initial';
     imageUpdated: boolean = false;
     imageSelected: boolean = false;
@@ -19,13 +20,14 @@ export class UserProfileComponent implements OnInit {
     constructor(
         private api: ApiService,
         private imagePipe: ImageDataPipe
-        ) { }
+    ) { }
 
     ngOnInit() {
         this.userProfile = this.api.get('/users/info')
             .subscribe((jsonResp) => {
                 this.userProfile = jsonResp;
 
+                this.initNewProfile(this.userProfile.FirstName, this.userProfile.LastName, this.userProfile.Email);
                 if (!this.userProfile.Avatar) {
                     this.tempImg = 'img/profile.jpg';
                     return;
@@ -60,7 +62,41 @@ export class UserProfileComponent implements OnInit {
             );
     }
 
-    toogle() {
+    toogle(reset?: boolean) {
+        if (reset) {
+            this.initNewProfile(this.userProfile.FirstName, this.userProfile.LastName, this.userProfile.Email);
+        }
+
         this.isEdit = !this.isEdit;
+    }
+
+    updateProfile() {
+        let data: any = {
+            FirstName: this.newProfile.FirstName,
+            LastName: this.newProfile.LastName,
+            Email: this.newProfile.Email,
+            Id: this.userProfile.Id,
+            UserName: this.userProfile.UserName,
+        };
+
+        this.api.put('/users/', data)
+            .subscribe(resp => {
+                this.imageUpdated = true;
+                this.imageSelected = false;
+
+                this.userProfile.FirstName = data.FirstName;
+                this.userProfile.LastName = data.LastName;
+                this.userProfile.Email = data.Email;
+                this.userProfile.FullName = data.FirstName +  ' ' + data.LastName;
+                this.toogle();
+                setTimeout(() => { this.imageUpdated = false; }, 2000);
+            },
+            err => console.error(err));
+    }
+
+    private initNewProfile(firsName: string, lastName: string, email: string) {
+        this.newProfile.FirstName = firsName;
+        this.newProfile.LastName = lastName;
+        this.newProfile.Email = email;
     }
 }
