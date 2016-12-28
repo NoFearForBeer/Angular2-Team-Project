@@ -40,6 +40,6 @@ export class LoginForm {
             }, (err: Error) => {
                 console.error(err);
             });
-
+        //this.auth.currentLoggedUser.userName = this.user.username;
     }
 }

@@ -6,19 +6,24 @@ import { User } from '../../../models/user';
 
 @Component({
     selector: 'home-container',
-    templateUrl: './home-container.html'
+    templateUrl: './home-container.html',
+    providers: [AuthService]
 })
-export class HomeContainer {
-    currentUser: User;
-    userName: String = '<UserName>';
+export class HomeContainer implements OnInit{
+    currentUserUsername: string;
+    //userName: String = '<UserName>';
     result: string = 'Test';
 
     constructor(private authService: AuthService, private apiService: ApiService) { }
 
     ngOnInit() {
-       // TODO: get Info!
+       this.getCurrentUser();
     }
 
+    getCurrentUser(): void {
+        this.currentUserUsername = this.authService.currentLoggedUser.userName;
+        console.log("User:"+this.authService.currentLoggedUser.userName);
+    }
     // TODO: Delete
     checkAuthorization(): void {
         this.apiService.get('/Values')

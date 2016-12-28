@@ -7,7 +7,7 @@ import { CookieService } from '../../node_modules/angular2-cookie/services/cooki
 @Injectable()
 export class AuthService {
 
-    private currentLoggedUser = {
+    currentLoggedUser = {
         access_token: '',
         expires_in: '',
         token_type: '',
@@ -90,7 +90,7 @@ export class AuthService {
                 let jsonData = resp.json();
                 let expires: Date = new Date(jsonData['.expires']);
                 this.currentLoggedUser = jsonData;
-
+                console.log(this.currentLoggedUser);
                 this.cookieService.put(this.cookieKey, jsonData.access_token, { expires : expires } );
                 // this.router.navigate(['/']);
                 return resp;
