@@ -41,6 +41,7 @@ namespace TicketingSystem.Models
             UserName = user.UserName,
             Avatar = user.Avatar,
             FileName = user.AvatarFileName,
+            Balance = Math.Round(user.Balance, 2),
             Id = user.Id,
         };
 

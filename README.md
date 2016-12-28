@@ -39,7 +39,7 @@ Action | Method | Description | Body/Query | Response | Notes
 **api/tickets/allByUsername?username=text** | `GET`| Gets tickets for a given user by username |  username is **required**, count is optional | See *api/tickets/* 
 **api/tickets/allByUserid?id=GUID** | `GET` | Gets tickets for a given user by its id |  id is **required**, count is optional | See *api/tickets/* 
 **api/tickets/activate** | `PUT` | Activates a ticked |  ```{ id: "GUID"}``` | ```{ Message = "Successfully activated/Ticked already activated.", ExpiresOn = "Date" }``` | Requires authorization
-**api/users/** | `GET` | Gets all registered users | - | ```[ { FirstName: "Text", LastName: "Text", Email: "Text", Tickets: [], Roles: [], Id: "GUID", UserName: "Text", FullName: "", Avatar: "string", FileExtension: "jpg|png" }]``` | for Administrators\*\*
+**api/users/** | `GET` | Gets all registered users | - | ```[ { FirstName: "Text", LastName: "Text", Email: "Text", Tickets: [], Roles: [], Id: "GUID", UserName: "Text", FullName: "", Avatar: "string", FileExtension: "jpg|png", Balance: "number" }]``` | for Administrators\*\*
 **api/users/info/** | `GET` | Returns info about current logged user | - | `Simliar to above but for single user - not array` | 
 **api/users/byid?id=GUID** | `GET` | Returns info about user by id | id is **required** | `Same as above` | 
 **api/users/** | `POST` | Creates a new user (same as *api/account/register*) | `check api/account/register/` | `Same as aboive` | 

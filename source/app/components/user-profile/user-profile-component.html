@@ -28,11 +28,17 @@
     <div class="col" *ngIf="!isEdit">
 
         <div class="col col-sm-4 col-sm-offset-4">
-            <h2>
-                {{ userProfile.FullName }}
-            </h2>
 
-            <h4> {{ userProfile.Email }}</h4>
+            <div class="col col-sm-10">
+
+                <h2>
+                    {{ userProfile.FullName }}
+                </h2>
+
+                <h4> {{ userProfile.Email }}</h4>
+
+                <h4> You have  <b [ngClass]="{ 'text-success': userProfile.Balance >= 1.6, 'text-danger':  userProfile.Balance < 1.6}"> {{ userProfile.Balance }} </b> leva </h4>
+            </div>
             <span class="pull-right btn btn-info" (click)="toogle()">  
                 <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
             </span>

@@ -18,6 +18,8 @@ namespace TicketingSystem.Models.Users
 
         public string FileName { get; set; }
 
+        public decimal Balance { get; set; }
+
         public string FileExtension
         {
             get
