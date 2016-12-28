@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ApiService } from '../../services/api-service';
+import { ImageDataPipe } from '../../pipes';
 
 @Component({
     selector: 'buy-ticket-component',
@@ -8,15 +9,18 @@ import { ApiService } from '../../services/api-service';
 export class BuyTicketComponent {
 
     hours: number = 1;
-    result: string = 'The result';
-    constructor(private api: ApiService) { }
+    result: string = 'The QR image will be shown here';
+    constructor(
+        private api: ApiService,
+        private imagePipe: ImageDataPipe) { }
 
     buyTicket() {
         this.api.post('/tickets/buy', { hours: this.hours })
             .subscribe(
-            resp =>
-                this.result = `<img src="data:image/png;base64,${resp.QRCode}" />`,
-            err =>
-                this.result = err);
+            resp => {
+                let imageSrc = this.imagePipe.transform(resp.QRCode, 'png');
+                this.result = `<img src="${imageSrc}" width="250" />`;
+            },
+            err => this.result = `<b class="text-primary">${err.json().Message}<b>`);
     }
 }
