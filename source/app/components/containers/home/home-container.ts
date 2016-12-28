@@ -16,7 +16,10 @@ export class HomeContainer {
 
     ngOnInit() {
         // TODO: known bug this should be updated on login !
-       this.userName = this.authService.getLoggedUser().userName;
+
+        if (this.authService.isLoggedIn()) {
+            this.userName = this.authService.getLoggedUser().userName;
+        }
     }
 
     logout() {
