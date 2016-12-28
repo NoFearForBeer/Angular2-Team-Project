@@ -15,35 +15,55 @@ export class ApiService {
         path = `${this.baseApiUrl}${path}`;
         return this.http.get(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
-            .map(resp => resp.json());
+            .map(resp =>{
+                if (!!resp._body) {
+                    return resp.json();
+                }
+
+                return resp.statusText;
+            });
     }
 
     post(path: string, data: Object): Observable<any> {
         path = `${this.baseApiUrl}${path}`;
         return this.http.post(path, JSON.stringify(data), { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
-            .map(resp => resp.json());
+            .map(resp => {
+                if (!!resp._body) {
+                    return resp.json();
+                }
+
+                return resp.statusText;
+            });
     }
 
-    put(path: string, data: Object, contentType?: string): Observable<any> {
+    put(path: string, data: Object): Observable<any> {
 
         let headers = this.authService.getAuthorizationHeader();
-        if (!!contentType) {
-            headers.set('Content-type', contentType);
-        }
-
 
         path = `${this.baseApiUrl}${path}`;
         return this.http.put(path, JSON.stringify(data), { headers })
             .catch(err => Observable.throw(err))
-            .map(resp => resp.json());
+            .map(resp => {
+                if (!!resp._body) {
+                    return resp.json();
+                }
+
+                return resp.statusText;
+            });
     }
 
     delete(path: string) {
         path = `${this.baseApiUrl}${path}`;
         return this.http.delete(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
-            .map(resp => resp.json());
+            .map(resp => {
+                if (!!resp._body) {
+                    return resp.json();
+                }
+
+                return resp.statusText;
+            });
     }
 
     uploadFile(path: string, file: File): Promise<any> {
