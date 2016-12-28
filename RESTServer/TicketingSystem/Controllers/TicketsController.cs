@@ -19,8 +19,11 @@ namespace TicketingSystem.Controllers
     [RoutePrefix("api/Tickets")]
     public class TicketsController : ApiController
     {
-        const decimal TicketPriceForHour = 1.6m;
+        private const decimal InitialTicketPrice = 1.6m;
+        private const decimal TicketPricePerHour = 0.1m;
+        private const decimal OneWeekInHours = 168;
         private const int DefaultCountTickets = 1000;
+        private const decimal DiscountValue = 0.3m; // 30%
         private ITicketingSystemContext context;
         private ITicketService ticketService;
 
@@ -149,17 +152,17 @@ namespace TicketingSystem.Controllers
             string currentUserId = this.User.Identity.GetUserId();
             User user = this.context.Users.FirstOrDefault(u => u.Id == currentUserId);
             
-            decimal ticketPrice = (TicketPriceForHour * hours);
+            decimal ticketPrice = ((hours - 1) * TicketPricePerHour) + InitialTicketPrice;
             
-            // get discount for +2 hours
-            if (hours > 1)
+            // get discount for one or more weekend tickets
+            if (hours > OneWeekInHours)
             {
-                ticketPrice = ticketPrice - (ticketPrice / 20);
+                ticketPrice = ticketPrice - (ticketPrice * 0.3m);
             }
 
             if (user.Balance - ticketPrice < 0)
             {
-                return this.BadRequest(string.Format("Not enough money! Ticked price: {0}. Your balance: {1}", ticketPrice, user.Balance));
+                return this.BadRequest(string.Format("Not enough money! Ticket price: {0}. Your balance: {1}", ticketPrice, user.Balance));
             }
 
             Ticket ticket = this.ticketService.Create(hours, ticketPrice);
