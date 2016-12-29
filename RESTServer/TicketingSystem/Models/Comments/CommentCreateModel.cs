@@ -9,7 +9,7 @@ namespace TicketingSystem.Models.Comments
         [MaxLength(100000, ErrorMessage = "The comment is too long")]
         public string Content { get; set; }
 
-        //public string AuthorId { get; set; }
+        public string AuthorUsername { get; set; }
 
         public int NewsItemId { get; set; }
 

@@ -21,7 +21,7 @@ import { NewsDetailsComponent } from './components/news/news-details-component';
 import { CommentComponent } from './components/comments/comment-component';
 import { CommentPostComponent } from './components/comments/comment-post-component';
 
-import { ValuesPipe, ImageDataPipe } from './pipes/';
+import { ValuesPipe, ImageDataPipe, SortPipe } from './pipes/';
 import { TicketPriceDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
@@ -54,6 +54,7 @@ import { AuthGuard } from './guards/auth-guard';
         CommentComponent,
         CommentPostComponent,
         ValuesPipe,
+        SortPipe,
         ImageDataPipe,
         TicketPriceDirective,
     ],

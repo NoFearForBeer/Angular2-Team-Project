@@ -11,6 +11,7 @@ using TicketingSystem.Models.Comments;
 
 using Microsoft.AspNet.Identity;
 using System;
+using TicketingSystem.Services;
 
 namespace TicketingSystem.Controllers
 {
@@ -50,16 +51,18 @@ namespace TicketingSystem.Controllers
         //[Authorize]
         [HttpPost]
         [Route("api/Comments/Post")]
-        public IHttpActionResult Post(CommentViewModel comment)
+        public IHttpActionResult Post(CommentCreateModel comment)
         {
-            string currentUserId = this.User.Identity.GetUserId();
+            //string currentUserId = this.User.Identity.GetUserId();
+            //string username = this.context.Users.Where(u => u.Id == currentUserId).FirstOrDefault().UserName; 
+            var userId = this.context.Users.FirstOrDefault(u => u.UserName == comment.AuthorUsername).Id;
 
             if (comment != null && this.ModelState.IsValid)
             {
                 var databaseComment = new Comment {
                     Content = comment.Content,
                     NewsItemId = comment.NewsItemId,
-                    AuthorId = currentUserId,
+                    AuthorId = userId,
                     CreatedOn = DateTime.Now
                 };
 
@@ -74,8 +77,7 @@ namespace TicketingSystem.Controllers
             }
         }
 
-        [Authorize]
-        [HttpDelete]
+        [HttpPost]
         [Route("api/Comments/Delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -86,7 +88,6 @@ namespace TicketingSystem.Controllers
             return Ok();
         }
 
-        [Authorize]
         [HttpPut]
         public IHttpActionResult Update(CommentUpdateModel comment)
         {

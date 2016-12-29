@@ -21,6 +21,7 @@ export class HomeContainer implements OnInit{
         if (this.authService.isLoggedIn()) {
             this.userName = this.authService.getLoggedUser().userName;
         }
+        console.log(this.authService.getLoggedUser());
     }
 
     logout() {
