@@ -5,7 +5,13 @@ import { Input, Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class TicketPriceDirective {
 
+    private TicketPricePerHour: number = 0.1;
+    private TicketInitialPrice: number = 1.6;
+    private OneWeekInHours: number = 168;
+    private DiscountPercent: number = 0.3;
+
     private calculatedPriceEelementId: string;
+    private selectElement: HTMLSelectElement;
 
     @Input('price-id') set setPriceId(priceIdElement: string) {
         if (!priceIdElement) {
@@ -19,17 +25,24 @@ export class TicketPriceDirective {
         this.calculatedPriceEelementId = priceIdElement;
     }
 
-    constructor(currentHtmlElement: ElementRef) {
-         currentHtmlElement.nativeElement.style.backgroundColor = 'yellow';
+    constructor(private currentHtmlElement: ElementRef) {
+        this.selectElement = this.currentHtmlElement.nativeElement;
     }
 
     @HostListener('change') onDropDownChange() {
-        // this.highlight(null);
-        console.log('change');
-        //TODO:
+        let hours: number = Number.parseInt(this.selectElement.value);
+        this.calculatePrice(hours, this.calculatedPriceEelementId);
     }
 
     private calculatePrice(hours: number, resultElementId: string) {
+        let ticketPrice: number = ((hours - 1) * this.TicketPricePerHour) + this.TicketInitialPrice;
 
+        // get discount for one or more weekend tickets
+        if (hours > this.OneWeekInHours) {
+            ticketPrice = ticketPrice - (ticketPrice * this.DiscountPercent);
+        }
+
+        console.log(ticketPrice);
+        document.getElementById(resultElementId).innerHTML = `${ticketPrice.toPrecision(2)} lv.`;
     }
 }
