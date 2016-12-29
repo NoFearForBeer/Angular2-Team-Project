@@ -157,7 +157,7 @@ namespace TicketingSystem.Controllers
             // get discount for one or more weekend tickets
             if (hours > OneWeekInHours)
             {
-                ticketPrice = ticketPrice - (ticketPrice * 0.3m);
+                ticketPrice = ticketPrice - (ticketPrice * DiscountValue);
             }
 
             if (user.Balance - ticketPrice < 0)

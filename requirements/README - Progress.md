@@ -38,11 +38,11 @@ Your Web application should use the following technologies, frameworks and devel
   7. TBD
   8. TBD
 - At least **7 different private (authenticated) dynamic web pages**
-  1. UserProfile -In Progress
-  2. Buy Ticket - In Progress
+  1. UserProfile - DONE
+  2. Buy Ticket - DONE
   3. News Details (with possibility to add comments) - TODO
-  4. Charge account - (add monney to account) = TODO
-  5. Owned tickets - Current tickets of user
+  4. Charge account - (add monney to account) - TODO
+  5. Owned tickets - Current tickets of user - TODO
   6. TBD
   7. TBD
 - At least **10 different** partial components
@@ -67,7 +67,7 @@ Your Web application should use the following technologies, frameworks and devel
   2. Image Data Pipe
   3. TBD
 - Create at least **3 different directives**
-  1. TBD
+  1. TicketPriceDirective
   2. TBD
   3. TBD
 - Setup and use tslint
