@@ -7,20 +7,25 @@ import 'rxjs';
 
 import { CommentService } from '../../services/comment-service';
 import { AuthService } from '../../services/auth-service';
+import { ApiService } from '../../services/api-service';
+import { AlertService } from '../../services/alert-service';
 
 import { Comment } from '../../models/comment';
 import { News } from '../../models/news';
 import { User } from '../../models/user';
+
 import { NewsDetailsComponent } from '../news/news-details-component';
+import { SortPipe } from '../../pipes';
 
 @Component({
   selector: 'comment-component',
   templateUrl: './comment-component.html',
-  providers: [CommentService]
+  providers: [CommentService, SortPipe]
 })
 
 @Injectable()
 export class CommentComponent implements OnInit {
+    userName: string = '<UserName>';
     model: any = {};
     comments: Comment[];
     
@@ -33,28 +38,31 @@ export class CommentComponent implements OnInit {
     private router: Router, 
     private commentService: CommentService, 
     private route: ActivatedRoute,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private api: ApiService,
+    private alertService: AlertService,
+    private sort: SortPipe ) { }
 
   ngOnInit(): void {
     let newsId = this.currentNews.id;
     console.log(newsId);
     this.commentService.getByNewsID(newsId)
       .subscribe(c => this.comments = c)
+
+    if (this.authService.isLoggedIn()) {
+        this.userName = this.authService.getLoggedUser().userName;
+    }
   }
 
   deleteComment(id: number) {
-        let currentUser = this.authService.getLoggedUser();
-        //let newsId = this.currentNews.id;
-        console.log(currentUser);
-
-        this.commentService.delete(id)
-            .subscribe(
-            data => {
-                // set success message and pass true paramater to persist the message after redirecting to the login page
-                console.log("success");
-            },
-            error => {
-                console.log(error);
-            });
+    this.commentService.delete(id)
+        .subscribe(
+        data => {
+            location.reload();
+            this.alertService.success("Comment deleted succesfully!");
+        },
+        error => {
+            this.alertService.error("This comment cannot be deleted");
+        });
     }
 }
