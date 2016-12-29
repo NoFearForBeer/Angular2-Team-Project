@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../../services/index';
 import { Response } from '@angular/http';
 
-// import { AlertService } from '../services/alert-service';
+import { AlertService } from '../../services/alert-service';
 // import { AuthService } from '../services/authService';
 
 
@@ -21,8 +21,8 @@ export class LoginForm {
     constructor(
         private route: ActivatedRoute,
         private router: Router,
-        private auth: AuthService
-        //private alertService: AlertService
+        private auth: AuthService,
+        private alertService: AlertService
     ) { }
 
     loginUser(): void {
@@ -36,9 +36,12 @@ export class LoginForm {
             (resp: Response) => {
                 this.user.username = '';
                 this.user.password = '';
+                this.alertService.success("User logged in successfully!");
                 this.router.navigate(['/']);
+                this.alertService.success("User logged in successfully!");
             }, (err: Error) => {
                 console.error(err);
+                this.alertService.error("User not recognized!");
             });
         //this.auth.currentLoggedUser.userName = this.user.username;
     }
