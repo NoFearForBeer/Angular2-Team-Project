@@ -75,7 +75,7 @@ namespace TicketingSystem.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpDelete]
         [Route("api/Comments/Delete/{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -87,7 +87,7 @@ namespace TicketingSystem.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpPut]
         public IHttpActionResult Update(CommentUpdateModel comment)
         {
             string currentUserId = this.User.Identity.GetUserId();
