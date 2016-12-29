@@ -211,6 +211,7 @@
     <Compile Include="Models\Tickets\TicketActivateModel.cs" />
     <Compile Include="Models\Tickets\TicketBuyModel.cs" />
     <Compile Include="Models\Tickets\TicketResponseModel.cs" />
+    <Compile Include="Models\Users\ChargeAccountModel.cs" />
     <Compile Include="Models\Users\UpdateUserModel.cs" />
     <Compile Include="Models\Users\UserDeleteModel.cs" />
     <Compile Include="Models\Users\UserResponseModel.cs" />

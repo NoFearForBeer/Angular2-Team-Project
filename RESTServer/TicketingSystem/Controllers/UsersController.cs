@@ -199,6 +199,29 @@ namespace TicketingSystem.Controllers
             return this.Ok();
         }
 
+        [HttpPut]
+        [Route("Charge")]
+        public IHttpActionResult ChargeAccount(ChargeAccountModel model)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
+
+            UserManager<User> userManager = this.GetUserManager();
+            string currentUserId = this.User.Identity.GetUserId();
+            User user = userManager.FindById(currentUserId);
+            user.Balance += model.Amount;
+
+            IdentityResult result = userManager.Update(user);
+            if (!result.Succeeded)
+            {
+                return this.BadRequest(string.Join(" ", result.Errors));
+            }
+
+            return this.Ok();
+        }
+
         private UserManager<User> GetUserManager()
         {
             UserManager<User> userManager = new UserManager<User>(new UserStore<User>(this.context as DbContext));

@@ -24,6 +24,11 @@ namespace TicketingSystem.Models.Users
         {
             get
             {
+                if (string.IsNullOrEmpty(this.FileName))
+                {
+                    return string.Empty;
+                }
+
                 int index = this.FileName.LastIndexOf(".");
                 if (index < 0)
                 {
