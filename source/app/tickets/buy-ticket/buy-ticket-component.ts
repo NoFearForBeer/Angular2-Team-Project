@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { ApiService } from '../../services/api-service';
 import { ImageDataPipe } from '../../pipes';
 
@@ -6,6 +6,7 @@ import { ImageDataPipe } from '../../pipes';
     selector: 'buy-ticket-component',
     templateUrl: './buy-ticket-component.html'
 })
+@Injectable()
 export class BuyTicketComponent {
 
     hours: number = 1;

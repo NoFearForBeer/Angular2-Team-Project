@@ -55,7 +55,7 @@
 
             <div class="input-group">
 
-                <select ticketPrice price-id="2" id="TicketHours" class=" form-control" name="hours" [(ngModel)]="hours">
+                <select ticketPrice price-id="ticket-price-value" id="TicketHours" class=" form-control" name="hours" [(ngModel)]="hours">
                         <option value="1" selected="selected" >1 hour</option>
                         <option value="2">2 hours </option>
                         <option value="3">3 hours </option>
@@ -68,6 +68,7 @@
                         <option [value]="24*30">1 month </option>
                         <option [value]="24*92">3 months </option>
                 </select>
+                <span class="input-group-addon" id="ticket-price-value">Price (Dev)</span>
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-success" (click)="buyTicket()"> Buy </button>
                 </span>

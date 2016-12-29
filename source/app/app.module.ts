@@ -50,12 +50,12 @@ import { AuthGuard } from './guards/auth-guard';
         MapComponent,
         NewsComponent,
         NewsDetailsComponent,
+        BuyTicketComponent,
+        CommentComponent,
+        CommentPostComponent,
         ValuesPipe,
         ImageDataPipe,
-        BuyTicketComponent,
-        CommentComponent, 
-        CommentPostComponent
-        TicketPriceDirective
+        TicketPriceDirective,
     ],
 
     providers: [
@@ -65,8 +65,9 @@ import { AuthGuard } from './guards/auth-guard';
         ApiService,
         CookieService,
         AlertService,
-        NewsService, 
-        CommentService
+        NewsService,
+        CommentService,
+        ImageDataPipe,
     ],
 
     bootstrap: [AppComponent]
