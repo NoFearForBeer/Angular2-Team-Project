@@ -9,6 +9,7 @@ import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
 import { UserProfileComponent } from './components/index';
 import { BuyTicketComponent } from './tickets/buy-ticket/buy-ticket-component';
+import { ChargeAccountComponent } from './components/charge/charge-account-component';
 
 const appRoutes: Routes = [
     { path: '', component: MapComponent },
@@ -18,7 +19,7 @@ const appRoutes: Routes = [
     { path: 'news/:id', component: NewsDetailsComponent },
     { path: 'profile', component: UserProfileComponent },
     { path: 'tickets/buy', component: BuyTicketComponent },
-
+    { path: 'charge', component: ChargeAccountComponent },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
