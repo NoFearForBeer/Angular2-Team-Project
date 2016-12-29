@@ -20,10 +20,11 @@ import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
 
 import { ValuesPipe, ImageDataPipe } from './pipes/';
+import { TicketPriceDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
 
-import { BuyTicketModule } from './tickets';
+import { BuyTicketComponent } from './tickets';
 
 import { AuthGuard } from './guards/auth-guard';
 
@@ -34,7 +35,6 @@ import { AuthGuard } from './guards/auth-guard';
         routing,
         FormsModule,
         HttpModule,
-        BuyTicketModule,
         LoginFormModule,
         UserProfileModule,
         Ng2BootstrapModule
@@ -49,7 +49,9 @@ import { AuthGuard } from './guards/auth-guard';
         NewsComponent,
         NewsDetailsComponent,
         ValuesPipe,
-        ImageDataPipe
+        ImageDataPipe,
+        BuyTicketComponent,
+        TicketPriceDirective
     ],
 
     providers: [
