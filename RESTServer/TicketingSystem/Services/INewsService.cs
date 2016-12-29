@@ -1,12 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
+
 using TicketingSystem.Data.Models;
 
 namespace TicketingSystem.Services
 {
     public interface INewsService
     {
-        News Create(string Name, string Content);
+        News GetById(string id);
 
-        ICollection<News> getAll();
+        News GetById(int? id);
+
+        IQueryable<News> GetAll();
+
+        IQueryable<News> GetMostRecent(int count);
+
+        IQueryable<News> GetByUserId(string userId);
+
+        void Update();
+
+        void Add(News news);
+
+        void Delete(int id);
     }
 }

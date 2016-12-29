@@ -81,7 +81,7 @@ export class AuthService {
                 let jsonData = resp.json();
                 let expires: Date = new Date(jsonData['.expires']);
                 let value: string = JSON.stringify(jsonData);
-
+                console.log(this.currentLoggedUser);
                 this.cookieService.put(this.cookieKey, value, { expires: expires });
                 // this.router.navigate(['/']);
                 return resp;

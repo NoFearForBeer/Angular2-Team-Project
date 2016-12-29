@@ -50,8 +50,6 @@ function toNews(r:any): News{
         createdOn: r.CreatedOn,
         comments: r.Comments
     });
-    console.log(n.comments);
     console.log('Parsed news:', n);
     return n;
 }
-

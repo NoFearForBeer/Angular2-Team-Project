@@ -5,8 +5,8 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs';
 
-import {ValuesPipe} from '../../pipes/values-pipe';
 import { NewsService } from '../../services/news-service';
+import { AuthService } from '../../services/auth-service';
 import { News } from '../../models/news';
 
 
@@ -22,7 +22,8 @@ export class NewsDetailsComponent implements OnInit {
 
   constructor(
     private newsService: NewsService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private authService: AuthService) {
   }
 
   ngOnInit(): void {

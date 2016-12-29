@@ -1,20 +1,25 @@
 <div *ngIf="news">
-  <h2>{{news.title}}!</h2>
-  <div>
-    <span>id: </span>{{news.id}}
-  </div>
-  <div>
-    <span>Created On: </span>{{news.createdOn}}
-  </div>
-  <div>
-    <span>Content: </span>{{news.content}}
+  <div class="col-sm-10 small">
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <button class="badge">{{news.title}}</button>
+              <br />
+              <br />
+              <span class="text-muted">{{news.createdOn | date}}</span>
+              <!--
+              <input type="submit" value="Delete Comment" class="btn btn-sm btn-danger pull-right" />
+              -->
+              <br />
+          </div>
+          <div class="panel-body">
+              {{news.content}}
+          </div>
+      </div>
   </div>
 
-  <div>Comments</div>
-  <ul *ngIf="news"> 
-  	<li *ngFor='let comment of [news.comments]'>
-      <button class="badge">{{comment.Content}}</button>
-      <span>Created on: {{comment.CreatedOn | date}}</span>
-    </li>
-  </ul>
+  <comment-component [currentNews]="news"></comment-component>
+  <div *ngIf="authService.isLoggedIn() == true">
+    <comment-post-component [currentNews]="news"></comment-post-component>
+  </div>
 </div>
+

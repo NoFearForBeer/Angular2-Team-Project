@@ -6,7 +6,7 @@ using TicketingSystem.Data.Constants;
 
 namespace TicketingSystem.Data.Models
 {
-    public class News
+    public class News : BaseModel<int>
     {
         private ICollection<Comment> comments;
 
@@ -14,11 +14,6 @@ namespace TicketingSystem.Data.Models
         {
             this.comments = new HashSet<Comment>();
         }
-
-        [Key]
-        public int Id { get; set; }
-
-        public DateTime CreatedOn { get; set; }
 
         [MinLength(DataModelConstants.StringMinLength)]
         [MaxLength(DataModelConstants.StringShortMaxLength)]

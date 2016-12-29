@@ -1,16 +1,11 @@
-﻿using ITicktingSystem.Data;
-using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 using TicketingSystem.Data;
-using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
 using TicketingSystem.Models.NewsModels;
-using TicketingSystem.Services;
 
 namespace TicketingSystem.Controllers
 {

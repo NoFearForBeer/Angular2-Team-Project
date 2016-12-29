@@ -18,11 +18,13 @@ import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
 import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
+import { CommentComponent } from './components/comments/comment-component';
+import { CommentPostComponent } from './components/comments/comment-post-component';
 
 import { ValuesPipe, ImageDataPipe } from './pipes/';
 import { TicketPriceDirective } from './directives/';
 
-import { AuthService, UserService, ApiService, AlertService, NewsService } from './services/index';
+import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
 
 import { BuyTicketComponent } from './tickets';
 
@@ -51,6 +53,8 @@ import { AuthGuard } from './guards/auth-guard';
         ValuesPipe,
         ImageDataPipe,
         BuyTicketComponent,
+        CommentComponent, 
+        CommentPostComponent
         TicketPriceDirective
     ],
 
@@ -61,8 +65,8 @@ import { AuthGuard } from './guards/auth-guard';
         ApiService,
         CookieService,
         AlertService,
-        NewsService,
-        ImageDataPipe
+        NewsService, 
+        CommentService
     ],
 
     bootstrap: [AppComponent]
