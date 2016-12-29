@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.AspNet.Identity;
@@ -126,6 +129,42 @@ namespace TicketingSystem.Controllers
             user.Email = model.Email;
 
             IdentityResult result = userManager.Update(user);
+            if (!result.Succeeded)
+            {
+                return this.BadRequest(string.Join(" ", result.Errors));
+            }
+
+            return this.Ok();
+        }
+
+        [HttpPut]
+        [Authorize]
+        [Route("Avatar")]
+        public async Task<IHttpActionResult> Avatar()
+        {
+            string currentUserId =  this.User.Identity.GetUserId();
+            UserManager<User> userManger = this.GetUserManager();
+            User currentUser = userManger.FindById(currentUserId);
+
+            if (!Request.Content.IsMimeMultipartContent())
+            {
+                throw new HttpResponseException(HttpStatusCode.UnsupportedMediaType);
+            }
+            
+            MultipartMemoryStreamProvider filesReadToProvider = await Request.Content.ReadAsMultipartAsync();
+
+            // only one image
+            if (filesReadToProvider.Contents.Count < 1)
+            {
+                return this.BadRequest("Cannot find image");
+            }
+
+            string fileName = filesReadToProvider.Contents[0].Headers.ContentDisposition.FileName;
+            currentUser.AvatarFileName = fileName.Replace("\"", string.Empty);
+
+            byte[] fileBytes = await filesReadToProvider.Contents[0].ReadAsByteArrayAsync();
+            currentUser.Avatar = fileBytes;
+            IdentityResult result = userManger.Update(currentUser);
             if (!result.Succeeded)
             {
                 return this.BadRequest(string.Join(" ", result.Errors));

@@ -4,6 +4,7 @@
     using System.ComponentModel.DataAnnotations;
     using System.Security.Claims;
     using System.Threading.Tasks;
+    using Constants;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -27,6 +28,9 @@
         public string LastName { get; set; }
 
         public byte[] Avatar { get; set; }
+
+        [MaxLength(DataModelConstants.StringShortMaxLength)]
+        public string AvatarFileName { get; set; }
 
         public decimal Balance { get; set; }
 

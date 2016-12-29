@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
+import { UserProfileComponent } from './user-profile-component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { BuyTicketComponent } from './buy-ticket-component';
 
 @NgModule({
     imports: [CommonModule, FormsModule],
-    declarations: [BuyTicketComponent],
-    exports: [BuyTicketComponent]
+    declarations: [UserProfileComponent],
+    exports: [UserProfileComponent],
 })
-
-export class BuyTicketModule { }
+export class UserProfileModule { }

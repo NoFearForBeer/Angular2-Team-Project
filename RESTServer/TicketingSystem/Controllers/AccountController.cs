@@ -267,8 +267,8 @@ namespace TicketingSystem.Controllers
                     OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
-
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                IEnumerable<string> roles =  this.UserManager.GetRoles(user.Id);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, roles);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else

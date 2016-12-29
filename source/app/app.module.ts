@@ -1,16 +1,18 @@
-import { NgModule, Pipe, PipeTransform} from '@angular/core';
+import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { HttpModule } from '@angular/http';
 import { CookieService } from '../node_modules/angular2-cookie/services/cookies.service';
+import { Ng2BootstrapModule } from 'ng2-bootstrap';
 
 import { HomeContainer } from './components/containers/home/home-container';
 
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { LoginFormModule } from './components/index';
+import { LoginFormModule, UserProfileModule } from './components/index';
 import { RegisterComponent } from './components/register/register-component';
 import { MapComponent } from './components/map/map-component';
 import { AlertComponent } from './components/alert/alert-component';
@@ -19,22 +21,25 @@ import { NewsDetailsComponent } from './components/news/news-details-component';
 import { CommentComponent } from './components/comments/comment-component';
 import { CommentPostComponent } from './components/comments/comment-post-component';
 
-import {ValuesPipe} from './pipes/values-pipe';
+import { ValuesPipe, ImageDataPipe } from './pipes/';
+import { TicketPriceDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
 
-import { BuyTicketModule } from './tickets';
+import { BuyTicketComponent } from './tickets';
 
 import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
     imports: [
+        DropdownModule.forRoot(),
         BrowserModule,
         routing,
         FormsModule,
         HttpModule,
-        BuyTicketModule,
-        LoginFormModule
+        LoginFormModule,
+        UserProfileModule,
+        Ng2BootstrapModule
     ],
 
     declarations: [
@@ -45,10 +50,13 @@ import { AuthGuard } from './guards/auth-guard';
         MapComponent,
         NewsComponent,
         NewsDetailsComponent,
+        BuyTicketComponent,
+        CommentComponent,
+        CommentPostComponent,
         ValuesPipe,
-        CommentComponent, 
-        CommentPostComponent
-    ], // to be refactored to modules
+        ImageDataPipe,
+        TicketPriceDirective,
+    ],
 
     providers: [
         AuthGuard,
@@ -57,8 +65,9 @@ import { AuthGuard } from './guards/auth-guard';
         ApiService,
         CookieService,
         AlertService,
-        NewsService, 
-        CommentService
+        NewsService,
+        CommentService,
+        ImageDataPipe,
     ],
 
     bootstrap: [AppComponent]

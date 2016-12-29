@@ -38,11 +38,11 @@ Your Web application should use the following technologies, frameworks and devel
   7. TBD
   8. TBD
 - At least **7 different private (authenticated) dynamic web pages**
-  1. UserProfile -TODO
+  1. UserProfile -In Progress
   2. Buy Ticket - In Progress
   3. News Details (with possibility to add comments) - TODO
-  4. TBD
-  5. TBD
+  4. Charge account - (add monney to account) = TODO
+  5. Owned tickets - Current tickets of user
   6. TBD
   7. TBD
 - At least **10 different** partial components
@@ -63,8 +63,8 @@ Your Web application should use the following technologies, frameworks and devel
 - Load all data using services
 - **Use animations** - pay attention to this
 - Create at least **3 different pipes**
-  1. TBD
-  2. TBD
+  1. Values Pipe
+  2. Image Data Pipe
   3. TBD
 - Create at least **3 different directives**
   1. TBD
