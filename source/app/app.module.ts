@@ -20,6 +20,7 @@ import { NewsComponent } from './components/news/news-component';
 import { NewsDetailsComponent } from './components/news/news-details-component';
 import { CommentComponent } from './components/comments/comment-component';
 import { CommentPostComponent } from './components/comments/comment-post-component';
+import { ChargeAccountComponent } from './components/charge/charge-account-component';
 
 import { ValuesPipe, ImageDataPipe, SortPipe } from './pipes/';
 import { TicketPriceDirective } from './directives/';
@@ -53,6 +54,7 @@ import { AuthGuard } from './guards/auth-guard';
         BuyTicketComponent,
         CommentComponent,
         CommentPostComponent,
+        ChargeAccountComponent,
         ValuesPipe,
         SortPipe,
         ImageDataPipe,

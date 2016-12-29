@@ -41,12 +41,12 @@ Your Web application should use the following technologies, frameworks and devel
   1. UserProfile - DONE
   2. Buy Ticket - DONE
   3. News Details (with possibility to add comments) - TODO
-  4. Charge account - (add monney to account) - TODO
+  4. Charge account - (add monney to account) - DONE
   5. Owned tickets - Current tickets of user - TODO
   6. TBD
   7. TBD
 - At least **10 different** partial components
-  1. Username and password form -TODO
+  1. Username and password form - TODO
   2. Comments (list) - TODO
   3. Comment (add) - TODO
   4. Buy Ticket (dropdown + button) - TODO
