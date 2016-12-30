@@ -6,6 +6,9 @@ import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { HttpModule } from '@angular/http';
 import { CookieService } from '../node_modules/angular2-cookie/services/cookies.service';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { ModalModule } from 'angular2-modal';
+import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
+
 
 import { HomeContainer } from './components/containers/home/home-container';
 
@@ -21,8 +24,10 @@ import { NewsDetailsComponent } from './components/news/news-details-component';
 import { CommentComponent } from './components/comments/comment-component';
 import { CommentPostComponent } from './components/comments/comment-post-component';
 import { ChargeAccountComponent } from './components/charge/charge-account-component';
+import { ModalQRCodeCompoennt } from './components/modal/modal-component';
+import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 
-import { ValuesPipe, ImageDataPipe } from './pipes/';
+import { ValuesPipe, ImageDataPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
@@ -33,8 +38,10 @@ import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
     imports: [
-        DropdownModule.forRoot(),
         BrowserModule,
+        DropdownModule.forRoot(),
+        ModalModule.forRoot(),
+        BootstrapModalModule,
         routing,
         FormsModule,
         HttpModule,
@@ -57,7 +64,10 @@ import { AuthGuard } from './guards/auth-guard';
         ChargeAccountComponent,
         ValuesPipe,
         ImageDataPipe,
+        YesNoPipe,
         TicketPriceDirective,
+        ModalQRCodeCompoennt,
+        TicketListComponent
     ],
 
     providers: [
