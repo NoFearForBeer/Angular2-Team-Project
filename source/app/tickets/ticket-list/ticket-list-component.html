@@ -1,0 +1,31 @@
+<div class="container">
+
+    <h2>Your tickets</h2>
+
+    <table class="table table-responsive">
+        <tr>
+            <th>QR Code</th>
+            <th>Activated</th>
+            <th>Purchase date</th>
+            <th>Price</th>
+            <th>Expire date</th>
+            <th>Expired</th>
+        </tr>
+        <tr *ngFor="let ticket of tickets">
+            <td class="text-center">
+                <modal-qr-code-component [qrCode]="ticket.QRCode"></modal-qr-code-component>
+            </td>
+            <td> {{ ticket.Activated | toYesNo }}  </td>
+            <td> {{ticket.BoughtAt | date:'dd MMM yyyy HH:mm' }} </td>
+            <td> {{ticket.Cost }} </td>
+            <td> {{ !!ticket.ExpireDate ? (ticket.ExpireDate | date:'dd MMM yyyy HH:mm') : 'Must be activated'}} </td>
+            <td> {{ ticket.Expired | toYesNo }} </td>
+        </tr>
+    </table>
+
+
+    <!--<modal-qr-code-component  ></modal-qr-code-component>
+
+        <modal-qr-code-component  ></modal-qr-code-component>-->
+
+</div>
