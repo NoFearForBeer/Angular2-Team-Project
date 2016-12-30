@@ -28,7 +28,7 @@ import { ModalQRCodeCompoennt } from './components/modal/modal-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 
 import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
-import { TicketPriceDirective } from './directives/';
+import { TicketPriceDirective, CardNumberDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
 
@@ -67,6 +67,7 @@ import { AuthGuard } from './guards/auth-guard';
         ImageDataPipe,
         YesNoPipe,
         TicketPriceDirective,
+        CardNumberDirective,
         ModalQRCodeCompoennt,
         TicketListComponent
     ],

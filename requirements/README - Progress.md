@@ -68,8 +68,8 @@ Your Web application should use the following technologies, frameworks and devel
   3. Sort
   4. YesNo
 - Create at least **3 different directives**
-  1. TicketPriceDirective
-  2. TBD
+  1. TicketPrice Directive
+  2. CardNumber Directive
   3. TBD
 - Setup and use tslint
 - Use **TypeScript** - DONE
