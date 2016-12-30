@@ -42,7 +42,7 @@ Your Web application should use the following technologies, frameworks and devel
   2. Buy Ticket - DONE
   3. News Details (with possibility to add comments) - TODO
   4. Charge account - (add monney to account) - DONE
-  5. Owned tickets - Current tickets of user - TODO
+  5. Owned tickets - Current tickets of user - DONE
   6. TBD
   7. TBD
 - At least **10 different** partial components
@@ -50,7 +50,7 @@ Your Web application should use the following technologies, frameworks and devel
   2. Comments (list) - TODO
   3. Comment (add) - TODO
   4. Buy Ticket (dropdown + button) - TODO
-  5. TBD
+  5. Modal Window - DONE
   6. TBD
   7. TBD
   8. TBD
@@ -65,7 +65,8 @@ Your Web application should use the following technologies, frameworks and devel
 - Create at least **3 different pipes**
   1. Values Pipe
   2. Image Data Pipe
-  3. TBD
+  3. Sort
+  4. YesNo
 - Create at least **3 different directives**
   1. TicketPriceDirective
   2. TBD
