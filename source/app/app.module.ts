@@ -27,7 +27,7 @@ import { ChargeAccountComponent } from './components/charge/charge-account-compo
 import { ModalQRCodeCompoennt } from './components/modal/modal-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 
-import { ValuesPipe, ImageDataPipe, YesNoPipe } from './pipes/';
+import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective } from './directives/';
 
 import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
@@ -63,6 +63,7 @@ import { AuthGuard } from './guards/auth-guard';
         CommentPostComponent,
         ChargeAccountComponent,
         ValuesPipe,
+        SortPipe,
         ImageDataPipe,
         YesNoPipe,
         TicketPriceDirective,

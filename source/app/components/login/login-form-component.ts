@@ -36,7 +36,6 @@ export class LoginForm {
             (resp: Response) => {
                 this.user.username = '';
                 this.user.password = '';
-                this.alertService.success("User logged in successfully!");
                 this.router.navigate(['/']);
                 this.alertService.success("User logged in successfully!");
             }, (err: Error) => {

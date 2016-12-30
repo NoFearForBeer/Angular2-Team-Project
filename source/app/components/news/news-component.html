@@ -7,9 +7,6 @@
               <br />
               <br />
               <span class="text-muted">{{n.createdOn | date}}</span>
-              <!--
-              <input type="submit" value="Delete Comment" class="btn btn-sm btn-danger pull-right" />
-              -->
               <br />
           </div>
           <div class="panel-body">
@@ -18,13 +15,3 @@
       </div>
   </div>
 </div>
-<!--
-<ul class="news">
-  <li *ngFor="let n of news" (click)="onSelect(n)" [class.selected]="n === selectedNews">
-    <span class="news-element">
-      <button class="badge" [routerLink]="['/news', n.id]">{{n.title}} {{n.id}}</button>{{n.content}}
-      <span>Created on: {{n.createdOn | date}}</span>
-    </span>
-  </li>
-</ul>
--->

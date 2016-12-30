@@ -49,11 +49,12 @@ namespace TicketingSystem.Models
             Id = comment.Id,
             Content = comment.Content,
             CreatedOn = comment.CreatedOn,
-            Author = new UserResponseModel {
-                UserName = comment.Author.UserName,
-                FullName = comment.Author.FirstName + " " + comment.Author.LastName,
-                Id = comment.Author.Id,
-            },
+            Author = comment.Author.UserName,
+            //Author = new UserResponseModel {
+            //    UserName = comment.Author.UserName,
+            //    FullName = comment.Author.FirstName + " " + comment.Author.LastName,
+            //    Id = comment.Author.Id,
+            //},
             NewsItemId = comment.NewsItemId
         };
 

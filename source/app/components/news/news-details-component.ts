@@ -9,10 +9,13 @@ import { NewsService } from '../../services/news-service';
 import { AuthService } from '../../services/auth-service';
 import { News } from '../../models/news';
 
+import { SortPipe } from '../../pipes';
+
 
 @Component({
   selector: 'news-details-component',
   templateUrl: 'news-details-component.html',
+  providers: [SortPipe]
 })
 
 

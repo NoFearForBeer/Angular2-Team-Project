@@ -70,6 +70,7 @@ export class CommentService {
 }
 
 function mapComments(response:Response): Comment[]{
+    console.log(response.json());
     return response.json().map(toComment)
 }
 
@@ -78,7 +79,7 @@ function toComment(r:any): Comment{
         id: r.Id,
         content: r.Content,
         createdOn: r.CreatedOn,
-        author: r.Author.UserName
+        author: r.Author
     });
     console.log('Parsed comments:', comment);
     return comment;
