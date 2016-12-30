@@ -82,6 +82,7 @@ import { AuthGuard } from './guards/auth-guard';
         NewsService,
         CommentService,
         ImageDataPipe,
+        SortPipe
     ],
 
     bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injectable } from '@angular/core';
+import { Component, OnInit, Input, Injectable, Pipe, PipeTransform  } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -27,7 +27,7 @@ import { SortPipe } from '../../pipes';
 export class CommentComponent implements OnInit {
     userName: string = '<UserName>';
     model: any = {};
-    comments: Comment[];
+    comments: Comment[] = [];
     
     @Input()
     currentNews: News;

@@ -31,37 +31,37 @@ Your Web application should use the following technologies, frameworks and devel
 - At least **8 different public dynamic web pages**
   1. Login - done
   2. Register - done
-  3. Map -done
+  3. Map -done (it is not dinamic)
   4. News - done
   5. News details - done
   6. Ticket Prices - TODO
-  7. TBD
+  7. Public Transport Schedule - TODO
   8. TBD
 - At least **7 different private (authenticated) dynamic web pages**
   1. UserProfile - DONE
   2. Buy Ticket - DONE
-  3. News Details (with possibility to add comments) - TODO
+  3. News Details (with possibility to add comments and delete) - DONE
   4. Charge account - (add monney to account) - DONE
   5. Owned tickets - Current tickets of user - DONE
-  6. TBD
+  6. Activated Tickets - TODO
   7. TBD
 - At least **10 different** partial components
   1. Username and password form - TODO
-  2. Comments (list) - TODO
-  3. Comment (add) - TODO
-  4. Buy Ticket (dropdown + button) - TODO
+  2. Comments (list) - done
+  3. Comment (add) - done
+  4. Buy Ticket (dropdown + button) - Not a partial view
   5. Modal Window - DONE
-  6. TBD
-  7. TBD
-  8. TBD
-  9. TBD
+  6. Notification (alert component) - DONE
+  7. Ticket Detail - TODO
+  8. Edit Profile? - TODO
+  9. Acrivate Tickets? - TODO
   10. TBD
 - Responsive UI with good UX
 - Most of the data should be loaded from a web server
   - You can use Firebase, parse.com, Telerik Back-end Services, or any other
   - You can use your own server written on Node.js, ASP.NET, or any other framework
 - Load all data using services
-- **Use animations** - pay attention to this
+- **Use animations** - TODO
 - Create at least **3 different pipes**
   1. Values Pipe
   2. Image Data Pipe
@@ -70,7 +70,7 @@ Your Web application should use the following technologies, frameworks and devel
 - Create at least **3 different directives**
   1. TicketPrice Directive
   2. CardNumber Directive
-  3. TBD
+  3. Highlight (navbar) directive?? - TODO
 - Setup and use tslint
 - Use **TypeScript** - DONE
 - Use the **best practices** for software development and Object-oriented design - maybe some refractoring will be needed
