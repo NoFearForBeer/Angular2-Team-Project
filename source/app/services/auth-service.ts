@@ -52,6 +52,17 @@ export class AuthService {
         this.cookieService.remove(this.cookieKey);
     }
 
+    isInRole(role: string): boolean {
+        if (!this.isLoggedIn()) {
+            return  false;
+        }
+
+        let value: string = this.cookieService.get(this.cookieKey);
+        let currentUser: any = JSON.parse(value);
+        let result = currentUser.Roles.toLowerCase().indexOf(role.toLowerCase()) >= 0;
+        return  result;
+    }
+
     register(user: any): Observable<any> {
         const path = `${this.baseApiUrl}account/register`;
         return this.http.post(path, user, { headers: this.jsonHeaders })

@@ -16,12 +16,9 @@ export class HomeContainer implements OnInit{
                 private router: Router) { }
 
     ngOnInit() {
-        // TODO: known bug this should be updated on login !
-
         if (this.authService.isLoggedIn()) {
             this.userName = this.authService.getLoggedUser().userName;
         }
-        console.log(this.authService.getLoggedUser());
     }
 
     logout() {
