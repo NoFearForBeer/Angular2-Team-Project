@@ -11,8 +11,9 @@ Angular 2 Team Project
 - globally installed `npm`, `typescript`, `tslint`
 
 ### Installation 
-- `npm install`
-- `npm start` - you must open the browser at http://localhost:3100/
+- `> cd source`
+- `> npm install`
+- `> npm start` - you must open the browser at http://localhost:3100/
 
 ### REST Server (Web Api ASP)
 
@@ -45,9 +46,9 @@ Action | Method | Description | Body/Query | Response | Notes
 **api/users/** | `POST` | Creates a new user (same as *api/account/register*) | `check api/account/register/` | `Same as aboive` | 
 **api/users/** | `PUT` | Updates a user | ```{ Id: "GUID", "FirstName": "Text", LastName: "Text", Email: "Text", UserName: "Text" }``` | No response - only status code 200 - OK.
 **api/users/** | `DELETE` | Removes a user | ```{ Id: "GUID" } ``` |  No response - only status code 200 - OK. 
- 
-TODO: 
+**api/users/charge** | `PUT` | Adds money to current user account | ```{ CardNumer: "string", SecurityCode: "string", CardType: "string",  ExpireMonth: "number (1-12)", ExpireYear: "number", CardHolderNames: "string", Amount: "number"} ``` |  No response - only status code 200 - OK.
+**api/users/avatar** | ``
 
-api/users/charge - `PUT` should charge the account of the user. Card details will be required.
+TODO: 
 
 \*\* - Not Implemented
