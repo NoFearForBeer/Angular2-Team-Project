@@ -11,17 +11,18 @@ import { UserProfileComponent } from './components/index';
 import { BuyTicketComponent } from './tickets/buy-ticket/buy-ticket-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 import { ChargeAccountComponent } from './components/charge/charge-account-component';
+import { AuthGuard } from './guards/auth-guard';
 
 const appRoutes: Routes = [
-    { path: '', component: MapComponent },
-    { path: 'login', component: LoginForm },
+    { path: '', component: MapComponent, },
+    { path: 'login', component: LoginForm, },
     { path: 'register', component: RegisterComponent },
     { path: 'news', component: NewsComponent },
     { path: 'news/:id', component: NewsDetailsComponent },
-    { path: 'profile', component: UserProfileComponent },
-    { path: 'tickets/buy', component: BuyTicketComponent },
-    { path: 'charge', component: ChargeAccountComponent },
-    { path: 'tickets', component: TicketListComponent},
+    { path: 'profile', component: UserProfileComponent, canActivate: [AuthGuard] },
+    { path: 'tickets/buy', component: BuyTicketComponent, canActivate: [AuthGuard] },
+    { path: 'charge', component: ChargeAccountComponent, canActivate: [AuthGuard] },
+    { path: 'tickets', component: TicketListComponent, canActivate: [AuthGuard] },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }
 ];
