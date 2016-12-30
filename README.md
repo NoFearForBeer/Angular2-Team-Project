@@ -47,8 +47,7 @@ Action | Method | Description | Body/Query | Response | Notes
 **api/users/** | `PUT` | Updates a user | ```{ Id: "GUID", "FirstName": "Text", LastName: "Text", Email: "Text", UserName: "Text" }``` | No response - only status code 200 - OK.
 **api/users/** | `DELETE` | Removes a user | ```{ Id: "GUID" } ``` |  No response - only status code 200 - OK. 
 **api/users/charge** | `PUT` | Adds money to current user account | ```{ CardNumer: "string", SecurityCode: "string", CardType: "string",  ExpireMonth: "number (1-12)", ExpireYear: "number", CardHolderNames: "string", Amount: "number"} ``` |  No response - only status code 200 - OK.
-**api/users/avatar** | ``
+**api/users/avatar** | `PUT` | Updates the profile picture of current user. | - | No response - only status code 200 - OK.
 
-TODO: 
 
 \*\* - Not Implemented
