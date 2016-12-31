@@ -8,10 +8,11 @@
             <th>Activated</th>
             <th>Purchase date</th>
             <th>Price</th>
-            <th>Expire date</th>
+            <th>Activate - Expire dates</th>
+            <th>Duration</th>
             <th>Expired</th>
         </tr>
-        <tr highlight *ngFor="let ticket of tickets" ticket-detail-comopnent [ticketModel]="ticket" >
+        <tr highlight *ngFor="let ticket of tickets" ticket-detail-comopnent [ticketModel]="ticket" (ticketActivatedDetail)="activateTicket($event)" >
             
         </tr>
     </table>

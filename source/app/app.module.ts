@@ -9,7 +9,6 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
-
 import { HomeContainer } from './components/containers/home/home-container';
 
 import { AppComponent } from './app.component';
@@ -27,6 +26,7 @@ import { ChargeAccountComponent } from './components/charge/charge-account-compo
 import { ModalQRCodeCompoennt } from './components/modal/modal-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 import { TicketDetailCompoennt } from './tickets/ticket-detail/ticket-detail-component';
+import { ActivateTicketComponent } from './tickets/activate-ticket/activate-ticket-component';
 
 import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
@@ -66,10 +66,13 @@ import { AuthGuard } from './guards/auth-guard';
         ModalQRCodeCompoennt,
         TicketListComponent,
         TicketDetailCompoennt,
+        ActivateTicketComponent,
+
         ValuesPipe,
         SortPipe,
         ImageDataPipe,
         YesNoPipe,
+
         TicketPriceDirective,
         CardNumberDirective,
         HighlightDirective,

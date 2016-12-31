@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ApiService } from '../../services';
+import { Component, OnInit, OnDestroy, Injectable } from '@angular/core';
+import { ApiService, AlertService } from '../../services';
 import { Ticket } from '../../models';
 import { Subscription } from 'rxjs';
 
@@ -7,12 +7,16 @@ import { Subscription } from 'rxjs';
     selector: 'ticket-list-component',
     templateUrl: './ticket-list-component.html'
 })
+@Injectable()
 export class TicketListComponent implements OnInit, OnDestroy {
 
     private subscription: Subscription;
+    private activateSubscription: Subscription = new Subscription();
     tickets: Ticket[];
 
-    constructor(private api: ApiService) { }
+    constructor(
+        private api: ApiService,
+        private alertService: AlertService) { }
 
     ngOnInit() {
         this.subscription = this.api.get('/users/info')
@@ -21,7 +25,16 @@ export class TicketListComponent implements OnInit, OnDestroy {
             });
     }
 
+    activateTicket(id: string) {
+        this.activateSubscription = this.api.put('/tickets/activate', {id : id})
+            .subscribe(json => {
+                this.ngOnInit();
+                this.alertService.success(json.Message, false);
+            });
+    }
+
     ngOnDestroy() {
         this.subscription.unsubscribe();
+        this.activateSubscription.unsubscribe();
     }
 }
