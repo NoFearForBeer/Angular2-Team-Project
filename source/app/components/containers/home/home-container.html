@@ -24,7 +24,7 @@
       </form>
 
       <ul class="nav navbar-nav navbar-right" *ngIf="authService.isLoggedIn() == true">
-        <li> <a>  Hello {{ authService.getLoggedUser().userName }}</a> </li>
+        <li> <a [routerLink]="['/profile']">  Hello, {{ authService.getLoggedUser().userName }}!</a> </li>
         <li class="dropdown" dropdown >
           <a class="dropdown-toggle" dropdownToggle  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" dropdownMenu >

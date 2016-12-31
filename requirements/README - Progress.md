@@ -63,14 +63,14 @@ Your Web application should use the following technologies, frameworks and devel
 - Load all data using services
 - **Use animations** - TODO
 - Create at least **3 different pipes**
-  1. Values Pipe
-  2. Image Data Pipe
-  3. Sort
-  4. YesNo
+  1. Values Pipe - DONE
+  2. Image Data Pipe - DONE
+  3. Sort - DONE
+  4. YesNo - DONE
 - Create at least **3 different directives**
-  1. TicketPrice Directive
-  2. CardNumber Directive
-  3. Highlight (navbar) directive?? - TODO
+  1. TicketPrice Directive - DONE
+  2. CardNumber Directive - DONE
+  3. Highlight - DONE
 - Setup and use tslint
 - Use **TypeScript** - DONE
 - Use the **best practices** for software development and Object-oriented design - maybe some refractoring will be needed

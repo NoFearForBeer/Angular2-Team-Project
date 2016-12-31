@@ -11,7 +11,7 @@
             <th>Expire date</th>
             <th>Expired</th>
         </tr>
-        <tr *ngFor="let ticket of tickets">
+        <tr highlight *ngFor="let ticket of tickets">
             <td class="text-center">
                 <modal-qr-code-component [qrCode]="ticket.QRCode"></modal-qr-code-component>
             </td>

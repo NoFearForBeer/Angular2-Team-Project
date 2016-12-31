@@ -55,6 +55,7 @@ export class CommentComponent implements OnInit {
   }
 
   deleteComment(id: number) {
+    this.comments.slice();
     this.commentService.delete(id)
         .subscribe(
         data => {
