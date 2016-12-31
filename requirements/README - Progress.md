@@ -43,7 +43,7 @@ Your Web application should use the following technologies, frameworks and devel
   3. News Details (with possibility to add comments and delete) - DONE
   4. Charge account - (add monney to account) - DONE
   5. Owned tickets - Current tickets of user - DONE
-  6. Activated Tickets - TODO
+  6. 
   7. Create news (only for admins) - DONE
 - At least **10 different** partial components
   1. Username and password form - TODO
@@ -52,10 +52,10 @@ Your Web application should use the following technologies, frameworks and devel
   4. Buy Ticket (dropdown + button) - Not a partial view
   5. Modal Window - DONE
   6. Notification (alert component) - DONE
-  7. Ticket Detail - TODO
+  7. Ticket Detail - DONE
   8. Create News - DONE
-  9. Activate Tickets? - TODO
-  10. TBD
+  9. Activate Ticket - DONE
+  10. Footer - TODO
 - Responsive UI with good UX
 - Most of the data should be loaded from a web server
   - You can use Firebase, parse.com, Telerik Back-end Services, or any other
