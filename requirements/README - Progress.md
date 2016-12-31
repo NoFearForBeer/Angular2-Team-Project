@@ -44,7 +44,7 @@ Your Web application should use the following technologies, frameworks and devel
   4. Charge account - (add monney to account) - DONE
   5. Owned tickets - Current tickets of user - DONE
   6. Activated Tickets - TODO
-  7. TBD
+  7. Create news (only for admins) - DONE
 - At least **10 different** partial components
   1. Username and password form - TODO
   2. Comments (list) - done
@@ -53,8 +53,8 @@ Your Web application should use the following technologies, frameworks and devel
   5. Modal Window - DONE
   6. Notification (alert component) - DONE
   7. Ticket Detail - TODO
-  8. Edit Profile? - TODO
-  9. Acrivate Tickets? - TODO
+  8. Create News - DONE
+  9. Activate Tickets? - TODO
   10. TBD
 - Responsive UI with good UX
 - Most of the data should be loaded from a web server

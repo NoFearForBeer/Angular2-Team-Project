@@ -10,6 +10,12 @@ import { Comment } from '../models/comment';
 export class NewsService {
 
     private baseUrl: string = 'http://localhost:3200/api/';
+        
+    private applicationJson: string = 'application/json';
+    private jsonHeaders: Headers = new Headers({
+        'Content-type': this.applicationJson,
+        'Accept': this.applicationJson
+    });
 
     constructor(private http: Http) { }
 
@@ -31,6 +37,41 @@ export class NewsService {
         let headers = new Headers();
         headers.append('Accept', 'application/json');
         return headers;
+    }
+
+    post(news: any): Observable<any>  {
+        const path = `${this.baseUrl}news/post`;
+        return this.http.post(path, news, { headers: this.jsonHeaders })
+                .map((resp: Response) => {
+                    console.log('Success!!');
+                    // There are no response from register.
+                    return Observable.empty;
+                })
+                .catch((error: Response) => {
+
+                   let errorMessages: String[] = [];
+                   console.log(error);
+                   let modelState = error.json().ModelState;
+                   Object.getOwnPropertyNames(modelState).forEach((prop) => {
+                        errorMessages.push(modelState[prop].toString());
+                   });
+                   return Observable.throw(errorMessages.toString());
+                });
+    }
+
+    delete(id: number): Observable<any>  {
+        const path = `${this.baseUrl}news/delete/${id}`;
+        return this.http.post(path, { headers: this.jsonHeaders })
+                .map((resp: Response) => {
+                    console.log('Success!!');
+                    // There are no response from register.
+                    return Observable.empty;
+                })
+                .catch((error: Response) => {
+                   let errorMessages: String[] = [];
+                   console.log(error);
+                   return Observable.throw(errorMessages.toString());
+                });
     }
 }
 

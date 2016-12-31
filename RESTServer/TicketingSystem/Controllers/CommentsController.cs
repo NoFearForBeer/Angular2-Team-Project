@@ -53,8 +53,6 @@ namespace TicketingSystem.Controllers
         [Route("api/Comments/Post")]
         public IHttpActionResult Post(CommentCreateModel comment)
         {
-            //string currentUserId = this.User.Identity.GetUserId();
-            //string username = this.context.Users.Where(u => u.Id == currentUserId).FirstOrDefault().UserName; 
             var userId = this.context.Users.FirstOrDefault(u => u.UserName == comment.AuthorUsername).Id;
 
             if (comment != null && this.ModelState.IsValid)
