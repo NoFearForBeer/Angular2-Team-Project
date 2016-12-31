@@ -26,6 +26,7 @@ import { CommentPostComponent } from './components/comments/comment-post-compone
 import { ChargeAccountComponent } from './components/charge/charge-account-component';
 import { ModalQRCodeCompoennt } from './components/modal/modal-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
+import { TicketDetailCompoennt } from './tickets/ticket-detail/ticket-detail-component';
 
 import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
@@ -62,15 +63,16 @@ import { AuthGuard } from './guards/auth-guard';
         CommentComponent,
         CommentPostComponent,
         ChargeAccountComponent,
+        ModalQRCodeCompoennt,
+        TicketListComponent,
+        TicketDetailCompoennt,
         ValuesPipe,
         SortPipe,
         ImageDataPipe,
         YesNoPipe,
         TicketPriceDirective,
         CardNumberDirective,
-        ModalQRCodeCompoennt,
-        TicketListComponent,
-        HighlightDirective
+        HighlightDirective,
     ],
 
     providers: [
