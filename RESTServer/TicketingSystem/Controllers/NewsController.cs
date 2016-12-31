@@ -1,16 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 
 using TicketingSystem.Data;
+using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
 using TicketingSystem.Models.NewsModels;
 
 namespace TicketingSystem.Controllers
 {
     [EnableCors("*", "*", "*")]
-    [RoutePrefix("api/news")]
+    //[RoutePrefix("api/news")]
     public class NewsController : ApiController
     {
         private ITicketingSystemContext context;
@@ -41,6 +43,51 @@ namespace TicketingSystem.Controllers
                 return NotFound();
             } 
             return this.Json(newsViewModels);
+        }
+
+
+        //[Authorize]
+        [HttpPost]
+        [Route("api/news/post")]
+        public IHttpActionResult Post(NewsCreateModel news)
+        {
+            bool isAdmin = this.User.IsInRole("admin");
+
+            if (news != null && this.ModelState.IsValid && isAdmin)
+            {
+                var databaseNews = new News {
+                    Content = news.Content,
+                    Title = news.Title,
+                    CreatedOn = DateTime.Now
+                };
+
+                context.News.Add(databaseNews);
+                context.SaveChanges();
+
+                return Ok();
+            }
+            else
+            {
+                return this.BadRequest(this.ModelState);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/news/delete/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var newsToDelete = this.context.News.FirstOrDefault(n => n.Id == id);
+            var commentsToDelete = this.context.Comments.Where(c => c.NewsItemId == id);
+
+            context.News.Remove(newsToDelete);
+            foreach (var comment in commentsToDelete)
+            {
+                context.Comments.Remove(comment);
+            }
+           
+            context.SaveChanges();
+
+            return Ok();
         }
     }
 }

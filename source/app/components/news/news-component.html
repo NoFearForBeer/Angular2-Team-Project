@@ -4,6 +4,11 @@
       <div class="panel panel-default">
           <div class="panel-heading">
               <button class="badge" [routerLink]="['/news', n.id]">{{n.title}}</button>
+              <div *ngIf="checkIfAdmin()  == true">
+                    <form name="form" (ngSubmit)="deleteNews(n.id)" #f="ngForm" novalidate>
+                        <button class="btn btn-sm btn-danger pull-right">Delete</button>
+                    </form>
+                </div>
               <br />
               <br />
               <span class="text-muted">{{n.createdOn | date}}</span>
@@ -14,4 +19,8 @@
           </div>
       </div>
   </div>
+  <div *ngIf="checkIfAdmin() == true">
+    <news-post-component></news-post-component>
+  </div>
 </div>
+

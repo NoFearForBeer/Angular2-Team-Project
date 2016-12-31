@@ -6,16 +6,14 @@
   3. TBD
 
 - At least **7 different private (authenticated) dynamic web pages**
-  1. Create News (only for admins) - TODO
-  2. TBD
+  1. TBD
 
 - At least **10 different** partial components
   1. Footer
   2. Search news (Search form ) - TODO  (/news/:title)
-  7. Ticket Detail - TODO
-  8. Username and password form - TODO ??
-  9. Activate Tickets? - TODO
-  10. TBD
+  3. Ticket Detail - TODO
+  4. Username and password form - TODO ??
+  5. Activate Tickets? - TODO
 
 - **Use animations** - Ticket prices?
 
