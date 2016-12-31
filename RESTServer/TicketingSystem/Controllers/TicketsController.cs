@@ -208,7 +208,7 @@ namespace TicketingSystem.Controllers
             this.context.SaveChanges();
             return this.Json(new
             {
-                Message = "Successfully activated",
+                Message = "Successfully activated.",
                 ExpiresOn = ticket.ExpiresOn
             });
         }
