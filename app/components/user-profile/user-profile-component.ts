@@ -29,7 +29,7 @@ export class UserProfileComponent implements OnInit {
 
                 this.initNewProfile(this.userProfile.FirstName, this.userProfile.LastName, this.userProfile.Email);
                 if (!this.userProfile.Avatar) {
-                    this.tempImg = 'img/profile.jpg';
+                    this.tempImg = '/img/profile.jpg';
                     return;
                 }
 
