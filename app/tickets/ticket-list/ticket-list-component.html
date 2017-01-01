@@ -1,0 +1,19 @@
+<div class="container">
+
+    <h2>Your tickets</h2>
+
+    <table class="table table-responsive">
+        <tr>
+            <th>QR Code</th>
+            <th>Activated</th>
+            <th>Purchase date</th>
+            <th>Price</th>
+            <th>Activate - Expire dates</th>
+            <th>Duration</th>
+            <th>Expired</th>
+        </tr>
+        <tr highlight *ngFor="let ticket of tickets" ticket-detail-comopnent [ticketModel]="ticket" (ticketActivatedDetail)="activateTicket($event)" >
+            
+        </tr>
+    </table>
+</div>
