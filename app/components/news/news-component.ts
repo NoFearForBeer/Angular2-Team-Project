@@ -44,7 +44,11 @@ export class NewsComponent implements OnInit {
         this.newsService.delete(id)
             .subscribe(
             data => {
-                location.reload();
+                let arrayIndex = this.news.findIndex(newsItem => newsItem.id == id);
+                if (arrayIndex >= 0) {
+                    this.news.splice(arrayIndex, 1);
+                }
+
                 this.alertService.success("News deleted succesfully!");
             },
             error => {
