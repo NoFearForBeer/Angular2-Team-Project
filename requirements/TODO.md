@@ -1,7 +1,6 @@
 # Still TODO
 
 - At least **8 different public dynamic web pages**
-  1. Ticket Prices - TODO
   2. Public Transport Schedule - TODO
   3. TBD
 
@@ -13,14 +12,12 @@
   2. Ticket Detail - TODO
   3. Username and password form - TODO ??
 
-- **Use animations** - Ticket prices?
-
 
 ### Deliverables
 
 - Record a short video showcasing your application - TODO
-- Upload your application in the cloud - TODO
-- Register your application at [Our Showcase - TODO System](http://best.telerikacademy.com)
+- Upload your application in the cloud - In pregress...
+- Register your application at [Our Showcase - System](http://best.telerikacademy.com) - TODO
   - Link to the live application
   - Link to the video
   - Link to the github repository

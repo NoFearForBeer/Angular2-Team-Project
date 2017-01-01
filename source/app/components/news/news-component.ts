@@ -9,12 +9,15 @@ import { AuthService } from '../../services/auth-service';
 import { NewsService } from '../../services/news-service';
 import { AlertService } from '../../services/alert-service';
 
+import { flyInOut } from '../../animations/flyInOut-animation';
+
 import { News } from '../../models/news';
 
 @Component({
   selector: 'news-component',
   templateUrl: './news-component.html',
-  providers: [NewsService]
+  providers: [NewsService],
+  animations: [flyInOut()]
 })
 
 

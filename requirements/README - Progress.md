@@ -34,7 +34,7 @@ Your Web application should use the following technologies, frameworks and devel
   3. Map - done (it is not dinamic)
   4. News - done
   5. News details - done
-  6. Ticket Prices - TODO
+  6. Ticket Prices - DONE
   7. Public Transport Schedule - TODO
   8. TBD
 - At least **7 different private (authenticated) dynamic web pages**
@@ -61,7 +61,7 @@ Your Web application should use the following technologies, frameworks and devel
   - You can use Firebase, parse.com, Telerik Back-end Services, or any other
   - You can use your own server written on Node.js, ASP.NET, or any other framework
 - Load all data using services
-- **Use animations** - TODO
+- **Use animations** - DONE
 - Create at least **3 different pipes**
   1. Values Pipe - DONE
   2. Image Data Pipe - DONE
