@@ -41,7 +41,7 @@ export class TicketPriceDirective {
         if (hours > OneWeekInHours) {
             ticketPrice = ticketPrice - (ticketPrice * DiscountPercent);
         }
-
-        document.getElementById(resultElementId).innerHTML = `${ticketPrice.toPrecision(2)} lv.`;
+        console.log(ticketPrice);
+        document.getElementById(resultElementId).innerHTML = `${ticketPrice.toFixed(2)} lv.`;
     }
 }

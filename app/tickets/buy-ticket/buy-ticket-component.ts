@@ -2,9 +2,12 @@ import { Component, Injectable } from '@angular/core';
 import { ApiService } from '../../services/api-service';
 import { ImageDataPipe } from '../../pipes';
 
+import { flyInOut } from '../../animations/flyInOut-animation';
+
 @Component({
     selector: 'buy-ticket-component',
-    templateUrl: './buy-ticket-component.html'
+    templateUrl: './buy-ticket-component.html',
+    animations: [flyInOut()],
 })
 @Injectable()
 export class BuyTicketComponent {

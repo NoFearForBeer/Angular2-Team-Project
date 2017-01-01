@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AuthService } from '../../../services/auth-service';
 import { ApiService } from '../../../services/api-service';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'home-container',
     templateUrl: './home-container.html',
-    providers: [AuthService]
+    providers: [AuthService],
 })
 export class HomeContainer implements OnInit{
     userName: string = '<UserName>';

@@ -25,6 +25,7 @@ import { CommentComponent } from './components/comments/comment-component';
 import { CommentPostComponent } from './components/comments/comment-post-component';
 import { ChargeAccountComponent } from './components/charge/charge-account-component';
 import { ModalQRCodeCompoennt } from './components/modal/modal-component';
+import { TicketPricesComponent } from './tickets/ticket-prices/ticket-prices-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 import { TicketDetailCompoennt } from './tickets/ticket-detail/ticket-detail-component';
 import { ActivateTicketComponent } from './tickets/activate-ticket/activate-ticket-component';
@@ -67,6 +68,7 @@ import { AuthGuard } from './guards/auth-guard';
         CommentPostComponent,
         ChargeAccountComponent,
         ModalQRCodeCompoennt,
+        TicketPricesComponent,
         TicketListComponent,
         TicketDetailCompoennt,
         ActivateTicketComponent,

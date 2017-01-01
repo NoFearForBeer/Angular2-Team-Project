@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <li><a [routerLink]="['/news']">News<span class="sr-only">(current)</span></a></li>
         <li><a *ngIf="authService.isLoggedIn()" [routerLink]="['/tickets/buy']">Buy Ticket</a></li>
-        <li><a [routerLink]="['/']">Prices</a></li>
+        <li><a [routerLink]="['/prices']">Prices</a></li>
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group" [ngStyle]="{ 'margin-top.px': 0}" > <!-- Fixing position when modal window is opening. -->
@@ -28,7 +28,7 @@
         <li class="dropdown" dropdown >
           <a class="dropdown-toggle" dropdownToggle  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
           <ul class="dropdown-menu" dropdownMenu >
-            <li><a [routerLink]="['/profile']"> Profie</a></li>
+            <li><a [routerLink]="['/profile']"> Profile</a></li>
             <li><a  [routerLink]="['/tickets']">Tickets</a></li>
             <li><a [routerLink]="['/charge']">Charge account</a></li>
             <li role="separator" class="divider"></li>
@@ -44,7 +44,7 @@
     </div>
   </div>
 </nav>
-<div class="container" [ngStyle]="{ 'min-height.px': 380 }" > 
+<div class="container" [ngStyle]="{ 'min-height.px': 380 }"> 
   <alert-component></alert-component>
   <router-outlet></router-outlet>
 </div>
