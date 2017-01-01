@@ -29,13 +29,9 @@ module.exports = {
 			test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
 			loader: 'file?name=assets/[name].[hash].[ext]'
 		}, {
-			test: /\.css$/,
+			test: /.css$/,
 			exclude: helpers.root('src', 'app'),
-			loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-		}, {
-			test: /\.css$/,
-			include: helpers.root('src', 'app'),
-			loader: 'raw-loader'
+			loaders: [ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' }), 'to-string-loader', 'css-loader']
 		}]
 	},
 
@@ -48,13 +44,15 @@ module.exports = {
 			template: './index.html'
 		}),
 
+		new ExtractTextPlugin("styles.css"),
+
 		new ContextReplacementPlugin(
-        // The (\\|\/) piece accounts for path separators in *nix and Windows
-        /angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
-        helpers.root(''), // location of your src
-        {
-          // your Angular Async Route paths relative to this root directory
-        }
-      )
+			// The (\\|\/) piece accounts for path separators in *nix and Windows
+			/angular(\\|\/)core(\\|\/)src(\\|\/)linker/,
+			helpers.root(''), // location of your src
+			{
+				// your Angular Async Route paths relative to this root directory
+			}
+		)
 	]
 };
