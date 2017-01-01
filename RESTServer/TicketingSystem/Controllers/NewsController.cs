@@ -41,7 +41,7 @@ namespace TicketingSystem.Controllers
             var newsViewModels = this.context.News.MapNewsToViewModels().ToList().Find(c => c.Id == id);
             if (newsViewModels == null)
             {
-                return NotFound();
+                return this.NotFound();
             } 
             return this.Json(newsViewModels);
         }
