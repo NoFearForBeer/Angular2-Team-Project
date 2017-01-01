@@ -5,6 +5,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 
 using TicketingSystem.Data;
+using TicketingSystem.Data.Constants;
 using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
 using TicketingSystem.Models.NewsModels;
@@ -51,7 +52,7 @@ namespace TicketingSystem.Controllers
         [Route("api/news/post")]
         public IHttpActionResult Post(NewsCreateModel news)
         {
-            bool isAdmin = this.User.IsInRole("admin");
+            bool isAdmin = this.User.IsInRole(DataModelConstants.AdminRole);
 
             if (news != null && this.ModelState.IsValid && isAdmin)
             {
@@ -64,7 +65,13 @@ namespace TicketingSystem.Controllers
                 context.News.Add(databaseNews);
                 context.SaveChanges();
 
-                return Ok();
+                return Ok(new
+                {
+                    id = databaseNews.Id,
+                    content = databaseNews.Content,
+                    title = databaseNews.Title,
+                    createdOn = databaseNews.CreatedOn,
+                });
             }
             else
             {

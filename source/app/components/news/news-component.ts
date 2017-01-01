@@ -12,44 +12,48 @@ import { AlertService } from '../../services/alert-service';
 import { News } from '../../models/news';
 
 @Component({
-  selector: 'news-component',
-  templateUrl: './news-component.html',
-  providers: [NewsService]
+    selector: 'news-component',
+    templateUrl: './news-component.html',
+    providers: [NewsService]
 })
 
 
 export class NewsComponent implements OnInit {
 
-  news: News[];
-  error: any;
+    news: News[];
+    error: any;
 
-  constructor(
-    private http: Http, 
-    private router: Router, 
-    private newsService: NewsService,
-    private authService: AuthService,
-    private alertService: AlertService
-  ) { }
+    constructor(
+        private http: Http,
+        private router: Router,
+        private newsService: NewsService,
+        private authService: AuthService,
+        private alertService: AlertService
+    ) { }
 
-  ngOnInit(){
-      this.newsService
-        .getAll()
-        .subscribe(p => this.news = p)
+    ngOnInit() {
+        this.newsService
+            .getAll()
+            .subscribe(p => this.news = p)
     }
 
-  deleteNews(id: number) {
-    this.newsService.delete(id)
-        .subscribe(
-        data => {
-            location.reload();
-            this.alertService.success("News deleted succesfully!");
-        },
-        error => {
-            this.alertService.error("This news cannot be deleted");
-        });
+    deleteNews(id: number) {
+        this.newsService.delete(id)
+            .subscribe(
+            data => {
+                location.reload();
+                this.alertService.success("News deleted succesfully!");
+            },
+            error => {
+                this.alertService.error("This news cannot be deleted");
+            });
     }
-    
-    checkIfAdmin() : boolean {
+
+    addNews(model: News) {
+        this.news.push(model);
+    }
+
+    checkIfAdmin(): boolean {
         return this.authService.isInRole("admin");
     }
 }

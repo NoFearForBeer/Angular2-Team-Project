@@ -5,16 +5,14 @@ using System.Linq;
 
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-
+using TicketingSystem.Data.Constants;
 using TicketingSystem.Data.Models;
 
 namespace TicketingSystem.Data.Migrations
 {
     public class Configuration : DbMigrationsConfiguration<TicketingSystemContext>
     {
-        private const string AdminRole = "Administrator";
-        private const string InspectorRole = "Inspector";
-        private const string DefaultPassword = "password";
+  
 
         public Configuration()
         {
@@ -29,7 +27,7 @@ namespace TicketingSystem.Data.Migrations
 
             if (context.Roles.Count() == 0)
             {
-                this.AddRolesIfNotExist(roleManager, AdminRole, InspectorRole);
+                this.AddRolesIfNotExist(roleManager, DataModelConstants.AdminRole, DataModelConstants.InspectorRole);
             }
 
             const string DefaultLastName = "Admin";
@@ -135,9 +133,9 @@ namespace TicketingSystem.Data.Migrations
             {
                 if (userManager.FindByName(currentUser.UserName) == null)
                 {
-                    IdentityResult result = userManager.Create(currentUser, DefaultPassword);
+                    IdentityResult result = userManager.Create(currentUser, DataModelConstants.DefaultPassword);
                     this.ValidateResult(result);
-                    IdentityResult addToRoleResult = userManager.AddToRole(currentUser.Id, AdminRole);
+                    IdentityResult addToRoleResult = userManager.AddToRole(currentUser.Id, DataModelConstants.AdminRole);
                     this.ValidateResult(result);
                 }
             }

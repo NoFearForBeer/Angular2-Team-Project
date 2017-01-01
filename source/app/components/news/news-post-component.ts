@@ -1,51 +1,37 @@
-import { Component, Injectable, Input, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
-import { Router, ActivatedRoute } from '@angular/router';
-
-import { Observable } from 'rxjs';
-import 'rxjs';
-
-import { AlertService } from '../../services/alert-service';
-import { AuthService } from '../../services/auth-service';
-import { NewsService } from '../../services/news-service';
-
+import { Component, Injectable, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
+import { AlertService, AuthService, ApiService } from '../../services/';
 import { News } from '../../models/news';
-import { User } from '../../models/user';
 
 @Component({
   selector: 'news-post-component',
   templateUrl: './news-post-component.html',
-  providers: [NewsService, AuthService]
+  providers: [ApiService, AuthService]
 })
-
-
 @Injectable()
-export class NewsPostComponent implements OnInit{
-    userName: string = '<UserName>';
-    model: any = {};
+export class NewsPostComponent {
 
-    @Input()
-    currentUser: User;
+    @Output() newsCreated = new EventEmitter();
+    model: News = new News();
 
     constructor(
-        private newsService: NewsService, 
+        private newsService: ApiService,
         private authService: AuthService,
         private router: Router,
         private alertService: AlertService) { }
 
-    ngOnInit() {
-        
-    }
-
-    postNews() {
-        this.newsService.post(this.model)
+    postNews(form: NgForm) {
+        this.newsService.post('/news/post', this.model)
             .subscribe(
             data => {
-                location.reload();
-                this.alertService.success("News posted succesfully!");
+                let emitModel: News = data;
+                this.newsCreated.emit(emitModel);
+                form.resetForm();
+                this.alertService.success('News posted succesfully!');
             },
             error => {
-                this.alertService.error("An error occured!");
+                this.alertService.error('An error occured!');
             });
     }
 }
