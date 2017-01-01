@@ -8,8 +8,8 @@ import { CookieService } from '../../node_modules/angular2-cookie/services/cooki
 export class AuthService {
 
     private cookieKey = 'authKey';
-    private baseApiUrl: string = 'http://localhost:3200/api/';
-    private baseUrl: string = 'http://localhost:3200/';
+    private baseApiUrl: string = 'https://ticketing-system-ng2.herokuapp.com/api/';
+    private baseUrl: string = 'https://ticketing-system-ng2.herokuapp.com/';
     private applicationJson: string = 'application/json';
 
     private jsonHeaders: Headers = new Headers({
