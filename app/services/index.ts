@@ -1,6 +1,5 @@
 export { AlertService } from './alert-service'
 export { ApiService } from './api-service'
 export { AuthService } from './auth-service'
-export { UserService } from './user-service'
 export { NewsService } from './news-service'
 export { CommentService } from './comment-service'

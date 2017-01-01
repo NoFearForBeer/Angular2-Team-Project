@@ -1,8 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AlertService } from '../../services/alert-service';
-import { UserService } from '../../services/user-service';
+import { AlertService, ApiService } from '../../services/';
 
 @Component({
     //moduleId: module.id,
@@ -17,13 +16,13 @@ export class RegisterComponent {
 
     constructor(
         private router: Router,
-        private userService: UserService,
+        private api: ApiService,
         private alertService: AlertService) { }
 
     register() {
         this.loading = true;
         this.model['ConfirmPassword'] = this.model.password;
-        this.userService.create(this.model)
+        this.api.post('/account/register', this.model)
             .subscribe(
             data => {
                 // set success message and pass true paramater to persist the message after redirecting to the login page
