@@ -1,7 +1,7 @@
-import { Component, Injectable, Input, OnInit, NgZone as zone } from '@angular/core';
+import { Component, Injectable, Input, OnInit, NgZone as zone, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
-
+import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import 'rxjs';
 
@@ -25,6 +25,8 @@ export class CommentPostComponent implements OnInit{
     userName: string = '<UserName>';
     model: any = {};
 
+    @Output() commnentPosted = new EventEmitter();
+
     @Input()
     currentNews: News;
     currentUser: User;
@@ -40,7 +42,7 @@ export class CommentPostComponent implements OnInit{
         
     }
 
-    postComment() {
+    postComment(form: NgForm ) {
         let newsId = this.currentNews.id;
 
         this.model['AuthorUsername'] = this.authService.getLoggedUser().userName;
@@ -49,7 +51,9 @@ export class CommentPostComponent implements OnInit{
         this.commentService.post(this.model)
             .subscribe(
             data => {
-                location.reload();
+                form.resetForm();
+                let emitModel: News = data;
+                this.commnentPosted.emit(emitModel);
                 this.alertService.success("Comment posted succesfully!");
             },
             error => {

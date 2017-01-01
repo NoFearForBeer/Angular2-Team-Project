@@ -8,8 +8,11 @@ import 'rxjs';
 import { NewsService } from '../../services/news-service';
 import { AuthService } from '../../services/auth-service';
 import { News } from '../../models/news';
+import { Comment } from '../../models/comment';
 
 import { SortPipe } from '../../pipes';
+
+import { CommentComponent } from '../comments/comment-component'
 
 
 @Component({
@@ -35,7 +38,11 @@ export class NewsDetailsComponent implements OnInit {
         let id = +params['id'];
         this.newsService.getNews(id)
           .subscribe(n => this.news = n)
-      } 
+      }
     });
+  }
+
+  addComment(comment: Comment, commentComoennt: CommentComponent) {
+    commentComoennt.ngOnInit();
   }
 }

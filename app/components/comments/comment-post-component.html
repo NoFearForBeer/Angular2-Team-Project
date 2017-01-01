@@ -2,13 +2,17 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <strong>Post your comment...</strong> <span class="text-muted"></span>
-            <form name="form" (ngSubmit)="f.form.valid && postComment()" #f="ngForm" novalidate>
+            <form name="form" (ngSubmit)="f.form.valid && postComment(f)" #f="ngForm" novalidate>
                 <button class="btn btn-sm btn-default pull-right">Comment!</button>
                 <br />
                 <br />
                 <div class="panel-body">
                     <input type="text" class="form-control" id="Content" name="Content" [(ngModel)]="model.Content" #Content="ngModel" required />
-                    <div *ngIf="f.submitted && !Content.valid" class="help-block">You cannot post empty comments</div>
+                    <div *ngIf="f.submitted && !Content.valid" class="help-block">
+                        <span class="text-primary">
+                            You cannot post empty comments
+                        </span>
+                    </div>
                 </div>
             </form>
         </div>
