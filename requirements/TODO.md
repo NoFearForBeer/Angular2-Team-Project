@@ -9,11 +9,9 @@
   1. TBD
 
 - At least **10 different** partial components
-  1. Footer
-  2. Search news (Search form ) - TODO  (/news/:title)
-  3. Ticket Detail - TODO
-  4. Username and password form - TODO ??
-  5. Activate Tickets? - TODO
+  1. Search news (Search form ) - TODO  (/news/:title)
+  2. Ticket Detail - TODO
+  3. Username and password form - TODO ??
 
 - **Use animations** - Ticket prices?
 
