@@ -34,7 +34,7 @@ import { FooterCompoenent } from './components/footer/footer-component';
 import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
 
-import { AuthService, UserService, ApiService, AlertService, NewsService, CommentService } from './services/index';
+import { AuthService, ApiService, AlertService, NewsService, CommentService } from './services/index';
 
 import { BuyTicketComponent } from './tickets';
 
@@ -87,7 +87,6 @@ import { AuthGuard } from './guards/auth-guard';
     providers: [
         AuthGuard,
         AuthService,
-        UserService,
         ApiService,
         CookieService,
         AlertService,
