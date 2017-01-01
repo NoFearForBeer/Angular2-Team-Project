@@ -19,8 +19,7 @@
     "watch:prod": "npm run build:prod -- --watch",
     "watch": "npm run watch:dev",
     "webpack-dev-server": "webpack-dev-server",
-    "webpack": "webpack",
-    "deploy": "npm run build:prod && npm run server:prod"
+    "webpack": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -43,14 +42,9 @@
     "jquery": "^3.1.1",
     "ng2-bootstrap": "^1.1.16-9",
     "rxjs": "5.0.0-beta.12",
-    "zone.js": "~0.6.26",
-    "webpack": "2.1.0-beta.27",
-    "webpack-dev-middleware": "^1.6.1",
-    "webpack-dev-server": "2.1.0-beta.11",
-    "extract-text-webpack-plugin": "2.0.0-beta.4",
-    "html-webpack-plugin": "^2.21.0",
-    "webpack-md5-hash": "^0.0.5",
-    "webpack-merge": "~1.0.1",
+    "zone.js": "~0.6.26"
+  },
+  "devDependencies": {
     "@types/core-js": "^0.9.35",
     "@types/jasmine": "^2.5.35",
     "@types/node": "^6.0.45",
@@ -58,8 +52,11 @@
     "awesome-typescript-loader": "^2.2.1",
     "bootstrap-sass": "^3.3.7",
     "css-loader": "^0.26.0",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
     "file-loader": "^0.9.0",
     "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.21.0",
+    "jquery": "^3.1.1",
     "node-sass": "^4.0.0",
     "null-loader": "^0.1.1",
     "phantomjs-prebuilt": "^2.1.7",
@@ -71,9 +68,12 @@
     "to-string-loader": "^1.1.5",
     "tslint": "~3.15.1",
     "typescript": "2.1.1",
-    "url-loader": "^0.5.7"
-  },
-  "devDependencies": {
+    "url-loader": "^0.5.7",
+    "webpack": "2.1.0-beta.27",
+    "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "2.1.0-beta.11",
+    "webpack-md5-hash": "^0.0.5",
+    "webpack-merge": "~1.0.1"
   },
   "repository": {}
 }
