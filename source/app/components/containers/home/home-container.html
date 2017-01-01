@@ -44,7 +44,9 @@
     </div>
   </div>
 </nav>
-<div>
+<div class="container" [ngStyle]="{ 'min-height.px': 380 }" > 
   <alert-component></alert-component>
   <router-outlet></router-outlet>
 </div>
+
+<footer-component></footer-component>

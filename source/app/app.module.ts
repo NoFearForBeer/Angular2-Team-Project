@@ -28,6 +28,7 @@ import { ModalQRCodeCompoennt } from './components/modal/modal-component';
 import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
 import { TicketDetailCompoennt } from './tickets/ticket-detail/ticket-detail-component';
 import { ActivateTicketComponent } from './tickets/activate-ticket/activate-ticket-component';
+import { FooterCompoenent } from './components/footer/footer-component';
 
 import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
@@ -69,6 +70,7 @@ import { AuthGuard } from './guards/auth-guard';
         TicketListComponent,
         TicketDetailCompoennt,
         ActivateTicketComponent,
+        FooterCompoenent,
 
         ValuesPipe,
         SortPipe,
