@@ -2,10 +2,11 @@ import { NgModule, Pipe, PipeTransform } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { DropdownModule } from 'ng2-bootstrap/dropdown';
 import { HttpModule } from '@angular/http';
 import { CookieService } from '../node_modules/angular2-cookie/services/cookies.service';
 import { Ng2BootstrapModule } from 'ng2-bootstrap';
+import { DropdownModule } from 'ng2-bootstrap/dropdown';
+import { CollapseModule } from 'ng2-bootstrap/collapse';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
@@ -41,7 +42,6 @@ import { ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
 
 import { AuthService, ApiService, AlertService, NewsService, CommentService } from './services/index';
-
 import { AuthGuard } from './guards/auth-guard';
 
 @NgModule({
@@ -49,6 +49,7 @@ import { AuthGuard } from './guards/auth-guard';
         BrowserModule,
         DropdownModule.forRoot(),
         ModalModule.forRoot(),
+        CollapseModule.forRoot(),
         BootstrapModalModule,
         routing,
         FormsModule,
