@@ -24,4 +24,4 @@ export class SortPipe implements PipeTransform {
             return items.sort();
         }
     }
-};
+}

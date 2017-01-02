@@ -12,10 +12,10 @@ export class ApiService {
 
     get(path: string): Observable<any> {
         path = `${this.baseApiUrl}${path}`;
-        
+
         return this.http.get(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
-            .map(resp =>{
+            .map(resp => {
                 if (!!resp._body) {
                     return resp.json();
                 }
@@ -26,7 +26,7 @@ export class ApiService {
 
     post(path: string, data: Object): Observable<any> {
         path = `${this.baseApiUrl}${path}`;
-        
+
         return this.http.post(path, JSON.stringify(data), { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -43,7 +43,7 @@ export class ApiService {
         let headers = this.authService.getAuthorizationHeader();
 
         path = `${this.baseApiUrl}${path}`;
-        
+
         return this.http.put(path, JSON.stringify(data), { headers })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -57,7 +57,7 @@ export class ApiService {
 
     delete(path: string) {
         path = `${this.baseApiUrl}${path}`;
-        
+
         return this.http.delete(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -83,7 +83,7 @@ export class ApiService {
             };
 
             path = `${this.baseApiUrl}${path}`;
-            xhr.open('PUT', path, true); // TODO: PUT as parameter
+            xhr.open('PUT', path, true);
 
             let headers = this.authService.getAuthorizationHeader();
             let token: string = headers.get('Authorization');

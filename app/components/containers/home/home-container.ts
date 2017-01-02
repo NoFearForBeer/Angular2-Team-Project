@@ -9,7 +9,7 @@ import { ApiService } from '../../../services/api-service';
     templateUrl: './home-container.html',
     providers: [AuthService],
 })
-export class HomeContainer implements OnInit{
+export class HomeContainer implements OnInit {
     userName: string = '<UserName>';
 
     constructor(private authService: AuthService,

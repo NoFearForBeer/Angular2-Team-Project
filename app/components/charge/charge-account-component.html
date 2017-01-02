@@ -3,7 +3,7 @@
     <fieldset>
       <legend>Payment</legend>
       <div class="form-group">
-        <label class="col-sm-3 control-label" for="card-holder-name">Name on Card</label>
+        <label class="col-sm-3 control-label" for="card-holder-name">Names on Card</label>
         <div class="col-sm-4">
           <input type="text" class="form-control" pattern="^[A-z]+ [A-z]+ ?"  required minlength="5" maxlength="100" #nameInput="ngModel" [(ngModel)]="model.cardHolderNames" name="card-holder-name" id="card-holder-name" placeholder="Card Holder's Name">
 

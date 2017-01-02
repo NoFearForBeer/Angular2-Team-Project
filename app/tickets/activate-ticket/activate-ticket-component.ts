@@ -11,5 +11,4 @@ export class ActivateTicketComponent {
     activateClick() {
         this.ticketActivated.emit(this.ticketId);
     }
-
 }

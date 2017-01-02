@@ -12,9 +12,9 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { 
+import {
     HomeContainer,
-    LoginFormModule, 
+    LoginFormModule,
     UserProfileModule,
     RegisterComponent,
     MapComponent,
@@ -29,7 +29,7 @@ import {
     ModalQRCodeComponent
 } from './components/index';
 
-import { 
+import {
     TicketPricesComponent,
     TicketListComponent,
     TicketDetailComponent,
@@ -78,7 +78,6 @@ import { AuthGuard } from './guards/auth-guard';
         ActivateTicketComponent,
         FooterComponent,
 
-        //ValuesPipe,
         SortPipe,
         ImageDataPipe,
         YesNoPipe,
@@ -97,7 +96,6 @@ import { AuthGuard } from './guards/auth-guard';
         NewsService,
         CommentService,
         ImageDataPipe,
-        //SortPipe
     ],
 
     bootstrap: [AppComponent]

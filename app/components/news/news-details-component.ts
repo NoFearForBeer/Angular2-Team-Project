@@ -5,14 +5,13 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import 'rxjs';
 
-import { NewsService } from '../../services/news-service';
-import { AuthService } from '../../services/auth-service';
+import { NewsService, AuthService } from '../../services/';
 import { News } from '../../models/news';
 import { Comment } from '../../models/comment';
 
 import { SortPipe } from '../../pipes';
 
-import { CommentComponent } from '../comments/comment-component'
+import { CommentComponent } from '../comments/comment-component';
 
 
 @Component({
@@ -20,8 +19,6 @@ import { CommentComponent } from '../comments/comment-component'
   templateUrl: 'news-details-component.html',
   providers: [SortPipe]
 })
-
-
 export class NewsDetailsComponent implements OnInit {
   news: News;
   error: any;
@@ -37,7 +34,7 @@ export class NewsDetailsComponent implements OnInit {
       if (params['id'] !== undefined) {
         let id = +params['id'];
         this.newsService.getNews(id)
-          .subscribe(n => this.news = n)
+          .subscribe(n => this.news = n);
       }
     });
   }

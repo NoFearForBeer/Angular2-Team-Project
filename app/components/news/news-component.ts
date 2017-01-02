@@ -38,22 +38,22 @@ export class NewsComponent implements OnInit {
     ngOnInit() {
         this.newsService
             .getAll()
-            .subscribe(p => this.news = p)
+            .subscribe(p => this.news = p);
     }
 
     deleteNews(id: number) {
         this.newsService.delete(id)
             .subscribe(
             data => {
-                let arrayIndex = this.news.findIndex(newsItem => newsItem.id == id);
+                let arrayIndex = this.news.findIndex(newsItem => newsItem.id === id);
                 if (arrayIndex >= 0) {
                     this.news.splice(arrayIndex, 1);
                 }
 
-                this.alertService.success("News deleted succesfully!");
+                this.alertService.success('News deleted succesfully!');
             },
             error => {
-                this.alertService.error("This news cannot be deleted");
+                this.alertService.error('This news cannot be deleted');
             });
     }
 
@@ -62,6 +62,6 @@ export class NewsComponent implements OnInit {
     }
 
     checkIfAdmin(): boolean {
-        return this.authService.isInRole("admin");
+        return this.authService.isInRole('admin');
     }
 }
