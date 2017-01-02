@@ -1,7 +1,7 @@
 # Angular2-Team-Project
 Angular 2 Team Project 
 
-Check the demo hosted at heroku-cloud [Live](https://ticketing-system-ng2.herokuapp.com/)
+Check the demo hosted at heroku-cloud [Live](http://ticketing-system-ng2.herokuapp.com/)
 
 (The first time login or register could be very slow - caused by REST server)
 

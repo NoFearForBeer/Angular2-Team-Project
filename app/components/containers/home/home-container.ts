@@ -11,6 +11,7 @@ import { ApiService } from '../../../services/api-service';
 })
 export class HomeContainer implements OnInit {
     userName: string = '<UserName>';
+    isCollapsed: boolean = true;
 
     constructor(private authService: AuthService,
                 private apiService: ApiService,
