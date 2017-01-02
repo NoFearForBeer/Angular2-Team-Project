@@ -1,12 +1,15 @@
-# Angular2-Team-Project
-Angular 2 Team Project 
+# **Sofia Transport - an Angular2 Application**
 
-Check the demo hosted at heroku-cloud [Live](http://ticketing-system-ng2.herokuapp.com/)
+This project is part of the [Angular 2 Single Page Applications](https://telerikacademy.com/Courses/Courses/Details/391) course at [Telerik Academy](https://telerikacademy.com/) .
 
-(The first time login or register could be very slow - caused by REST server)
+ - Check the demo hosted at heroku-cloud [Live](http://ticketing-system-ng2.herokuapp.com/)
+	 - Please note that the first time login or register could be very slow (caused by REST server)
+ - Check the live demostration of the application [here](https://www.youtube.com/watch?v=jplqfLO8BBg&feature=youtu.be)
+
+
 
 ### Team Members
-- [Nia Omerska](https://github.com/medeaohm) 
+- [Niya Omerska](https://github.com/medeaohm) 
 - [Mihail Yankov](https://github.com/M-Yankov)
 
 ### Requirements
@@ -21,39 +24,66 @@ Check the demo hosted at heroku-cloud [Live](http://ticketing-system-ng2.herokua
 
 ### REST Server (Web Api ASP)
 
-- Hosted At [AppHarbour](http://ticket-system-rest.apphb.com)
-- Of course you can run on http://localhost:3200
-- SQL Server 2012+ is required.
-- .NET 4.5
+For more information regarding the rest server please check  [here](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/REST%20Server.md) 
+
+### Project Description
+The purpuse of the application is to allow users to buy tickets for the public transport in Sofia. Additionally, users can read the news posted by the Sofia Public Transport Team and comment them.
+
+The application consists of:
+
+- **public part** (accessible without authentication)
+- **private part** (available for registered users)
+- **administrative part** (available for administrators only)
+    
+### Public Part
+Not register users can only access the public part of te application, which consist of:
+
+- **Home Page**  - showing the map of the public transport in Sofia
+    ![alt tag](link to the image here)
+
+- **News Page** - shows all the news ordered by creation date 
+    ![alt tag](link to the image here)
+    
+- **News Details Page** - shows the selected news and the list of the related comments
+![alt tag](link to the image here)
+
+- **Ticket Prices Page** - a table containing all available tickets along with their prices. 
+![alt tag](link to the image here)
+
+- And of course, users can **Register/Login**
+    ![alt tag](link to the image here)
 
 
-Auto generated users (Administrators):
+### Private Part
+Additionally, registered user have access to several other part of the application:
 
-UserName | Password 
---- | ---
-admin | password
-batman | password
-John | password
+- **Add new comment** 
+    ![alt tag](link to the image here)
 
-address http://localhost:3200/
+- **Delete their own comments** 
+	![alt tag](link to the image here)
 
-Action | Method | Description | Body/Query | Response | Notes 
---- | --- | --- | --- | --- | ---  
-**/token** | `POST` | Gets Autotization token | ```{ pasword: "", username: "", grant_type: "password"  }``` | ```{ "access_token": "LongStringOfCharacters", "token_type": "bearer", "expires_in": 1209599, "userName": "admin", ".issued": "Sun, 25 Dec 2016 09:13:57 GMT", ".expires": "Sun, 08 Jan 2017 09:13:57 GMT", Roles: "Administrator, Inspector"}```  | Content-Type Header Should be **application/x-www-form-urlencoded**
-**api/account/register** | `POST`| User Registration | ```{ firstName: "", lastName: "", username: "", email: "", password: "", confirmPassword: ""  }``` | Password should have at least 6 symbols 
-**api/tickets/buy** | `POST` | Buy new ticket | ```{ hours: 2 }``` | ```{ QRCode: "LongStringOfCharacters", Cost: "1.60" }```| Requires authorization. Cost is in leva
-**api/tickets/** | `GET` | Show all tickets for current logged user | - | ```[{ Id: "GUID", BoughtAt: "Date", Cost: "Decimal", Expired: "Bool", "Activated": "Bool", "DateActivated": "Date/null", "ExpiresOn": "Date/null", Duration: "NumberHours", QRCode: "LongText", Owner: { "Owner": { Id: "GUID"  UserName: "Text", FullName: "Text"} }  ]``` | Requires authorization 
-**api/tickets/all?count=2** | `GET` | Same as above but for all users | count is optional positive number | `Same as above` | for Administrators\*\*
-**api/tickets/byId?id=GUID** | `GET` | Returns info of single ticket | id is **required** | `Same as above but for single item` | 
-**api/tickets/isValid?id=GUID** | `GET`| Checks whether a ticked is valid (Activated and not Expired) | id is **required** | `true/false` | for Inspectors\*\*
-**api/tickets/allByUsername?username=text** | `GET`| Gets tickets for a given user by username |  username is **required**, count is optional | See *api/tickets/* 
-**api/tickets/allByUserid?id=GUID** | `GET` | Gets tickets for a given user by its id |  id is **required**, count is optional | See *api/tickets/* 
-**api/tickets/activate** | `PUT` | Activates a ticked |  ```{ id: "GUID"}``` | ```{ Message = "Successfully activated/Ticked already activated.", ExpiresOn = "Date" }``` | Requires authorization
-**api/users/** | `GET` | Gets all registered users | - | ```[ { FirstName: "Text", LastName: "Text", Email: "Text", Tickets: [], Roles: [], Id: "GUID", UserName: "Text", FullName: "", Avatar: "string", FileExtension: "jpg|png", Balance: "number" }]``` | for Administrators\*\*
-**api/users/info/** | `GET` | Returns info about current logged user | - | `Simliar to above but for single user - not array` | 
-**api/users/byid?id=GUID** | `GET` | Returns info about user by id | id is **required** | `Same as above` | 
-**api/users/** | `POST` | Creates a new user (same as *api/account/register*) | `check api/account/register/` | `Same as aboive` | 
-**api/users/** | `PUT` | Updates a user | ```{ Id: "GUID", "FirstName": "Text", LastName: "Text", Email: "Text", UserName: "Text" }``` | No response - only status code 200 - OK.
-**api/users/** | `DELETE` | Removes a user | ```{ Id: "GUID" } ``` |  No response - only status code 200 - OK. 
-**api/users/charge** | `PUT` | Adds money to current user account | ```{ CardNumer: "string", SecurityCode: "string", CardType: "string",  ExpireMonth: "number (1-12)", ExpireYear: "number", CardHolderNames: "string", Amount: "number"} ``` |  No response - only status code 200 - OK.
-**api/users/avatar** | `PUT` | Updates the profile picture of current user. | - | No response - only status code 200 - OK.
+- **View their profile** 
+	![alt tag](link to the image here)
+	
+- **Modify their profile** 
+	![alt tag](link to the image here)
+	
+- **Charge account** 
+	![alt tag](link to the image here)
+	
+- **Buy Tickets** 
+	![alt tag](link to the image here) 
+
+- **View and Activate Tickets** 
+	![alt tag](link to the image here)   
+
+### Administration Part
+The administrator of the page is allowed to:
+
+- **Post news**
+	![alt tag](link to the image here)   
+
+- **Delete news**
+	![alt tag](link to the image here)   
+	
