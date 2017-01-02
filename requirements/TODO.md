@@ -9,7 +9,6 @@
 
 - At least **10 different** partial components
   1. Search news (Search form ) - TODO  (/news/:title)
-  2. Ticket Detail - TODO
   3. Username and password form - TODO ??
 
 
