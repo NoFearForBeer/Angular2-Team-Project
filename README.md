@@ -6,6 +6,8 @@ This project is part of the [Angular 2 Single Page Applications](https://telerik
 	 - Please note that the first time login or register could be very slow (caused by REST server)
  - Check the live demostration of the application [here](https://www.youtube.com/watch?v=jplqfLO8BBg&feature=youtu.be)
 
+ - Check [our application](http://best.telerikacademy.com/projects/420/Ticketing-system) at Telerik Akademy Showcase - System
+
 
 
 ### Team Members
@@ -42,7 +44,10 @@ address http://localhost:3200/
 For more information regarding the rest server please check  [here](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/REST%20Server.md) 
 
 ### Project Description
-The purpuse of the application is to allow users to buy tickets for the public transport in Sofia. Additionally, users can read the news posted by the Sofia Public Transport Team and comment them.
+The purpose of the application is to allow users to buy tickets for the public transport in Sofia. Users can charge their accounts, buy and activate tickets. When a ticket is bought, a QR code is generated. After the purchasing, the ticket can be activated online or via the scanners present into the vehicles.
+
+Additionally, users can read the news posted by the Sofia Public Transport Team and comment them.
+
 
 The application consists of:
 
@@ -90,9 +95,11 @@ Additionally, registered user have access to several other part of the applicati
 
 - **View and Activate Tickets** 
 	![view tickets](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/tickets.JPG?raw=true)   
+	![view tickets](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/tickets2.JPG?raw=true)   
 
 ### Administration Part
 The administrator of the page is allowed to:
 
 - **Post/Delete news**
 	![post/delete](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/news-admin.JPG?raw=true)   
+	
