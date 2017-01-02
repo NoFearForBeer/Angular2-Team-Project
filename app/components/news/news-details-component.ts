@@ -45,4 +45,8 @@ export class NewsDetailsComponent implements OnInit {
   addComment(comment: Comment, commentComoennt: CommentComponent) {
     commentComoennt.ngOnInit();
   }
+
+  removeComment(id: number, commentComoennt: CommentComponent) {
+    commentComoennt.ngOnInit();
+  }
 }

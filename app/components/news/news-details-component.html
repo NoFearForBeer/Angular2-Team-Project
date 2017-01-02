@@ -17,9 +17,13 @@
       </div>
   </div>
 
-  <comment-component #commentComoennt [currentNews]="news"></comment-component>
+  <comment-component #commentComoennt [currentNews]="news" 
+                    (commentDeleted)="removeComment($event, commentComoennt)" >
+</comment-component>
   <div *ngIf="authService.isLoggedIn() == true">
-    <comment-post-component (commnentPosted)="addComment($event, commentComoennt)" [currentNews]="news"></comment-post-component>
+    <comment-post-component (commnentPosted)="addComment($event, commentComoennt)" 
+            [currentNews]="news">
+    </comment-post-component>
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Injectable, Pipe, PipeTransform  } from '@angular/core';
+import { Component, OnInit, Input, Injectable, Pipe, PipeTransform, Output, EventEmitter } from '@angular/core';
 import { Http } from '@angular/http';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -28,7 +28,9 @@ export class CommentComponent implements OnInit {
     userName: string = '<UserName>';
     model: any = {};
     comments: Comment[] = [];
-    
+
+    @Output() commentDeleted = new EventEmitter();
+
     @Input()
     currentNews: News;
     currentUser: User;
@@ -59,7 +61,8 @@ export class CommentComponent implements OnInit {
     this.commentService.delete(id)
         .subscribe(
         data => {
-            location.reload();
+            
+            this.commentDeleted.emit(id);
             this.alertService.success("Comment deleted succesfully!");
         },
         error => {
