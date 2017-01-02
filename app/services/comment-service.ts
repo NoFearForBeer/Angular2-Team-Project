@@ -8,7 +8,7 @@ import { NewsService } from './news-service';
 @Injectable()
 export class CommentService {
 
-    private baseUrl: string = 'http://ticket-system-rest.apphb.com/';
+    private baseUrl: string = 'http://ticket-system-rest.apphb.com/api/';
 
     private applicationJson: string = 'application/json';
     private jsonHeaders: Headers = new Headers({
