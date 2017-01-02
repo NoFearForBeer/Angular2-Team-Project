@@ -5,7 +5,7 @@ import { AuthService } from '../services/auth-service';
 
 @Injectable()
 export class ApiService {
-    private baseApiUrl: string = 'http://ticket-system-rest.apphb.com/api';
+    private baseApiUrl: string = 'http://localhost:3200/api';
 
     constructor(private http: Http, private authService: AuthService) {
     }
