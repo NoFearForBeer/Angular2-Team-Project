@@ -31,10 +31,10 @@ Your Web application should use the following technologies, frameworks and devel
 - At least **8 different public dynamic web pages**
   1. Login - done
   2. Register - done
-  3. Map -done (it is not dinamic)
+  3. Map - done (it is not dinamic)
   4. News - done
   5. News details - done
-  6. Ticket Prices - TODO
+  6. Ticket Prices - DONE
   7. Public Transport Schedule - TODO
   8. TBD
 - At least **7 different private (authenticated) dynamic web pages**
@@ -43,8 +43,8 @@ Your Web application should use the following technologies, frameworks and devel
   3. News Details (with possibility to add comments and delete) - DONE
   4. Charge account - (add monney to account) - DONE
   5. Owned tickets - Current tickets of user - DONE
-  6. 
-  7. Create news (only for admins) - DONE
+  6. Create news (only for admins) - DONE
+  7. TBD
 - At least **10 different** partial components
   1. Username and password form - TODO
   2. Comments (list) - done
@@ -55,13 +55,13 @@ Your Web application should use the following technologies, frameworks and devel
   7. Ticket Detail - DONE
   8. Create News - DONE
   9. Activate Ticket - DONE
-  10. Footer - TODO
+  10. Footer - DONE
 - Responsive UI with good UX
 - Most of the data should be loaded from a web server
   - You can use Firebase, parse.com, Telerik Back-end Services, or any other
   - You can use your own server written on Node.js, ASP.NET, or any other framework
 - Load all data using services
-- **Use animations** - TODO
+- **Use animations** - DONE
 - Create at least **3 different pipes**
   1. Values Pipe - DONE
   2. Image Data Pipe - DONE
@@ -90,7 +90,7 @@ Your Web application should use the following technologies, frameworks and devel
   - Do not record register/login functionality, this is not interesting...
 - Upload your application in the cloud - TODO
   - MS Azure, HerokuCloud, Amazon, all are fine
-- Register your application at [Our Showcase - TODO System](http://best.telerikacademy.com)
+- Register your application at [Our Showcase - System](http://best.telerikacademy.com) -TODO
   - Link to the live application
   - Link to the video
   - Link to the github repository

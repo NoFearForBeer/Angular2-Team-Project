@@ -1,0 +1,26 @@
+
+<div [@flyInOut]>
+    <h3 class="text-center">All the news: </h3>
+    <div class="col-sm-10 small" *ngFor="let n of news">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <button class="badge" [routerLink]="['/news', n.id]">{{n.title}}</button>
+                <div *ngIf="checkIfAdmin()  == true">
+                        <form name="form" (ngSubmit)="deleteNews(n.id)" #f="ngForm" novalidate>
+                            <button class="btn btn-sm btn-danger pull-right">Delete</button>
+                        </form>
+                    </div>
+                <br />
+                <br />
+                <span class="text-muted">{{n.createdOn | date}}</span>
+                <br />
+            </div>
+            <div class="panel-body">
+                {{n.content}}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="checkIfAdmin() == true">
+        <news-post-component></news-post-component>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<div [@flyInOut]>
+
+    <div class="row" [ngStyle]="{'margin-right': 'auto'}">
+
+        <div class="col col-sm-6 col-sm-offset-3" >
+            <h3>How yo buy a ticket:</h3>
+            <div class="description" [ngStyle]="{'font-size': '16px'}">
+
+                <p> Easy buy with just select the duration of the ticket. <b>Just for 0.1 leva per hour!</b> . You can use all public transport types in city.</p>
+                <p>For example check the table bellow. </p>
+                <p> The price is automatically callculated.</p>
+                <p class="text-primary">
+                    <span class="glyphicon glyphicon-warning-sign" aria-hidden="fase"></span> After purchase, you must activate
+                    the ticket with scanner acivator in the vehicle. It is valid until it expires. <br> A purchased ticket
+                    cannot be returned!
+                </p>
+            </div>
+            <table border="1" class="table table-bordered">
+                <colgroup>
+                    <col width="50%">
+                </colgroup>
+                <tr>
+                    <th>Hours</th>
+                    <th>Price (Leva)</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>1.6</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>1.7</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>1.8</td>
+                </tr>
+                <tr>
+                    <td>4 </td>
+                    <td>1.9</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <a [routerLink]="['/prices']" class="text-info">Ckeck all prices</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="row" [ngStyle]="{'margin-right': 'auto'}">
+        <div class="col col-sm-6 col-sm-offset-3">
+            <label for="TicketHours" class="label-control">Select duration </label>
+
+            <div class="input-group">
+
+                <select ticketPrice price-id="ticket-price-value" id="TicketHours" class=" form-control" name="hours" [(ngModel)]="hours">
+                        <option value="1" selected="selected" >1 hour</option>
+                        <option value="2">2 hours </option>
+                        <option value="3">3 hours </option>
+                        <option value="4">4 hours </option>
+                        <option value="5">5 hours </option>
+                        <option value="24">1 day </option>
+                        <option [value]="24*3">3 day </option>
+                        <option [value]="24*7">1 week </option>
+                        <option [value]="24*7*3">3 weeks </option>
+                        <option [value]="24*30">1 month </option>
+                        <option [value]="24*92">3 months </option>
+                </select>
+                <span class="input-group-addon" id="ticket-price-value">1.60 lv.</span>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-success" (click)="buyTicket()"> Buy </button>
+                </span>
+            </div>
+        <div [innerHTML]="result"></div>
+        </div>
+
+    </div>
+</div>
