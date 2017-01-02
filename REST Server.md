@@ -1,20 +1,4 @@
-### REST Server (Web Api ASP)
-
-- Hosted At [AppHarbour](http://ticket-system-rest.apphb.com)
-- Of course you can run on http://localhost:3200
-- SQL Server 2012+ is required.
-- .NET 4.5
-
-
-Auto generated users (Administrators):
-
-UserName | Password 
---- | ---
-admin | password
-batman | password
-John | password
-
-address http://localhost:3200/
+### REST Server (Web Api ASP) Routes
 
 Action | Method | Description | Body/Query | Response | Notes 
 --- | --- | --- | --- | --- | ---  
