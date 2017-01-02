@@ -29,20 +29,53 @@ This area could hold for example the user's profiles management functionality, t
 Your Web application should use the following technologies, frameworks and development techniques:
 
 - At least **8 different public dynamic web pages**
+  - Login 
+  - Register
+  - Map
+  - News
+  - News details
+  - Ticket Prices
+
 - At least **7 different private (authenticated) dynamic web pages**
+  - UserProfile
+  - Buy Ticket
+  - News Details (with possibility to add comments and delete)
+  - Charge account - (add monney to account)
+  - Owned tickets - Current tickets of user
+  - Create news (only for admins)
+
 - At least **10 different** partial components
-  - Partial, as not a whole page
+  - Comments (list) 
+  - Comment (add) 
+  - Modal Window 
+  - Notification (alert component) 
+  - Ticket Detail
+  - Create News
+  - Activate Ticket 
+  - Footer
 - Responsive UI with good UX
+
 - Most of the data should be loaded from a web server
   - You can use Firebase, parse.com, Telerik Back-end Services, or any other
   - You can use your own server written on Node.js, ASP.NET, or any other framework
 - Load all data using services
-- Use animations
+
+- **Use animations** 
+
 - Create at least **3 different pipes**
+  - Image Data Pipe
+  - Sort Pipe
+  - YesNo Pipe
 - Create at least **3 different directives**
+  - TicketPrice Directive 
+  - CardNumber Directive
+  - Highlight Directive
+  
 - Setup and use tslint
 - Use **TypeScript**
-- Use the **best practices** for software development and Object-oriented design
+
+- Use the **best practices** for software development and Object-oriented design - maybe some refractoring will be needed
+
 - Use Dependency Injection
 
 ##  General Requirements
@@ -54,12 +87,12 @@ Your Web application should use the following technologies, frameworks and devel
 
 ### Deliverables
 
-- Record a short video showcasing your application
+- Record a short [video](https://www.youtube.com/watch?v=jplqfLO8BBg&feature=youtu.be) showcasing your application -
   - ~1-2 minutes, just show the interesting features
   - Do not record register/login functionality, this is not interesting...
-- Upload your application in the cloud
+- Upload your [application](http://ticketing-system-ng2.herokuapp.com/) in the cloud
   - MS Azure, HerokuCloud, Amazon, all are fine
-- Register your application at [Our Showcase System](http://best.telerikacademy.com)
+- Register your [application](http://best.telerikacademy.com) at [Our Showcase - System](http://best.telerikacademy.com)
   - Link to the live application
   - Link to the video
   - Link to the github repository
