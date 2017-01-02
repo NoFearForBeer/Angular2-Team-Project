@@ -26,7 +26,7 @@ namespace TicketingSystem.Controllers
             this.context = context;
         }
 
-        public CommentsController() : this( new TicketingSystemContext())
+        public CommentsController() : this(new TicketingSystemContext())
         {
         }
 
@@ -57,7 +57,8 @@ namespace TicketingSystem.Controllers
 
             if (comment != null && this.ModelState.IsValid)
             {
-                var databaseComment = new Comment {
+                var databaseComment = new Comment
+                {
                     Content = comment.Content,
                     NewsItemId = comment.NewsItemId,
                     AuthorId = userId,
@@ -67,7 +68,13 @@ namespace TicketingSystem.Controllers
                 context.Comments.Add(databaseComment);
                 context.SaveChanges();
 
-                return Ok();
+                return Ok(new
+                {
+                    id = databaseComment.Id,
+                    content = databaseComment.Content,
+                    author = databaseComment.Author.UserName,
+                    createdOn = databaseComment.CreatedOn,
+                });
             }
             else
             {

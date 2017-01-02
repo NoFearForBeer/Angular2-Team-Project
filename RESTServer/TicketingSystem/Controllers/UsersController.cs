@@ -113,6 +113,7 @@ namespace TicketingSystem.Controllers
         }
 
         [HttpPut]
+        [Authorize]
         public IHttpActionResult Update(UpdateUserModel model)
         {
             if (!this.ModelState.IsValid)
@@ -120,19 +121,19 @@ namespace TicketingSystem.Controllers
                 return this.BadRequest(this.ModelState);
             }
 
-            UserManager<User> userManager = this.GetUserManager();
-            User user = userManager.FindById(model.Id);
+            string userId = this.User.Identity.GetUserId();
+            User user = this.context.Users.Find(userId);
 
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
             user.UserName = model.UserName;
-            user.Email = model.Email;
 
-            IdentityResult result = userManager.Update(user);
-            if (!result.Succeeded)
+            if (user.Email != model.Email)
             {
-                return this.BadRequest(string.Join(" ", result.Errors));
+                user.Email =  model.Email;
             }
+
+            this.context.SaveChanges();
 
             return this.Ok();
         }
@@ -143,8 +144,6 @@ namespace TicketingSystem.Controllers
         public async Task<IHttpActionResult> Avatar()
         {
             string currentUserId =  this.User.Identity.GetUserId();
-            UserManager<User> userManger = this.GetUserManager();
-            User currentUser = userManger.FindById(currentUserId);
 
             if (!Request.Content.IsMimeMultipartContent())
             {
@@ -160,15 +159,11 @@ namespace TicketingSystem.Controllers
             }
 
             string fileName = filesReadToProvider.Contents[0].Headers.ContentDisposition.FileName;
-            currentUser.AvatarFileName = fileName.Replace("\"", string.Empty);
-
             byte[] fileBytes = await filesReadToProvider.Contents[0].ReadAsByteArrayAsync();
+            User currentUser = this.context.Users.Find(currentUserId);
             currentUser.Avatar = fileBytes;
-            IdentityResult result = userManger.Update(currentUser);
-            if (!result.Succeeded)
-            {
-                return this.BadRequest(string.Join(" ", result.Errors));
-            }
+            currentUser.AvatarFileName = fileName.Replace("\"", string.Empty);
+            this.context.SaveChanges();
 
             return this.Ok();
         }
@@ -181,24 +176,20 @@ namespace TicketingSystem.Controllers
                 return this.BadRequest(this.ModelState);
             }
 
-            UserManager<User> userManager = this.GetUserManager();
 
-            User userToDelete = userManager.FindById(model.Id);
+            User userToDelete = this.context.Users.Find(model.Id);
             if (userToDelete == null)
             {
                 return this.BadRequest("Cannot find user with id: " + model.Id);
             }
 
-            IdentityResult result = userManager.Delete(userToDelete);
-
-            if (!result.Succeeded)
-            {
-                return this.BadRequest(string.Join(" ", result.Errors));
-            }
+            this.context.Users.Remove(userToDelete);
+            this.context.SaveChanges();
 
             return this.Ok();
         }
 
+        [Authorize]
         [HttpPut]
         [Route("Charge")]
         public IHttpActionResult ChargeAccount(ChargeAccountModel model)
@@ -208,16 +199,10 @@ namespace TicketingSystem.Controllers
                 return this.BadRequest(this.ModelState);
             }
 
-            UserManager<User> userManager = this.GetUserManager();
             string currentUserId = this.User.Identity.GetUserId();
-            User user = userManager.FindById(currentUserId);
+            User user = this.context.Users.Find(currentUserId);
             user.Balance += model.Amount;
-
-            IdentityResult result = userManager.Update(user);
-            if (!result.Succeeded)
-            {
-                return this.BadRequest(string.Join(" ", result.Errors));
-            }
+            this.context.SaveChanges();
 
             return this.Ok();
         }
