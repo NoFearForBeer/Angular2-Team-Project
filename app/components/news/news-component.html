@@ -2,14 +2,19 @@
 <div [@flyInOut]>
     <div class="row" [ngStyle]="{'margin-right': 'auto'}">
         <div class="col col-sm-2 pull-left">
+            <img src="/img/latest-news2.png" style="width: 100%; height: 100%">
         </div>
+        <div class="col col-sm-10 pull-right" style="margin-top: 100px">
+            <div class="row" *ngIf="checkIfAdmin() == true">
                 <news-post-component (newsCreated)="addNews($event)"  ></news-post-component>
             </div>
+            <div class="row" *ngFor="let n of (news | sort: '-createdOn')">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <a [routerLink]="['/news', n.id]"> <strong>{{n.title}}</strong></a>
                         <div *ngIf="checkIfAdmin()  == true">
                                 <form name="form" (ngSubmit)="deleteNews(n.id)" #f="ngForm" novalidate>
+                                    <button class="btn btn-sm btn-danger pull-right" style="margin-top: -15px; background-image: none; background-color: #b81e0d">Delete</button>
                                 </form>
                             </div>
                         <span class="text-muted">{{n.createdOn | date}}</span>

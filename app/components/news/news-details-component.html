@@ -1,15 +1,23 @@
 <div *ngIf="news" class="row" [ngStyle]="{'margin-right': 'auto'}">
+  <div class="col col-sm-7 pull-left">
     <div class="panel panel-default">
         <div class="panel-heading">
+            <a [routerLink]="['/news', news.id]"> <strong>{{news.title}}</strong></a>
+            <span class="text-muted">{{news.createdOn | date}}</span>
+        </div>
+        <div class="panel-body">
+            {{news.content}}
+        </div>
+    </div>
   </div>
 
-  <comment-component #commentComoennt [currentNews]="news" 
-                    (commentDeleted)="removeComment($event, commentComoennt)" >
-</comment-component>
-  <div *ngIf="authService.isLoggedIn() == true">
-    <comment-post-component (commnentPosted)="addComment($event, commentComoennt)" 
-            [currentNews]="news">
-    </comment-post-component>
+  <div class="col col-sm-5 pull-right">
+    <comment-component #commentComponent [currentNews]="news" (commentDeleted)="removeComment($event, commentComponent)" >
+    </comment-component>
+    <div *ngIf="authService.isLoggedIn() == true">
+        <comment-post-component (commnentPosted)="addComment($event, commentComoennt)" [currentNews]="news">
+        </comment-post-component>
+    </div>
   </div>
 </div>
 
