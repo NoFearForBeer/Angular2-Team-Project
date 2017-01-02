@@ -7,8 +7,8 @@ import { CookieService } from '../../node_modules/angular2-cookie/services/cooki
 export class AuthService {
 
     private cookieKey = 'authKey';
-    private baseApiUrl: string = 'http://localhost:3200/api/';
-    private baseUrl: string = 'http://localhost:3200/';
+    private baseApiUrl: string = 'http://ticket-system-rest.apphb.com/api/';
+    private baseUrl: string = 'http://ticket-system-rest.apphb.com/';
     private applicationJson: string = 'application/json';
 
     private jsonHeaders: Headers = new Headers({
