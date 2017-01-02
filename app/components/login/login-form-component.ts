@@ -4,8 +4,6 @@ import { AuthService } from '../../services/index';
 import { Response } from '@angular/http';
 
 import { AlertService } from '../../services/alert-service';
-// import { AuthService } from '../services/authService';
-
 
 @Injectable()
 @Component({
@@ -37,11 +35,10 @@ export class LoginForm {
                 this.user.username = '';
                 this.user.password = '';
                 this.router.navigate(['/']);
-                this.alertService.success("User logged in successfully!");
+                this.alertService.success('User logged in successfully!');
             }, (err: Error) => {
                 console.error(err);
-                this.alertService.error("User not recognized!");
+                this.alertService.error('User not recognized!');
             });
-        //this.auth.currentLoggedUser.userName = this.user.username;
     }
 }

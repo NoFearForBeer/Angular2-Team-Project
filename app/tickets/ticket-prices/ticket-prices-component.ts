@@ -8,6 +8,4 @@ import { fadeInOut } from '../../animations/fadeInOut-animation';
     animations: [fadeInOut()]
 })
 
-export class TicketPricesComponent {
-
-}
+export class TicketPricesComponent { }

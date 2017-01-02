@@ -5,9 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import 'rxjs';
 
-import { AlertService } from '../../services/alert-service';
-import { AuthService } from '../../services/auth-service';
-import { CommentService } from '../../services/comment-service';
+import { AlertService, AuthService, CommentService } from '../../services/';
 import { Comment } from '../../models/comment';
 import { News } from '../../models/news';
 import { User } from '../../models/user';
@@ -21,7 +19,7 @@ import { NewsDetailsComponent } from '../news/news-details-component';
 
 
 @Injectable()
-export class CommentPostComponent implements OnInit{
+export class CommentPostComponent {
     userName: string = '<UserName>';
     model: any = {};
 
@@ -32,21 +30,17 @@ export class CommentPostComponent implements OnInit{
     currentUser: User;
 
     constructor(
-        private commentService: CommentService, 
+        private commentService: CommentService,
         private authService: AuthService,
         private router: Router,
         private alertService: AlertService,
         private zone: zone ) { }
 
-    ngOnInit() {
-        
-    }
-
     postComment(form: NgForm ) {
         let newsId = this.currentNews.id;
 
         this.model['AuthorUsername'] = this.authService.getLoggedUser().userName;
-        console.log(this.authService.getLoggedUser().userName)
+        console.log(this.authService.getLoggedUser().userName);
         this.model['NewsItemId'] = newsId;
         this.commentService.post(this.model)
             .subscribe(
@@ -54,10 +48,10 @@ export class CommentPostComponent implements OnInit{
                 form.resetForm();
                 let emitModel: News = data;
                 this.commnentPosted.emit(emitModel);
-                this.alertService.success("Comment posted succesfully!");
+                this.alertService.success('Comment posted succesfully!');
             },
             error => {
-                this.alertService.error("An error occured!");
+                this.alertService.error('An error occured!');
             });
     }
 }

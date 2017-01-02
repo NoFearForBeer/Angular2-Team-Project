@@ -5,6 +5,7 @@ const DefaultSeparator = '-';
 @Directive({
     selector: '[card-number]'
 })
+
 export class CardNumberDirective {
 
     private separator: string = DefaultSeparator;

@@ -1,4 +1,3 @@
-// import { Router, ActivatedRoute } from '@angular/router';
 import { Injectable } from '@angular/core';
 import { HttpModule, Headers, Response, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
@@ -8,8 +7,8 @@ import { CookieService } from '../../node_modules/angular2-cookie/services/cooki
 export class AuthService {
 
     private cookieKey = 'authKey';
-    private baseApiUrl: string = 'http://ticket-system-rest.apphb.com/api/';
-    private baseUrl: string = 'http://ticket-system-rest.apphb.com/';
+    private baseApiUrl: string = 'http://localhost:3200/api/';
+    private baseUrl: string = 'http://localhost:3200/';
     private applicationJson: string = 'application/json';
 
     private jsonHeaders: Headers = new Headers({
@@ -71,7 +70,6 @@ export class AuthService {
                 return Observable.empty;
             })
             .catch((error: Response) => {
-
                 let errorMessages: String[] = [];
                 let modelState = error.json().ModelState;
                 Object.getOwnPropertyNames(modelState).forEach((prop) => {
@@ -103,7 +101,6 @@ export class AuthService {
                 } else {
                     errMsg = error.message ? error.message : error.toString();
                 }
-
                 return Observable.throw(errMsg);
             });
     }

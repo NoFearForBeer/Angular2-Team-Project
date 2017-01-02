@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { AlertService, AuthService } from '../../services/';
 
 @Component({
-    //moduleId: module.id,
     selector: 'register-component',
     templateUrl: '/register-component.html'
 })

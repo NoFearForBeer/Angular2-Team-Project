@@ -12,7 +12,7 @@
             <th>Duration</th>
             <th>Expired</th>
         </tr>
-        <tr highlight *ngFor="let ticket of tickets" ticket-detail-comopnent [ticketModel]="ticket" (ticketActivatedDetail)="activateTicket($event)" >
+        <tr highlight *ngFor="let ticket of tickets" ticket-detail-component [ticketModel]="ticket" (ticketActivatedDetail)="activateTicket($event)" >
             
         </tr>
     </table>

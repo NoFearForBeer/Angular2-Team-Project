@@ -6,5 +6,4 @@ export class ChargeAccountModel {
     expireYear: string;
     cardHolderNames: string;
     amount: number;
-
 }

@@ -1,91 +1,87 @@
-<div id="profile-container">
-
-    <h2> User Profile </h2>
-
-    <div class="row">
-
-        <div class="col col-sm-5 col-sm-offset-4">
-            <div class="row">
-
+ <div class="row">
+    <div class="row" [ngStyle]="{'margin-right': 'auto'}">
+        <fieldset>
+            <legend>User Profile</legend>
+            <div class="col col-sm-5 pull-left">
                 <img [src]="tempImg" [alt]="'avatar'" [width]="350" class="img-thumbnail">
 
                 <span *ngIf="imageUpdated" class="text-success">Done
                     <span class="glyphicon glyphicon-ok" aria-hidden="true">
                     </span>
                 </span>
-                <form enctype="multipart/form-data" (submit)="updateAvatar(imgInput.files[0])">
-                    <input (change)="imagePreview($event)" class="btn btn-default" #imgInput type="file" accept="image/*">
-                    <button class="btn btn-info btn-sm" type="submit" [disabled]="!imageSelected">
-                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                        Update
-                    </button>
-                </form>
+                <div class="pull-left">
+                    <form enctype="multipart/form-data" (submit)="updateAvatar(imgInput.files[0])">
+                        <div >
+                            <input (change)="imagePreview($event)" class="col col-sm-10 pull-left btn btn-default" #imgInput type="file" accept="image/*">
+                        </div>
+                        <div class="col col-sm-1 pull-right">
+                            <button class="btn btn-info btn-sm" style="padding: 10px 13px 9px 14px" type="submit" [disabled]="!imageSelected">
+                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                                Update
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <br />
-
-    <div class="row" *ngIf="!isEdit">
-
-        <div class="col col-sm-4 col-sm-offset-4 well">
-
-            <div class="col col-sm-8">
-
-                <h2>
-                    {{ userProfile.FullName }}
-                </h2>
-
-                <h4> {{ userProfile.Email }}</h4>
-
-                <h4> You have  <b [ngClass]="{ 'text-success': userProfile.Balance >= 1.6, 'text-danger':  userProfile.Balance < 1.6}"> {{ userProfile.Balance }} </b> leva </h4>
+            <div class="col col-sm-7 pull-right" *ngIf="!isEdit">
+                <div class="col col-sm-6 pull-left">
+                    <h2>{{ userProfile.FullName }}</h2>
+                    <h4> {{ userProfile.Email }}</h4>
+                    <h4> You have  <b [ngClass]="{ 'text-success': userProfile.Balance >= 1.6, 'text-danger':  userProfile.Balance < 1.6}"> {{ userProfile.Balance }} </b> leva </h4>
+                </div>
+                <div class="col col-sm-2 pull-right">
+                    <br />
+                    <span class="pull-right btn btn-info" (click)="toogle()">  
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 
+                        Edit Profile
+                    </span>
+                </div>
             </div>
-            <span class="pull-right btn btn-info" (click)="toogle()">  
-                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-            </span>
-        </div>
-    </div>
-
-    <div class="row" *ngIf="isEdit">
-        <div class="col col-sm-4 col-sm-offset-4">
-            <h2>Edit</h2>
-            <form #newProfileForm="ngForm" novalidate (submit)="updateProfile()" >
-                <div>
-                    <label for="firstNameInput" class="label-control"> First name 
-                        <input type="text" id="firstNameInput" class="form-control" #newFirstNameInput="ngModel" required name="newProfileFirstName" [(ngModel)]="newProfile.FirstName" minlength="3" >
-                    </label>
-                    <p class="help-block" *ngIf="!newFirstNameInput.valid" class="text-primary">
-                        First name is required
-                    </p>
-                </div>
-
-                <div>
-                    <label for="firstNameInput" class="label-control"> Last name 
-                        <input type="text" id="firstNameInput" class="form-control" required #newLastNameInput="ngModel" name="newProfileLastName"  [(ngModel)]="newProfile.LastName" minlength="3" >
-                    </label>
-                    <p class="help-block" *ngIf="!newLastNameInput.valid" class="text-primary">
-                        Last name is required
-                    </p>
-                </div>
-
-                <div>
-                    <label for="firstNameInput" class="label-control"> Email 
-                        <input type="text" id="firstNameInput" class="form-control" required  #newEmailInput="ngModel" name="newProfileEmail" [(ngModel)]="newProfile.Email" rquired pattern="^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$" >
-                    </label>
-                    <p class="help-block" *ngIf="!newEmailInput.valid" class="text-primary">
-                        Email address is invalid
-                    </p>
-                </div>
                     
-                <div>
-                    <button type="submit" class="btn btn-info" [disabled]="!newProfileForm.valid" >Apply</button>
-                    <button type="button" class="btn btn-default" (click)="toogle(true)">
-                        Cancel
-                    </button>
-                </div>
-            </form>
-        </div>
-
-        <br />
+            <div class="col col-sm-7 pull-right" *ngIf="isEdit">
+                <fieldset>
+                    <legend>Edit</legend>
+                    <form class="col-md-7 col-md-offset-3" #newProfileForm="ngForm" novalidate (submit)="updateProfile()" >
+                        <div class="form-group">
+                            <label for="username" class="label-control">Username</label>
+                            <input type="text" id="firstNameInput" class="form-control" #newFirstNameInput="ngModel" required name="newProfileFirstName" [(ngModel)]="newProfile.FirstName" minlength="3" />
+                            <p class="help-block" *ngIf="!newFirstNameInput.valid" class="text-primary">
+                                First name is required
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="firstNameInput" class="label-control">First name </label>
+                            <input type="text" id="firstNameInput" class="form-control" required #newFirstNameInput="ngModel" name="newProfileFirstName"  [(ngModel)]="newProfile.FirstName" minlength="3" >
+                            <p class="help-block" *ngIf="!newFirstNameInput.valid" class="text-primary">
+                                Last name is required
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastNameInput" class="label-control">Last name </label>
+                            <input type="text" id="lastNameInput" class="form-control" required #newLastNameInput="ngModel" name="newProfileLastName"  [(ngModel)]="newProfile.LastName" minlength="3" >
+                            <p class="help-block" *ngIf="!newLastNameInput.valid" class="text-primary">
+                                Last name is required
+                            </p>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailInput" class="label-control">Last name </label>
+                            <input type="text" id="emailInput" class="form-control" required  #newEmailInput="ngModel" name="newProfileEmail" [(ngModel)]="newProfile.Email" rquired pattern="^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$" >
+                            <p class="help-block" *ngIf="!newEmailInput.valid" class="text-primary">
+                            Email is required
+                            </p>
+                        </div>
+                            
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-info" [disabled]="!newProfileForm.valid" >Apply</button>
+                            <button type="button" class="btn btn-default" (click)="toogle(true)">Cancel</button>
+                        </div>
+                    </form>
+                </fieldset>
+                <br />
+            </div>    
+        </fieldset>
     </div>
 </div>
+<br />
+<br />
+<br />

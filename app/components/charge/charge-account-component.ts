@@ -33,10 +33,7 @@ export class ChargeAccountComponent {
 
         this.api.put('/users/charge', this.model)
         .subscribe(() =>
-    //  TODO: Alert service
             this.router.navigate(['/profile']),
                 err => console.log(err));
     }
-
-    // TODO: Should we unsubscribe?
 }

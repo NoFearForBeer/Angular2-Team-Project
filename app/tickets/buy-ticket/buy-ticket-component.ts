@@ -9,6 +9,7 @@ import { flyInOut } from '../../animations/flyInOut-animation';
     templateUrl: './buy-ticket-component.html',
     animations: [flyInOut()],
 })
+
 @Injectable()
 export class BuyTicketComponent {
 

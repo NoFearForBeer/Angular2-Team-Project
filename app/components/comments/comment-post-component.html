@@ -1,11 +1,9 @@
-<div class="col-sm-10 small">
+<div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <strong>Post your comment...</strong> <span class="text-muted"></span>
             <form name="form" (ngSubmit)="f.form.valid && postComment(f)" #f="ngForm" novalidate>
-                <button class="btn btn-sm btn-default pull-right">Comment!</button>
-                <br />
-                <br />
+                <button class="btn btn-sm btn-default pull-right" style="margin-top: -23px">Comment!</button>
                 <div class="panel-body">
                     <input type="text" class="form-control" id="Content" name="Content" [(ngModel)]="model.Content" #Content="ngModel" required />
                     <div *ngIf="f.submitted && !Content.valid" class="help-block">

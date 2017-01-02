@@ -1,21 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpModule, Headers, Response, Http } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+
 import { AuthService } from '../services/auth-service';
 
 @Injectable()
 export class ApiService {
-    private baseApiUrl: string = 'http://ticket-system-rest.apphb.com/api';
+    private baseApiUrl: string = 'http://localhost:3200/api';
 
-    constructor(private http: Http, private authService: AuthService) {
-    }
+    constructor(private http: Http, private authService: AuthService) { }
 
     get(path: string): Observable<any> {
-
         path = `${this.baseApiUrl}${path}`;
+
         return this.http.get(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
-            .map(resp =>{
+            .map(resp => {
                 if (!!resp._body) {
                     return resp.json();
                 }
@@ -26,6 +26,7 @@ export class ApiService {
 
     post(path: string, data: Object): Observable<any> {
         path = `${this.baseApiUrl}${path}`;
+
         return this.http.post(path, JSON.stringify(data), { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -42,6 +43,7 @@ export class ApiService {
         let headers = this.authService.getAuthorizationHeader();
 
         path = `${this.baseApiUrl}${path}`;
+
         return this.http.put(path, JSON.stringify(data), { headers })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -55,6 +57,7 @@ export class ApiService {
 
     delete(path: string) {
         path = `${this.baseApiUrl}${path}`;
+
         return this.http.delete(path, { headers: this.authService.getAuthorizationHeader() })
             .catch(err => Observable.throw(err))
             .map(resp => {
@@ -80,7 +83,7 @@ export class ApiService {
             };
 
             path = `${this.baseApiUrl}${path}`;
-            xhr.open('PUT', path, true); // TODO: PUT as parameter
+            xhr.open('PUT', path, true);
 
             let headers = this.authService.getAuthorizationHeader();
             let token: string = headers.get('Authorization');

@@ -15,7 +15,7 @@ import { ImageDataPipe } from '../../pipes/image-data-pipe';
 }`]
 })
 @Injectable()
-export class ModalQRCodeCompoennt {
+export class ModalQRCodeComponent {
 
     @Input() qrCode: string;
 
