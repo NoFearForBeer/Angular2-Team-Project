@@ -92,7 +92,7 @@ Your Web application should use the following technologies, frameworks and devel
   - Do not record register/login functionality, this is not interesting...
 - Upload your [application](http://ticketing-system-ng2.herokuapp.com/) in the cloud
   - MS Azure, HerokuCloud, Amazon, all are fine
-- Register your [application](http://best.telerikacademy.com) at [Our Showcase - System](http://best.telerikacademy.com)
+- Register your [application](http://best.telerikacademy.com/projects/420/Ticketing-system) at [Telerik Academy Showcase - System](http://best.telerikacademy.com)
   - Link to the live application
   - Link to the video
   - Link to the github repository
