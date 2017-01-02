@@ -1,21 +1,30 @@
 # Angular2-Team-Project
 Angular 2 Team Project 
 
+Check the demo hosted at heroku-cloud [Live](https://ticketing-system-ng2.herokuapp.com/)
+
+(The first time login or register could be very slow - caused by REST server)
+
 ### Team Members
--
--
--
+- [Nia Omerska](https://github.com/medeaohm) 
+- [Mihail Yankov](https://github.com/M-Yankov)
 
 ### Requirements
 - node 6.9.1
 - globally installed `npm`, `typescript`, `tslint`
 
 ### Installation 
-- `> cd source`
 - `> npm install`
 - `> npm start` - you must open the browser at http://localhost:3100/
 
+- `> tslint -c tslint.json app/**/*.ts` - checks for the warnings from TSLint
+
 ### REST Server (Web Api ASP)
+
+- Hosted At [AppHarbour](http://ticket-system-rest.apphb.com)
+- Of course you can run on http://localhost:3200
+- SQL Server 2012+ is required.
+- .NET 4.5
 
 
 Auto generated users (Administrators):
@@ -48,6 +57,3 @@ Action | Method | Description | Body/Query | Response | Notes
 **api/users/** | `DELETE` | Removes a user | ```{ Id: "GUID" } ``` |  No response - only status code 200 - OK. 
 **api/users/charge** | `PUT` | Adds money to current user account | ```{ CardNumer: "string", SecurityCode: "string", CardType: "string",  ExpireMonth: "number (1-12)", ExpireYear: "number", CardHolderNames: "string", Amount: "number"} ``` |  No response - only status code 200 - OK.
 **api/users/avatar** | `PUT` | Updates the profile picture of current user. | - | No response - only status code 200 - OK.
-
-
-\*\* - Not Implemented
