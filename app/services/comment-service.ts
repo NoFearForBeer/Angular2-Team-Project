@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
 
-import { News } from '../models/news';
-import { Comment } from '../models/comment';
+import { News, Comment } from '../models/index';
 import { NewsService } from './news-service';
  
 @Injectable()
@@ -42,7 +40,6 @@ export class CommentService {
                     return Observable.empty;
                 })
                 .catch((error: Response) => {
-
                    let errorMessages: String[] = [];
                    console.log(error);
                    let modelState = error.json().ModelState;
@@ -58,7 +55,6 @@ export class CommentService {
         return this.http.post(path, { headers: this.jsonHeaders })
                 .map((resp: Response) => {
                     console.log('Success!!');
-                    // There are no response from register.
                     return Observable.empty;
                 })
                 .catch((error: Response) => {

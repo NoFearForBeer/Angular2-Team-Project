@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/toPromise';
 
-import { News } from '../models/news';
-import { Comment } from '../models/comment';
+import { News, Comment } from '../models/index';
  
 @Injectable()
 export class NewsService {
@@ -44,7 +42,6 @@ export class NewsService {
         return this.http.post(path, news, { headers: this.jsonHeaders })
                 .map((resp: Response) => {
                     console.log('Success!!');
-                    // There are no response from register.
                     return Observable.empty;
                 })
                 .catch((error: Response) => {
@@ -64,7 +61,6 @@ export class NewsService {
         return this.http.post(path, { headers: this.jsonHeaders })
                 .map((resp: Response) => {
                     console.log('Success!!');
-                    // There are no response from register.
                     return Observable.empty;
                 })
                 .catch((error: Response) => {
