@@ -24,6 +24,21 @@ This project is part of the [Angular 2 Single Page Applications](https://telerik
 
 ### REST Server (Web Api ASP)
 
+- Hosted At [AppHarbour](http://ticket-system-rest.apphb.com)
+- Of course you can run on http://localhost:3200
+- SQL Server 2012+ is required.
+- .NET 4.5
+
+Auto generated users (Administrators):
+
+UserName | Password 
+--- | ---
+admin | password
+batman | password
+John | password
+
+address http://localhost:3200/
+
 For more information regarding the rest server please check  [here](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/REST%20Server.md) 
 
 ### Project Description
@@ -39,51 +54,45 @@ The application consists of:
 Not register users can only access the public part of te application, which consist of:
 
 - **Home Page**  - showing the map of the public transport in Sofia
-    ![alt tag](link to the image here)
+    ![home page](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/home.JPG?raw=true)
 
 - **News Page** - shows all the news ordered by creation date 
-    ![alt tag](link to the image here)
+    ![news page](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/news-not-logged.JPG?raw=true)
     
 - **News Details Page** - shows the selected news and the list of the related comments
-![alt tag](link to the image here)
+![news details page](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/news-details-not-logged.JPG?raw=true)
 
 - **Ticket Prices Page** - a table containing all available tickets along with their prices. 
-![alt tag](link to the image here)
+![ticket price page](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/prices.JPG?raw=true)
 
 - And of course, users can **Register/Login**
-    ![alt tag](link to the image here)
-
+    ![login](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/login.JPG?raw=true)
+    ![register](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/login.JPG?raw=true)
 
 ### Private Part
 Additionally, registered user have access to several other part of the application:
 
-- **Add new comment** 
-    ![alt tag](link to the image here)
-
-- **Delete their own comments** 
-	![alt tag](link to the image here)
+- **Add/Delete comment** 
+    ![add/delete coments](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/comments.JPG?raw=true)
 
 - **View their profile** 
-	![alt tag](link to the image here)
+	![profile - view](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/user-profile.JPG?raw=true)
 	
 - **Modify their profile** 
-	![alt tag](link to the image here)
+	![profile - view](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/user-profile-edit.JPG?raw=true)
 	
 - **Charge account** 
-	![alt tag](link to the image here)
+	![charge account ](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/charge-account.JPG?raw=true)
 	
 - **Buy Tickets** 
-	![alt tag](link to the image here) 
+	![buy ticket](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/buy-ticket1.JPG?raw=true) 
+	![buy ticket](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/buy-ticket2.JPG?raw=true) 
 
 - **View and Activate Tickets** 
-	![alt tag](link to the image here)   
+	![view tickets](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/tickets.JPG?raw=true)   
 
 ### Administration Part
 The administrator of the page is allowed to:
 
-- **Post news**
-	![alt tag](link to the image here)   
-
-- **Delete news**
-	![alt tag](link to the image here)   
-	
+- **Post/Delete news**
+	![post/delete](https://github.com/NoFearForBeer/Angular2-Team-Project/blob/master/images/news-admin.JPG?raw=true)   
