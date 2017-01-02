@@ -9,34 +9,38 @@ import { Ng2BootstrapModule } from 'ng2-bootstrap';
 import { ModalModule } from 'angular2-modal';
 import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
-import { HomeContainer } from './components/containers/home/home-container';
-
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
 
-import { LoginFormModule, UserProfileModule } from './components/index';
-import { RegisterComponent } from './components/register/register-component';
-import { MapComponent } from './components/map/map-component';
-import { AlertComponent } from './components/alert/alert-component';
-import { NewsComponent } from './components/news/news-component';
-import { NewsDetailsComponent } from './components/news/news-details-component';
-import { NewsPostComponent } from './components/news/news-post-component';
-import { CommentComponent } from './components/comments/comment-component';
-import { CommentPostComponent } from './components/comments/comment-post-component';
-import { ChargeAccountComponent } from './components/charge/charge-account-component';
-import { ModalQRCodeCompoennt } from './components/modal/modal-component';
-import { TicketPricesComponent } from './tickets/ticket-prices/ticket-prices-component';
-import { TicketListComponent } from './tickets/ticket-list/ticket-list-component';
-import { TicketDetailCompoennt } from './tickets/ticket-detail/ticket-detail-component';
-import { ActivateTicketComponent } from './tickets/activate-ticket/activate-ticket-component';
-import { FooterCompoenent } from './components/footer/footer-component';
+import { 
+    HomeContainer,
+    LoginFormModule, 
+    UserProfileModule,
+    RegisterComponent,
+    MapComponent,
+    AlertComponent,
+    NewsComponent,
+    NewsDetailsComponent,
+    NewsPostComponent,
+    CommentComponent,
+    CommentPostComponent,
+    ChargeAccountComponent,
+    FooterComponent,
+    ModalQRCodeComponent
+} from './components/index';
 
-import { ValuesPipe, ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
+import { 
+    TicketPricesComponent,
+    TicketListComponent,
+    TicketDetailComponent,
+    ActivateTicketComponent,
+    BuyTicketComponent
+} from './tickets/index';
+
+import { ImageDataPipe, SortPipe, YesNoPipe } from './pipes/';
 import { TicketPriceDirective, CardNumberDirective, HighlightDirective } from './directives/';
 
 import { AuthService, ApiService, AlertService, NewsService, CommentService } from './services/index';
-
-import { BuyTicketComponent } from './tickets';
 
 import { AuthGuard } from './guards/auth-guard';
 
@@ -67,14 +71,14 @@ import { AuthGuard } from './guards/auth-guard';
         CommentComponent,
         CommentPostComponent,
         ChargeAccountComponent,
-        ModalQRCodeCompoennt,
+        ModalQRCodeComponent,
         TicketPricesComponent,
         TicketListComponent,
-        TicketDetailCompoennt,
+        TicketDetailComponent,
         ActivateTicketComponent,
-        FooterCompoenent,
+        FooterComponent,
 
-        ValuesPipe,
+        //ValuesPipe,
         SortPipe,
         ImageDataPipe,
         YesNoPipe,
@@ -93,7 +97,7 @@ import { AuthGuard } from './guards/auth-guard';
         NewsService,
         CommentService,
         ImageDataPipe,
-        SortPipe
+        //SortPipe
     ],
 
     bootstrap: [AppComponent]
