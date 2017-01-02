@@ -15,7 +15,7 @@
     <comment-component #commentComponent [currentNews]="news" (commentDeleted)="removeComment($event, commentComponent)" >
     </comment-component>
     <div *ngIf="authService.isLoggedIn() == true">
-        <comment-post-component (commnentPosted)="addComment($event, commentComoennt)" [currentNews]="news">
+        <comment-post-component (commnentPosted)="addComment($event, commentComponent)" [currentNews]="news">
         </comment-post-component>
     </div>
   </div>

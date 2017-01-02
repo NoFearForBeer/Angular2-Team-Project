@@ -46,28 +46,21 @@
                             <label for="username" class="label-control">Username</label>
                             <input type="text" id="firstNameInput" class="form-control" #newFirstNameInput="ngModel" required name="newProfileFirstName" [(ngModel)]="newProfile.FirstName" minlength="3" />
                             <p class="help-block" *ngIf="!newFirstNameInput.valid" class="text-primary">
-                                First name is required
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <label for="firstNameInput" class="label-control">First name </label>
-                            <input type="text" id="firstNameInput" class="form-control" required #newFirstNameInput="ngModel" name="newProfileFirstName"  [(ngModel)]="newProfile.FirstName" minlength="3" >
-                            <p class="help-block" *ngIf="!newFirstNameInput.valid" class="text-primary">
-                                Last name is required
+                                First name  should be at least 3 symbols
                             </p>
                         </div>
                         <div class="form-group">
                             <label for="lastNameInput" class="label-control">Last name </label>
                             <input type="text" id="lastNameInput" class="form-control" required #newLastNameInput="ngModel" name="newProfileLastName"  [(ngModel)]="newProfile.LastName" minlength="3" >
                             <p class="help-block" *ngIf="!newLastNameInput.valid" class="text-primary">
-                                Last name is required
+                                Last name should be at least 3 symbols
                             </p>
                         </div>
                         <div class="form-group">
                             <label for="emailInput" class="label-control">Last name </label>
                             <input type="text" id="emailInput" class="form-control" required  #newEmailInput="ngModel" name="newProfileEmail" [(ngModel)]="newProfile.Email" rquired pattern="^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$" >
                             <p class="help-block" *ngIf="!newEmailInput.valid" class="text-primary">
-                            Email is required
+                            Enter a valid email address
                             </p>
                         </div>
                             

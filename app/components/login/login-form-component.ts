@@ -32,9 +32,9 @@ export class LoginForm {
         const { username, password } = this.user;
         this.auth.login(username, password).subscribe(
             (resp: Response) => {
+                this.router.navigate(['/']);
                 this.user.username = '';
                 this.user.password = '';
-                this.router.navigate(['/']);
                 this.alertService.success('User logged in successfully!');
             }, (err: Error) => {
                 console.error(err);
