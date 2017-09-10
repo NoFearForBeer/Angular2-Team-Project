@@ -14,7 +14,7 @@ namespace TicketingSystem
     {
         public WebApiApplication()
         {
-            this.EndRequest += WebApiApplication_EndRequest;
+            this.PreSendRequestHeaders += WebApiApplication_EndRequest;
         }
 
         private void WebApiApplication_EndRequest(object sender, EventArgs e)
