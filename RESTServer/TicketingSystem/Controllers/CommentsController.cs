@@ -8,7 +8,6 @@ using TicketingSystem.Data.Models;
 using TicketingSystem.Models;
 using TicketingSystem.Models.Comments;
 
-
 using Microsoft.AspNet.Identity;
 using System;
 using TicketingSystem.Services;
@@ -22,14 +21,12 @@ namespace TicketingSystem.Controllers
 
         public CommentsController(ITicketingSystemContext context)
         {
-
             this.context = context;
         }
 
         public CommentsController() : this(new TicketingSystemContext())
         {
         }
-
 
         [HttpGet]
         public IHttpActionResult GetAll()
@@ -43,7 +40,6 @@ namespace TicketingSystem.Controllers
         public IHttpActionResult GetByNewsId(int id)
         {
             IEnumerable<CommentViewModel> comment = this.context.Comments.MapCommentsToViewModels().ToList().Where(c => c.NewsItemId == id);
-
 
             return this.Json(comment);
         }
