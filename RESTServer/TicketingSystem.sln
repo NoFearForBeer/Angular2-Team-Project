@@ -10,15 +10,21 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		LocalDb|Any CPU = LocalDb|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{4ACC2F2F-0E12-4390-9895-4626B621D366}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4ACC2F2F-0E12-4390-9895-4626B621D366}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ACC2F2F-0E12-4390-9895-4626B621D366}.LocalDb|Any CPU.ActiveCfg = LocalDb|Any CPU
+		{4ACC2F2F-0E12-4390-9895-4626B621D366}.LocalDb|Any CPU.Build.0 = LocalDb|Any CPU
+		{4ACC2F2F-0E12-4390-9895-4626B621D366}.LocalDb|Any CPU.Deploy.0 = LocalDb|Any CPU
 		{4ACC2F2F-0E12-4390-9895-4626B621D366}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4ACC2F2F-0E12-4390-9895-4626B621D366}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D71472AD-633C-477D-B8B6-9342F8340659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D71472AD-633C-477D-B8B6-9342F8340659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D71472AD-633C-477D-B8B6-9342F8340659}.LocalDb|Any CPU.ActiveCfg = LocalDb|Any CPU
+		{D71472AD-633C-477D-B8B6-9342F8340659}.LocalDb|Any CPU.Build.0 = LocalDb|Any CPU
 		{D71472AD-633C-477D-B8B6-9342F8340659}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D71472AD-633C-477D-B8B6-9342F8340659}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
