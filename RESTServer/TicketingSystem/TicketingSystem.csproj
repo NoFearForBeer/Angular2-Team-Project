@@ -241,10 +241,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\ticketing-system.mdf" />
-    <Content Include="App_Data\ticketing-system_log.ldf">
-      <DependentUpon>ticketing-system.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Data\ticketing-system.sdf" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Web.config">
